@@ -1,0 +1,121 @@
+<!-- header-lower -->
+<div class="header-lower font-[Monserrat]">
+    <div class="auto-container">
+        <div class="justify-between flex flex-nowrap">
+            <div class="logo-box">
+                <div class="shape" style="background-image: url(src/assets/images/shape/shape-1.png);"></div>
+                <figure class="logo"><a href="index.html"><img src="src/assets/images/logo.png" alt=""></a></figure>
+            </div>
+            <div class="menu-area clearfix my-auto">
+                <!--Mobile Navigation Toggler-->
+                <div
+                    id="mobile-nav-toggler"
+                    class="mobile-nav-toggler"
+                >
+                    <i class="icon-bar"></i>
+                    <i class="icon-bar"></i>
+                    <i class="icon-bar"></i>
+                </div>
+                <nav class="main-menu navbar-expand-md navbar-light">
+                    <div class="" id="navbarSupportedContent">
+                        <ul class="navigation clearfix flex">
+                            <li class="current dropdown text-[#25283a] z-[99] cursor-pointer !block"><a href="index.html">Home</a>
+                                <ul>
+                                    <li><a href="index.html">Home Page 01</a></li>
+                                    <li><a href="index-2.html">Home Page 02</a></li>
+                                    <li><a href="index-3.html">Home Page 03</a></li>
+                                    <li><a href="index-onepage.html">OnePage Home</a></li>
+                                    <li><a href="index-rtl.html">RTL Home</a></li>
+                                    <li class="dropdown"><a href="index.html">Header Style</a>
+                                        <ul>
+                                            <li><a href="index.html">Header Style 01</a></li>
+                                            <li><a href="index-3.html">Header Style 02</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="dropdown"><a href="index.html">Pages</a>
+                                <ul>
+                                    <li><a href="about.html">About Us</a></li>
+                                    <li><a href="history.html">Our History</a></li>
+                                    <li class="dropdown"><a href="index.html">Team</a>
+                                        <ul>
+                                            <li><a href="team.html">Our Team</a></li>
+                                            <li><a href="team-details.html">Team Details</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="working-process.html">Working Process</a></li>
+                                    <li><a href="faq.html">Faq's</a></li>
+                                    <li><a href="career.html">Career Opportunity</a></li>
+                                    <li class="dropdown"><a href="index.html">Project</a>
+                                        <ul>
+                                            <li><a href="project.html">Project 01</a></li>
+                                            <li><a href="project-2.html">Project 02</a></li>
+                                            <li><a href="project-details.html">Project Details</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="pricing.html">Pricing Table</a></li>
+                                    <li><a href="testimonial.html">Testimonials</a></li>
+                                    <li><a href="error.html">404</a></li>
+                                </ul>
+                            </li> 
+                            <li class="dropdown"><a href="/services">Services</a>
+                                <ul>
+                                    <li><a href="service.html">Our Services</a></li>
+                                    <li><a href="service-details.html">Accessories</a></li>
+                                    <li><a href="service-details-2.html">Hand Gloves</a></li>
+                                    <li><a href="service-details-3.html">Gardening Tools</a></li>
+                                    <li><a href="service-details-4.html">Landscaping Trolley</a></li>
+                                    <li><a href="service-details-5.html">Boots</a></li>
+                                    <li><a href="service-details-6.html">Medicine</a></li>
+                                </ul>
+                            </li> 
+                            <li class="dropdown"><a href="index.html">Shop</a>
+                                <ul>
+                                    <li><a href="shop.html">Our Shop</a></li>
+                                    <li><a href="shop-details.html">Shop Details</a></li>
+                                    <li><a href="cart.html">Cart Page</a></li>
+                                    <li><a href="checkout.html">Checkout</a></li>
+                                </ul>
+                            </li> 
+                            <li class="dropdown"><a href="/blog">Blog</a>
+                                <ul>
+                                    <li><a href="blog.html">Blog Grid</a></li>
+                                    <li><a href="blog-2.html">Blog Classic</a></li>
+                                    <li><a href="blog-details.html">Blog Details</a></li>
+                                </ul>
+                            </li>  
+                            <li><a href="contact.html">Contact</a></li> 
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+            <div class="nav-right">
+                <div class="cart-box"><a href="shop.html"><i class="icon-1"></i></a></div>
+                <div class="btn-box"><a href="index.html" class="theme-btn btn-one">Get A Quote</a></div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    const MobileToggler = document.getElementById("mobile-nav-toggler")
+    const MobileMenu = document.getElementById("mobile-menu")
+    const OpenMenu = () =>{
+        if(MobileMenu?.classList.contains("translate-x-[250px]")){
+            MobileMenu?.classList.remove("translate-x-[250px]")
+        }
+        else{
+            MobileMenu?.classList.add("translate-x-[250px]")
+        }
+    }
+    MobileToggler?.addEventListener('mousedown', OpenMenu)
+    const CheckIfClickedOutside = (event : MouseEvent) =>{
+        if(!MobileMenu?.classList.contains("translate-x-[250px]") 
+            && !MobileToggler?.contains(event.target as Node)
+            && !MobileMenu?.contains(event.target as Node)
+        ){
+            MobileMenu?.classList.add("translate-x-[250px]")
+        }
+    }
+    window.addEventListener("mousedown", CheckIfClickedOutside)
+</script>

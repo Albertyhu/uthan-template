@@ -1,0 +1,154 @@
+@tailwind base;
+
+@tailwind components;
+
+@tailwind utilities;
+
+@layer base{
+  h1 {
+    @apply font-bold text-2xl my-1; 
+
+  }
+}
+
+@layer components {
+  .hamburger {
+    @apply my-auto mr-[1rem] block cursor-pointer md:hidden;
+  }
+  .line {
+    @apply block w-[40px] h-[5px] bg-[#fff] rounded-lg;
+  }
+  .fancyButton {
+    @apply block w-fit px-5 py-1 rounded-lg cursor-pointer select-none active:translate-x-[1px] active:translate-y-[1px] relative bg-slate-300 text-white font-bold; 
+  }
+  .nav-links{
+    @apply w-full h-fit text-white relative ml-auto mr-[3rem] hidden m-0 md:block sm:ml-[5em] sm:w-auto sm:bg-none;
+  }
+  .nav-links a{
+    @apply block h-fit text-center px-0 no-underline text-[1.2rem] font-bold uppercase hover:bg-[#262626]; 
+  }
+  .mobile-menu-links a{
+    @apply hover:bg-white w-full rounded-lg px-1 cursor-pointer mb-10;
+  }
+  .mobile-menu{
+    @apply bg-slate-100;
+  }
+
+  
+  .dark .mobile-menu{
+    @apply bg-slate-700 text-white;
+  }
+
+  .dark .Mobile_Menu_Wrapper{
+    @apply text-white;
+  }
+
+  .footer-links a{
+    @apply font-bold cursor-pointer hover:underline 
+  }
+  .ScrollTopButton{
+    @apply fixed bottom-[6rem] right-[1rem] w-[2rem] h-[2rem] z-20 cursor-pointer; 
+  }
+  .formBackground{
+    @apply bg-[#ffffff] text-black;
+  }
+  .dark .formBackground{
+    @apply bg-[#353535] text-[#fff];
+  }
+  .formLabel {
+    @apply text-base sm:text-2xl;
+  }
+  .dark .formLabel {
+    @apply text-[#ffffff];
+  }
+  .formInput{
+    @apply w-full text-black rounded-lg pl-1 bg-transparent border-slate-200 placeholder:text-[#545454] placeholder:text-base border-2;
+  }
+  .dark .formInput{
+    @apply text-[#fff] placeholder:text-[#F8F8F8];
+  }
+  .dark .fancyButton{
+    @apply bg-[#1F7DD5];
+  }
+  .email-icon {
+    @apply bg-slate-100 w-[50px] h-[50px] sm:w-[70px] sm:h-[70px] inline-flex rounded-full ; 
+  }
+  .dark .email-icon{
+    @apply bg-[#1F7DD5]; 
+  }
+
+  .main_header{
+    @apply relative block left-0 top-0 right-0 z-[999] w-full transition-all duration-500 ease-in-out md:duration-500 md:ease-in-out lg:duration-500 lg:ease-in-out xl:duration-500 xl:ease-in-out m-0 p-0 border-none; 
+  }
+
+  .header_lower{
+    @apply text-base text-gray-500 leading-7 font-normal bg-white font-[Montserrat] bg-cover bg-no-repeat bg-center antialiased; 
+  }
+}
+
+html{
+  background-color: #F3F3F3;
+}
+
+body {
+  position: relative;
+  display: flex; 
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.expanded {
+  display: unset;
+}
+
+  .clippedShape::before{
+    clip-path: polygon(0 0, 0 0, 100% 100%, 0% 100%);
+  }
+
+  .clippedShape:hover::before{
+    clip-path: polygon(0 0, 100% 1%, 100% 100%, 0% 100%);
+  }
+
+
+html.dark {
+  background-color: #262626;
+  color: #fff;
+}
+
+.dark .nav-links a {
+  color: #fff;
+}
+
+.dark .tagListItem a {
+  color: #000000 !important;
+
+}
+/* 
+  .dark .mobile-menu{
+    background-color: #5b5b5b !important;
+  } */
+
+.dark footer {
+  background-color:#000000;
+
+}
+
+.box_shadow{
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+@media screen and (min-width: 636px) {
+  .nav-links a {
+    display: inline-block;
+    padding: 15px 20px;
+  }
+}
+
+/* fonts */
+@font-face {
+  font-family: 'Montserrat';
+  src: url('/fonts/Montserrat-Regular.ttf') format('ttf');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}

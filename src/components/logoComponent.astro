@@ -1,0 +1,18 @@
+---
+const {customStyle} = Astro.props; 
+import { Logo } from '../customization/logo.js'; 
+---
+<div
+    class = {`cursor-pointer object-fit block w-fit ${customStyle ? customStyle : "h-full w-auto cursor-pointer object-fit"}`}
+    id="LogoWrapper"
+>
+    <a
+        href = "/"
+    >
+        <img 
+            src = {Logo().src}
+            class = "h-full w-auto"
+            alt="Logo"
+        />
+    </a>
+</div>
