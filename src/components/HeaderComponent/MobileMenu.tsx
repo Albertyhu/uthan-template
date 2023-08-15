@@ -2,7 +2,7 @@ import { h } from 'preact';
 import {useEffect, useRef } from 'preact/hooks'; 
 import { MobileMenuOpen } from "../../util/atomItems.js";
 import { useStore } from '@nanostores/preact';
-import MenuLinks from './menuLinks.tsx';
+import MenuLinks from './MobileMenu/menuLinks.tsx';
 import { Logo } from '../../customization/logo.js';
 import SwitchComponent from '../switch/switch_component.tsx';
 

@@ -91,7 +91,6 @@
                 </nav>
             </div>
             <div class="nav-right">
-                <div class="cart-box"><a href="shop.html"><i class="icon-1"></i></a></div>
                 <div class="btn-box"><a href="index.html" class="theme-btn btn-one">Get A Quote</a></div>
             </div>
         </div>
@@ -101,20 +100,20 @@
     const MobileToggler = document.getElementById("mobile-nav-toggler")
     const MobileMenu = document.getElementById("mobile-menu")
     const OpenMenu = () =>{
-        if(MobileMenu?.classList.contains("translate-x-[250px]")){
-            MobileMenu?.classList.remove("translate-x-[250px]")
+        if(MobileMenu?.classList.contains("mobile-menu-close")){
+            MobileMenu?.classList.remove("mobile-menu-close")
         }
         else{
-            MobileMenu?.classList.add("translate-x-[250px]")
+            MobileMenu?.classList.add("mobile-menu-close")
         }
     }
     MobileToggler?.addEventListener('mousedown', OpenMenu)
     const CheckIfClickedOutside = (event : MouseEvent) =>{
-        if(!MobileMenu?.classList.contains("translate-x-[250px]") 
+        if(!MobileMenu?.classList.contains("mobile-menu-close") 
             && !MobileToggler?.contains(event.target as Node)
             && !MobileMenu?.contains(event.target as Node)
         ){
-            MobileMenu?.classList.add("translate-x-[250px]")
+            MobileMenu?.classList.add("mobile-menu-close")
         }
     }
     window.addEventListener("mousedown", CheckIfClickedOutside)

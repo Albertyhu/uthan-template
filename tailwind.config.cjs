@@ -6,10 +6,8 @@ module.exports = {
 				xm: { min: "360px" },
 				sm: { min: "636px" },
 				md: { min: "768px" },
-				"md-2": { min: "850px" },
 				lg: { min: "1024px" },
 				xl: { min: "1280px" },
-				"2xl": { min: "1536px" }
 		},
 		keyframes: {
 			"accordion-down": {

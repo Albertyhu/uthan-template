@@ -1,16 +1,22 @@
 ---
 import SocialLinks from "./social-links.astro";
+import MenuLinks from "./menuLinks.tsx";
+import WhiteLogo from "@/assets/images/logo-2.png"
 ---
 <!-- Mobile Menu  -->
 <div
     id="mobile-menu"
-    class="grid md:hidden h-full fixed left-auto right-0 top-0 overflow-y-auto overflow-x-hidden transition-all w-[250px] z-[999] opacity-100 bg-black translate-x-[250px]"
+    class="grid h-full fixed left-auto right-0 top-0 overflow-y-auto overflow-x-hidden w-[250px] z-[999] bg-black mobile-menu-close"
 >
-    <div class="close-btn"><i class="fas fa-times"></i></div>
-    <nav class="menu-box">
-        <div class="nav-logo"><a href="index.html"><img src="assets/images/logo-2.png" alt="" title=""></a></div>
-        <div class="menu-outer"><!--Here Menu Will Come Automatically Via Javascript / Same Menu as in Header--></div>
-        <div class="contact-info">
+    <div id = "close-btn" class="h-fit"><i class="fas fa-times close-btn"></i></div>
+    <nav class="">
+        <div class="nav-logo pl-[25px]">
+            <a href="index.html"><img src={WhiteLogo.src} alt="" title=""></a>
+        </div>
+        <div class="menu-outer mt-[25px] ">
+            <MenuLinks client:visible />
+        </div>
+        <div class="contact-info text-white pl-[25px] border-t-[1px] border-[#d6d6d6]">
             <h4>Contact Info</h4>
             <ul>
                 <li>Chicago 12, Melborne City, USA</li>
@@ -18,6 +24,16 @@ import SocialLinks from "./social-links.astro";
                 <li><a href="mailto:info@example.com">info@example.com</a></li>
             </ul>
         </div>
-        <SocialLinks  />
+        <SocialLinks customStyle = "pl-[25px]"/>
     </nav>
 </div><!-- End Mobile Menu -->
+<script>
+    const CloseBtn= document.getElementById("close-btn")
+    const MobileMenu = document.getElementById("mobile-menu")
+    const CloseMenu = () =>{
+        if(!MobileMenu?.classList.contains("mobile-menu-close")){
+            MobileMenu?.classList.add("mobile-menu-close")
+        }
+    }
+    CloseBtn?.addEventListener('mousedown', CloseMenu)
+</script>

@@ -28,7 +28,7 @@
     @apply block h-fit text-center px-0 no-underline text-[1.2rem] font-bold uppercase hover:bg-[#262626]; 
   }
   .mobile-menu-links a{
-    @apply hover:bg-white w-full rounded-lg px-1 cursor-pointer mb-10;
+    @apply w-full rounded-lg px-1 cursor-pointer mb-10;
   }
   .mobile-menu{
     @apply bg-slate-100;
@@ -84,6 +84,17 @@
   .header_lower{
     @apply text-base text-gray-500 leading-7 font-normal bg-white font-[Montserrat] bg-cover bg-no-repeat bg-center antialiased; 
   }
+  .close-btn{
+    @apply text-white absolute left-auto right-[15px] top-[15px] transition-all duration-1000 hover:rotate-[-360deg] cursor-pointer;  
+  }
+  .mobile-menu-links{
+    @apply text-white;
+  }
+}
+:root {
+  --mobile-duration: 1000ms;
+  --mobile-menu-close-width: 250px; 
+  --subDirectoryDivDuration: all 500ms ease-out; 
 }
 
 html{
@@ -135,6 +146,59 @@ html.dark {
 
 .box_shadow{
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+
+/*Mobile menu animation */
+#mobile-menu{
+  transition: transform var(--mobile-duration), opacity var(--mobile-duration); 
+}
+
+
+.mobile-menu-close{
+  transform: translateX(var(--mobile-menu-close-width)); 
+  opacity: 0; 
+}
+
+/*Mobile menu arrow */ 
+.menu-arrow{
+  transition: transform 500ms; 
+}
+
+.menu-arrow-open{
+  transform: rotateZ(90deg);
+}
+
+.fa-angle-down{
+  text-align: center;
+}
+
+.fa-angle-down::before{
+  background-color: rgba(255,255,255,0.2);
+  width: 32px; 
+  height: 32px; 
+  border-radius: 5px;
+  position: absolute; /* Position the pseudo-element */
+  top: 50%; /* Move the pseudo-element down by 50% of the parent's height */
+  left: 50%; /* Move the pseudo-element right by 50% of the parent's width */
+  transform: translate(-50%, -50%); /* Move the pseudo-element back by half of its own width and height */
+  display: flex; /* Use flexbox to center the content vertically and horizontally */
+  align-items: center; /* Center content vertically */
+  justify-content: center; /* Center content horizontally */
+}
+
+.subDirectoryDiv{
+  -webkit-transition: var(--subDirectoryDivDuration);
+  -moz-transition: var(--subDirectoryDivDuration);
+  -o-transition: var(--subDirectoryDivDuration);
+  transition: var(--subDirectoryDivDuration);
+  overflow-y: visible; 
+
+}
+.subDirectory-closed{
+  max-height: 0px !important;
+  overflow-y: hidden;
+  opacity: 0;
 }
 
 @media screen and (min-width: 636px) {
