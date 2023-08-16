@@ -1,9 +1,7 @@
-import { useEffect} from 'react'; 
+import { useEffect } from 'react'
 
-const Wrapper = ({children} : {children : any}) => {
-    return(
-        <>{children}</>
-    )
+const Wrapper = ({ children }: { children: any }) => {
+	return <>{children}</>
 }
 
-export default Wrapper; 
+export default Wrapper
