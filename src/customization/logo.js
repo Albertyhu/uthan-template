@@ -1,4 +1,4 @@
-import Image from '../assets/images/PlaceholderLogo.png'
+import Image from '../assets/images/logo.png'
 
 export function Logo () {
     return Image; 

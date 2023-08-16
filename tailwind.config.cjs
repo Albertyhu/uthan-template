@@ -8,6 +8,9 @@ module.exports = {
 				md: { min: "768px" },
 				lg: { min: "1024px" },
 				xl: { min: "1280px" },
+				backgroundImage:{
+					"Shape_One": "url('@/assets/images/shape/shape-1.png')"
+				},
 		},
 		keyframes: {
 			"accordion-down": {

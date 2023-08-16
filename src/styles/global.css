@@ -77,8 +77,8 @@
     @apply bg-[#1F7DD5]; 
   }
 
-  .main_header{
-    @apply relative block left-0 top-0 right-0 z-[999] w-full transition-all duration-500 ease-in-out md:duration-500 md:ease-in-out lg:duration-500 lg:ease-in-out xl:duration-500 xl:ease-in-out m-0 p-0 border-none; 
+  .main-header{
+    @apply fixed block left-0 top-0 right-0 z-[98] w-full transition-all duration-500 ease-in-out md:duration-500 md:ease-in-out lg:duration-500 lg:ease-in-out xl:duration-500 xl:ease-in-out m-0 p-0 border-none; 
   }
 
   .header_lower{
@@ -200,6 +200,58 @@ html.dark {
   overflow-y: hidden;
   opacity: 0;
 }
+.currentPage{
+  position:relative;
+}
+.currentPage::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 45px;
+    border-left: 5px solid #fff;
+    z-index:100;
+}
+
+.backdrop{
+  transition: all 900ms ease;
+  visibility: hidden; 
+  opacity: 0; 
+}
+
+.backdrop-visible{
+    opacity: 0.70;
+    visibility: visible;
+    right: 100%;
+    -webkit-transition: all .8s ease-out 0s;
+    -o-transition: all .8s ease-out 0s;
+}
+
+.lowerHeader-fixed{
+  position:fixed; 
+  top: 0px;
+  left: 0px;
+  right: 0px; 
+}
+/* End of Header Component*/
+
+/*banner section of home page*/
+.pattern-layer{
+  z-index: 2;
+  animation: slide 60s linear infinite;
+   -webkit-animation: slide 60s linear infinite;
+}
+
+@keyframes slide{
+  from { background-position: 0 0; }
+    to { background-position: 1920px 0; }
+}
+
+@-webkit-keyframes slide{
+  from { background-position: 0 0; }
+    to { background-position: 1920px 0; }
+}
+
 
 @media screen and (min-width: 636px) {
   .nav-links a {

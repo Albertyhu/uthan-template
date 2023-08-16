@@ -1,6 +1,37 @@
 import { useRef, useEffect } from 'react'; 
-import { menuMap } from "@/util/menu-map.js"; 
+
 const MenuLinks = () =>{    
+    const menuMap = [
+        {
+            url: "/",
+            label: "Home", 
+            subDirectory: [], 
+        },  
+        {
+            url: "/about/",
+            label: "About",
+            subDirectory: [{
+                url: "/about2/",
+                label: "About2",
+                subDirectory:[],
+            }], 
+        }, 
+                {
+            url: "/blog/",
+            label: "Blog",
+            subDirectory: [], 
+        }, 
+        {
+            url: "/tags/",
+            label: "Tags",
+            subDirectory: [], 
+        },
+        {
+            url: "/contact/",
+            label: "Contact",
+            subDirectory: [], 
+        },  
+    ]
 
     return menuMap.length > 0 && 
     menuMap.map((link,index) =>
@@ -43,12 +74,8 @@ const LinkItem = (props: LinkItemType) =>{
         }
     }
     useEffect(()=>{
-        if (dirRef.current && window.location.pathname == url) {
+        if (dirRef.current && window.location.href.includes(url)) {
             dirRef.current.classList.add("currentPage")
-        }
-        else{
-            if(dirRef.current && dirRef?.current.classList.contains("currentPage"))
-                dirRef.current.classList.remove("currentPage")
         }
     },[dirRef.current])
 
@@ -73,7 +100,7 @@ const LinkItem = (props: LinkItemType) =>{
         <>
             <div 
                 ref={dirRef}
-                className = "flex flex-row justify-around items-center border-t-[1px] border-t-[#686868] py-[10px] pl-[25px] hover:bg-slate-800 relative"
+                className = "flex flex-row justify-around items-center border-t-[1px] border-t-[#686868] py-[10px] pl-[25px] hover:bg-slate-800"
             >
                 <a 
                     href={url} 
@@ -81,7 +108,7 @@ const LinkItem = (props: LinkItemType) =>{
                     >{label}</a>
                 {subDirectory && subDirectory.length > 0 && 
                     <div
-                        className = "w-[32px] h-[32px] rounded-[2px] z-[5] text-center text-[16px] leader-[32px] cursor-pointer mr-5 absolute right-[-15px]"
+                        className = "w-[32px] h-[32px] rounded-[2px] z-[5] text-center text-[16px] leader-[32px] cursor-pointer mr-5 relative"
                     >
                         <span 
                             id="menu-arrow"

@@ -16,11 +16,11 @@ import MessageComponent from "@/components/MessageComponent/messageComponent";
     <head>
         <meta charset="utf-8" />
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-        <link href="src/assets/css/font-awesome-all.css" rel="stylesheet">
-        <link href="src/assets/css/flaticon.css" rel="stylesheet">
-        <link href="src/assets/css/color.css" rel="stylesheet">
-        <link href="src/assets/css/style.css" rel="stylesheet">
-        <link href="src/assets/css/responsive.css" rel="stylesheet">
+        <link href="../../src/assets/css/font-awesome-all.css" rel="stylesheet">
+        <link href="../../src/assets/css/flaticon.css" rel="stylesheet">
+        <link href="../../src/assets/css/color.css" rel="stylesheet">
+        <link href="../../src/assets/css/style.css" rel="stylesheet">
+        <link href="../../src/assets/css/responsive.css" rel="stylesheet">
         <meta name="viewport" content="width=device-width" />
         <meta name="generator" content={Astro.generator} />
         <SEO 
@@ -34,7 +34,14 @@ import MessageComponent from "@/components/MessageComponent/messageComponent";
     <body>
         <Header />
         <MessageComponent client:load />
-        <div class="w-11/12 mx-auto mt-[60px] min-h-[100vh] sm:min-h-[95vh] mb-[250px] sm:mb-[300px] flex flex-col flex-grow">
+        <div
+        id="backdrop"
+        class="fixed left-0 top-0 w-full h-full z-[99] bg-[#2f7955] backdrop"
+        ></div>
+        <div 
+        id="SlotWrapper"
+        class="mt-[165px] min-h-[100vh] sm:min-h-[95vh] mb-[250px] sm:mb-[300px] flex flex-col flex-grow"
+        >
             <slot />
         </div>
         <Footer />

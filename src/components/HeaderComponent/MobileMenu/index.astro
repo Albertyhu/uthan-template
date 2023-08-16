@@ -1,7 +1,8 @@
 ---
-import SocialLinks from "./social-links.astro";
+import SocialLinks from "../../social-links.astro";
 import MenuLinks from "./menuLinks.tsx";
-import WhiteLogo from "@/assets/images/logo-2.png"
+import WhiteLogo from "@/assets/images/logo-2.png"; 
+import SiteData from "@/customization/siteData.json"; 
 ---
 <!-- Mobile Menu  -->
 <div
@@ -19,20 +20,30 @@ import WhiteLogo from "@/assets/images/logo-2.png"
         <div class="contact-info text-white pl-[25px] border-t-[1px] border-[#d6d6d6]">
             <h4>Contact Info</h4>
             <ul>
-                <li>Chicago 12, Melborne City, USA</li>
-                <li><a href="tel:+8801682648101">+88 01682648101</a></li>
-                <li><a href="mailto:info@example.com">info@example.com</a></li>
+                {SiteData && SiteData.address && <li>{SiteData.address},</li>}
+                {SiteData && (SiteData.city || SiteData.state || SiteData.country || SiteData.zip) &&
+                    <li> 
+                        {SiteData.city && <span>{SiteData.city},</span>} 
+                        {SiteData.state && <span>{SiteData.state},</span>} 
+                        {SiteData.country && <span>{SiteData.country}</span>}
+                        {SiteData.zip && <span>{SiteData.zip}{</span>}
+                    </li>
+                }
+                {SiteData && SiteData.business_phone && <li><a href="tel:+8801682648101">{SiteData.business_phone}</a></li>}
+                {SiteData && SiteData.business_email && <li><a href={`mailto:${SiteData.business_email}`}>{SiteData.business_email}}</a></li>}
             </ul>
         </div>
-        <SocialLinks customStyle = "pl-[25px]"/>
+        <SocialLinks customStyle = "clearfix flex flex-row [&>li]:mr-5 [&>li>a>span]:text-white my-10 pl-[25px]"/>
     </nav>
 </div><!-- End Mobile Menu -->
 <script>
     const CloseBtn= document.getElementById("close-btn")
     const MobileMenu = document.getElementById("mobile-menu")
+    const BackDrop = document.getElementById('backdrop')
     const CloseMenu = () =>{
         if(!MobileMenu?.classList.contains("mobile-menu-close")){
             MobileMenu?.classList.add("mobile-menu-close")
+            BackDrop?.classList.remove("backdrop-visible")
         }
     }
     CloseBtn?.addEventListener('mousedown', CloseMenu)

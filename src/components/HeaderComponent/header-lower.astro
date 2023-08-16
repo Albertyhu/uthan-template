@@ -1,10 +1,20 @@
+---
+import Logo from "@/assets/images/logo.png"; 
+import PlaceHolderLogo from "../logoComponent.astro"
+import ShapeOne from "./shape-1.astro"; 
+---
 <!-- header-lower -->
-<div class="header-lower font-[Monserrat]">
+<div 
+id="header-lower"
+class="header-lower font-[Monserrat]"
+>
     <div class="auto-container">
         <div class="justify-between flex flex-nowrap">
             <div class="logo-box">
-                <div class="shape" style="background-image: url(src/assets/images/shape/shape-1.png);"></div>
-                <figure class="logo"><a href="index.html"><img src="src/assets/images/logo.png" alt=""></a></figure>
+                <ShapeOne />
+                <figure class="logo">
+                    <a href="index.html"><PlaceHolderLogo /></a>
+                </figure>
             </div>
             <div class="menu-area clearfix my-auto">
                 <!--Mobile Navigation Toggler-->
@@ -90,7 +100,7 @@
                     </div>
                 </nav>
             </div>
-            <div class="nav-right">
+            <div class="hidden sm:flex relative items-center justify-center py-[30px]">
                 <div class="btn-box"><a href="index.html" class="theme-btn btn-one">Get A Quote</a></div>
             </div>
         </div>
@@ -99,12 +109,15 @@
 <script>
     const MobileToggler = document.getElementById("mobile-nav-toggler")
     const MobileMenu = document.getElementById("mobile-menu")
+    const Backdrop = document.getElementById("backdrop"); 
     const OpenMenu = () =>{
         if(MobileMenu?.classList.contains("mobile-menu-close")){
             MobileMenu?.classList.remove("mobile-menu-close")
+            Backdrop?.classList.add("backdrop-visible")
         }
         else{
             MobileMenu?.classList.add("mobile-menu-close")
+            Backdrop?.classList.remove("backdrop-visible")
         }
     }
     MobileToggler?.addEventListener('mousedown', OpenMenu)
@@ -114,6 +127,7 @@
             && !MobileMenu?.contains(event.target as Node)
         ){
             MobileMenu?.classList.add("mobile-menu-close")
+            Backdrop?.classList.remove("backdrop-visible")
         }
     }
     window.addEventListener("mousedown", CheckIfClickedOutside)
