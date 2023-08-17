@@ -1,45 +1,75 @@
 import {
     useRef, 
     useEffect, 
-    useState, 
 } from 'react'; 
 import uuid from 'react-uuid'; 
 
 //takes in array of string pathways of the images
 type SliderType = {
-    images : Array<string>, 
+    images: Array<string>, 
     darkMask?: boolean,
+    name?: string, 
 }
 const Slider = (props: SliderType)=>{
     const {
         images, 
         darkMask = true, 
+        name, 
     } = props; 
-const [current, setCurrent] = useState<number>(0);
+const slideRef = useRef<Array<HTMLDivElement>>(new Array())
+let current = 0; 
+const RunSlide = async () =>{
+    let oldSlide : HTMLDivElement | null = null; 
+    const myInterval = await setInterval(()=>{
+        if(typeof document != undefined){
+            oldSlide = slideRef.current[current]
+            if(current >= images.length - 1){
+                current=0; 
+            }
+            else{
+                current++;
+            }
+            var nextSlide = slideRef.current[current]
+            oldSlide?.classList.add("slide-fade-out")
+            nextSlide?.classList.remove("slide-fade-out")
+            nextSlide?.classList.add("slide-pan-forward")
+            setTimeout(()=>{
+                oldSlide?.classList.remove("slide-pan-forward"); 
+            }, 5000); 
+        }
+    }, 3000)  
+}
 
-const myInterval = setInterval(()=>{
-    if(current === images.length){
-        setCurrent(0)
+useEffect(()=>{
+    RunSlide();
+},[])
+
+useEffect(()=>{
+    if(slideRef.current[0]){
+        slideRef.current[0].classList.remove("slide-fade-out")
+        slideRef.current[0].classList.add("slide-pan-forward")
     }
-    else{
-        setCurrent(prev => prev + 1)
-    }
-}, 2000)
+},[slideRef.current])
 
 return(
     <div
-        className = {`absolute w-full h-[200px] top-0 left-0 right-0 ${darkMask ? "darkMask" : ""}`}
+        className = {`absolute w-full h-full top-0 left-0 right-0 ${darkMask ? "darkMask" : ""}`}
     >
+        <div
+            className = "relative w-full h-full m-0"
+        >
         {images && images.length > 0 &&
             images.map((img: string, index: number)=>
                 <Slide 
-                imgPath = {img} 
+                image = {img} 
                 key = {uuid()} 
                 index = {index} 
                 current = {current}
+                slideRef={slideRef}
                 />
             )
         }
+        </div>
     </div>
 )
 }
@@ -47,42 +77,34 @@ return(
 export default Slider; 
 
 type SlideProps = {
-    imgPath : string, 
-
+    image : string, 
     index: number, 
     current: number, 
+    name?: string, 
+    slideRef: {
+        current: Array<HTMLDivElement>}
+        , 
 }
 
 const Slide = (props: SlideProps) =>{
     const {
-        imgPath,
+        image,
         index,  
         current, 
+        name, 
+        slideRef, 
     } = props; 
-    const imgRef = useRef<HTMLDivElement>(null); 
-    useEffect(()=>{
-        if(imgRef.current){
-            imgRef.current.style.backgroundImage = `url(${imgPath})`
-        }
-    },[imgRef.current])
-    
-    useEffect(()=>{
-        if(current === index){
-            imgRef?.current?.classList.remove("hiddenSlide")
-            imgRef?.current?.classList.remove("slide-fade-out")
-        }
-        else if(!imgRef?.current?.classList.contains("slide-fade-out")){
-            setTimeout(()=>{
-                imgRef?.current?.classList.add("hiddenSlide")
-            }, 2000)
-            imgRef?.current?.classList.add("slide-fade-out")
-        }
-    }, [current])
 
     return (
     <div
-        ref = {imgRef}
-        className = {`block bg-cover bg-no-repeat bg-center overflow-hidden min-h-[200vh] w-full hiddenSlide slideProp slide-fade-out`}
-    ></div>
+        ref = {element => slideRef.current.push(element as HTMLDivElement)}
+        id = {`slide-${name}${index}`}
+        className = {`absolute inset-0 block bg-cover bg-no-repeat bg-center overflow-hidden w-full h-full slideProp slide-fade-out`}
+    >
+        <img 
+            src ={image}
+            className ="w-full h-full object-cover bg-[url(${image})] absolute inset-0"
+        />
+    </div>
     )
 }

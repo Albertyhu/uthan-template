@@ -1,0 +1,28 @@
+---
+import LiquidButton from '../liquid-button/index.astro'; 
+const {
+    MainTitle, 
+    Subtext, 
+    link, 
+    button_label, 
+} = Astro.props; 
+---
+<div
+    id = "TitleSection"
+    class = "absolute h-fit w-fit top-[50%] translate-y-[-50%] z-[50] text-white"
+    >
+    <div
+        class="w-11/12 mx-auto"
+    >
+        <h1
+            class = "text-white text-[50px] leading-[50px] sm:text-[90px] sm:leading-[90px]"
+        >{MainTitle}</h1>
+        <h2
+            class = "text-white font-[20px]"
+        >{Subtext}</h2>
+        <LiquidButton 
+            {button_label}
+            {link}
+        />
+    </div>
+</div>

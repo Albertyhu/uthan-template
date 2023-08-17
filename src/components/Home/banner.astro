@@ -1,6 +1,7 @@
 ---
-import Grass from '@/assets/images/shape/shape-2.png'
-import Slider from "../imageSlider/slider.tsx"
+import Grass from '@/assets/images/shape/shape-2.png'; 
+import Slider from "../imageSlider/slider.tsx";
+import TitleSection from './title_section.astro'; 
 var HeroImages : Array<string>= []
 try{
     var imageMap = import.meta.glob("../../assets/slides/hero/*")
@@ -20,12 +21,15 @@ try{
     class="relative text-center block bg-cover bg-no-repeat bg-center overflow-hidden min-h-[80vh] w-full"
 >
     <div 
-    class="pattern-layer absolute left-0 right-0 bottom-0 bg-repeat-x h-[54px] w-full"
+    class="pattern-layer absolute left-0 right-0 bottom-0 bg-repeat-x h-[54px] w-full z-[50]"
     style = "background-image: url(../../../src/assets/images/shape/shape-2.png)"
-    >
-    <Slider images={HeroImages} darkMask = {false} client:load />
-    </div>
-    <div class = "">
-    </div>
+    ></div>
+    <Slider images={HeroImages} darkMask = {true} name = "hero" client:load />
+    <TitleSection 
+        MainTitle = "Make your home like a garden"
+        Subtext = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed efficitur imperdiet nibh a ullamcorper."
+        button_label = "Hire us now"
+        link = "/"
+    />  
 </section>
         <!-- banner-section end -->
