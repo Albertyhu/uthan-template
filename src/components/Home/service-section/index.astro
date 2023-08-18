@@ -1,0 +1,41 @@
+---
+import "./service-style.css"; 
+import ServiceBlock from './service-block.astro'; 
+---
+
+<!-- service-section -->
+<section class="service-section relative bg-[#f0f7f7] p-[143px_0px_150px_0px] text-center">
+    <div class="auto-container">
+        <div class="sec-title mb-[35px]">
+            <span class="sub-title">Services</span>
+            <h2>What Kind of Services <br />We are Offering</h2>
+        </div>
+        <div class="grid sm:grid-cols-4 gap-5">
+            <ServiceBlock 
+                thumbnail="../src/assets/images/service/service-1.jpg"
+                title = "Green Technology"
+                tagline = "Lorem ipsum dolor sit elit consectetur sed."
+                link = "service-details.html"
+            />
+             <ServiceBlock 
+                thumbnail="../src/assets/images/service/service-1.jpg"
+                title = "Urban Gardening"
+                tagline = "Lorem ipsum dolor sit elit consectetur sed."
+                link = "service-details.html"
+            />
+            <ServiceBlock 
+                thumbnail="../src/assets/images/service/service-1.jpg"
+                title = "Nursery/Tree Farm"
+                tagline = "Lorem ipsum dolor sit elit consectetur sed."
+                link = "service-details.html"
+            />           
+            <ServiceBlock 
+                thumbnail="../src/assets/images/service/service-1.jpg"
+                title = "Trimming & Pruning"
+                tagline = "Lorem ipsum dolor sit elit consectetur sed."
+                link = "service-details.html"
+            />                   
+        </div>
+    </div>
+</section>
+<!-- service-section -->

@@ -1,0 +1,41 @@
+
+---
+import "./choose-style.css"
+import SellingPoints from './selling-ponts.astro'; 
+---
+<!-- chooseus-section -->
+<section class="chooseus-section relative block">
+    <div class="pattern-layer p_absolute" id = "chooseus_grass" style="background-image: url(../src/assets/images/shape/shape-7.png);"></div>
+    <div
+        id="Chooseus_mainContainer" 
+        class="auto-container"
+        >
+        <div class="inner-container relative block bg-white rounded-md box_shadow mb-5">
+            <div class="shape-layer">
+                <div class="shape-1 absolute" style="background-image: url(../src/assets/images/shape/shape-5.png);"></div>
+                <div class="shape-2 absolute" style="background-image: url(../src/assets/images/shape/shape-6.png);"></div>
+            </div>
+            <div class="grid sm:grid-cols-[40%_60%]">
+                <div class="image-column">
+                    <figure class="image-box relative block img_hover_3"><img src="../src/assets/images/resource/chooseus-1.jpg" alt=""></figure>
+                </div>
+                <div class="content-column">
+                    <div class="content_block_2">
+                        <div class="content-box relative block pt-[65px] pl-[40px] pr-[70px] pb-[30px]">
+                            <div class="sec-title mb-10">
+                                <span class="sub-title">People Love</span>
+                                <h2>They Choose Us.</h2>
+                            </div>
+                            <div class="text relative block mb-35">
+                                <p>Fruit is their fill meat, hath abundantly place meat don't stars so and which signs third second after seasons under.</p>
+                            </div>
+                            <div class="relative block bg-transparent pt-10">
+                                <SellingPoints />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
