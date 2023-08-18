@@ -1,7 +1,7 @@
 ---
 import Grass from '@/assets/images/shape/shape-2.png'; 
 import Slider from "../imageSlider/slider.tsx";
-import TitleSection from './title_section.astro'; 
+import TitleSection from './title_section/index.astro'; 
 var HeroImages : Array<string>= []
 try{
     var imageMap = import.meta.glob("../../assets/slides/hero/*")
@@ -10,7 +10,6 @@ try{
     HeroImages = originalPaths.map(path => {
         return path.replace('../../assets/', '../../src/assets/');
     });
-    console.log("HeroImages: ", HeroImages)
 }catch(error){
     console.log("Error: ", error)
 }
@@ -21,7 +20,7 @@ try{
     class="relative text-center block bg-cover bg-no-repeat bg-center overflow-hidden min-h-[80vh] w-full"
 >
     <div 
-    class="pattern-layer absolute left-0 right-0 bottom-0 bg-repeat-x h-[54px] w-full z-[50]"
+    class="pattern-layer absolute left-0 right-0 bottom-0 bg-repeat-x h-[54px] w-full z-[19]"
     style = "background-image: url(../../../src/assets/images/shape/shape-2.png)"
     ></div>
     <Slider images={HeroImages} darkMask = {true} name = "hero" client:load />

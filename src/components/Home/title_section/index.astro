@@ -1,0 +1,30 @@
+---
+import LiquidButton from '../../liquid-button/index.astro'; 
+import "./title_style.css";
+const {
+    MainTitle, 
+    Subtext, 
+    link, 
+    button_label, 
+} = Astro.props; 
+---
+<div
+    id = "TitleSection"
+    class = "absolute h-fit w-fit top-[50%] translate-y-[-50%] z-[50] text-white font-['Prata']"
+    >
+    <div
+        class="w-11/12 mx-auto"
+    >
+        <h1
+            class = "text-white text-[50px] leading-[50px] sm:text-[90px] sm:leading-[90px] fadeInUp"
+        >{MainTitle}</h1>
+        <h2
+            class = "text-white font-[20px] my-10 fadeInUp delay-[5000ms] opacity-0 animation-delay-1"
+        >{Subtext}</h2>
+        <LiquidButton 
+            {button_label}
+            {link}
+            customStyle ="fadeInUp opacity-0 animation-delay-2"
+        />
+    </div>
+</div>

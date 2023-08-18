@@ -1,0 +1,90 @@
+<div 
+    id ="SellingPoints"
+    class="relative w-full p-[15px] flex mb-[60px]"
+>
+    <div 
+        class="inner-content text-center relative w-full"
+        >
+        <div 
+            class="pattern-layer hidden sm:block"
+            id="Graphic_patterns"
+        >
+            <div class="pattern-1 absolute left-[50%] top-[50%] translate-x-[-50%] translate-y-[-50%] w-[210px] h-[210px] rounded-[50%] opacity-10"></div>
+            <div class="pattern-2 absolute animated" data-wow-delay="00ms" data-wow-duration="1500ms" style="background-image: url(../src/assets/images/shape/shape-3.png);"></div>
+            <div class="pattern-3 absolute animated" data-wow-delay="00ms" data-wow-duration="1500ms" style="background-image: url(../src/assets/images/shape/shape-4.png);"></div>
+        </div>
+        <div class="items-center grid sm:grid-cols-2 gap-10 mx-[-15px]">
+            <div class="feature-block">
+                <div
+                    id="SellExperience-1" 
+                    class="feature-block-one wow min-height-[30px] transition-all duration-[500ms] fadeOutDown SellExperience" 
+                    data-wow-delay="00ms" data-wow-duration="1500ms"
+                    >
+                    <div 
+                        id ="block1"
+                        class="inner-box text-5xl mb-8 z-10 b_shadow_6"
+                        >
+                        <div class="icon-box relative inline-block rounded-lg text-5xl mb-8 z-10 transition duration-300"><i class="icon-4"></i></div>
+                        <h3 class="text-base leading-7 font-medium">100% Guarantee Services</h3>
+                    </div>
+                </div>
+                <div 
+                    id="SellExperience-2" 
+                    class="feature-block-one wow min-height-[30px] transition-all duration-[500ms] fadeOutDown SellExperience" 
+                    data-wow-delay="200ms" 
+                    data-wow-duration="1500ms"
+                    >
+                    <div
+                        id ="block2" 
+                        class="inner-box text-5xl mb-8 z-10 b_shadow_6">
+                        <div class="icon-box relative inline-block rounded-lg text-5xl mb-8 z-10 transition duration-300"><i class="icon-5"></i></div>
+                        <h3 class="text-base leading-7 font-medium">Environmental Friendly</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-12 feature-block">
+                <div 
+                    id="SellExperience-3" 
+                    class="feature-block-one wow min-height-[30px] transition-all duration-[500ms] fadeOutDown SellExperience" 
+                    data-wow-delay="400ms" 
+                    data-wow-duration="1500ms">
+                    <div 
+                        id ="block3"
+                        class="inner-box text-5xl mb-8 z-10 b_shadow_6"
+                        >
+                        <div class="icon-box relative inline-block rounded-lg text-5xl mb-8 z-10 transition duration-300"><i class="icon-5"></i></div>
+                        <h3 class="text-base leading-7 font-medium">Dedicated Support Team</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    const GraphicPatterns = document.getElementById("Graphic_patterns"); 
+    const PatternTwo = document.querySelector(".pattern-2")
+    const PatternThree = document.querySelector(".pattern-3")
+
+    const AboutObserver = new IntersectionObserver(entries =>{
+        PatternTwo?.classList.toggle("slideInRight", entries[0].isIntersecting)
+        PatternThree?.classList.toggle("slideInLeft", entries[0].isIntersecting)
+    })
+
+    AboutObserver.observe(GraphicPatterns)
+    const ExperienceObs = new IntersectionObserver(entries=>{
+        console.log("entries : ", entries)
+        entries.forEach(entry =>{
+            if(entry.isIntersecting){
+                entry.target.classList.remove("fadeOutDown")
+            }
+            else{
+                entry.target.classList.add("fadeOutDown")
+            }
+        })
+    }, {threshold: 0.5})
+    document.querySelectorAll(".SellExperience").forEach(entry =>{
+        if(entry){
+            ExperienceObs.observe(entry)
+        }
+    })
+</script>
