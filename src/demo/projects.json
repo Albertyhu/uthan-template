@@ -1,0 +1,64 @@
+{
+    "projects": [
+        {
+            "name": "Green Technology",
+            "category": "Planting",
+            "altText": "Green Technology",
+            "image": "../src/assets/images/project/project-2.jpg"
+        },
+        {
+            "name": "Zen Garden Oasis",
+            "category": "Landscaping",
+            "altText": "Zen Garden Oasis",
+            "image": "../src/assets/images/project/project-2.jpg"
+        },
+        {
+            "name": "Edible Garden Delight",
+            "category": "Gardening",
+            "altText": "Edible Garden Delight",
+            "image": "../src/assets/images/project/project-2.jpg"
+        },
+        {
+            "name": "Wildlife Habitat Haven",
+            "category": "Conservation",
+            "altText": "Wildlife Habitat Haven",
+            "image": "../src/assets/images/project/project-2.jpg"
+        },
+        {
+            "name": "Tranquil Water Feature",
+            "category": "Landscaping",
+            "altText": "Tranquil Water Feature",
+            "image": "../src/assets/images/project/project-2.jpg"
+        },
+        {
+            "name": "Vertical Garden Showcase",
+            "category": "Planting",
+            "altText": "Vertical Garden Showcase",
+            "image": "../src/assets/images/project/project-2.jpg"
+        },
+        {
+            "name": "Sustainable Garden Retreat",
+            "category": "Sustainability",
+            "altText": "Sustainable Garden Retreat",
+            "image": "../src/assets/images/project/project-2.jpg"
+        },
+        {
+            "name": "Blossoming Flower Haven",
+            "category": "Gardening",
+            "altText": "Blossoming Flower Haven",
+            "image": "../src/assets/images/project/project-2.jpg"
+        },
+        {
+            "name": "Cozy Garden Nook",
+            "category": "Landscaping",
+            "altText": "Cozy Garden Nook",
+            "image": "../src/assets/images/project/project-2.jpg"
+        },
+        {
+            "name": "Pollinator Paradise",
+            "category": "Conservation",
+            "altText": "Pollinator Paradise",
+            "image": "../src/assets/images/project/project-2.jpg"
+        }
+    ]
+}
