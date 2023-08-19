@@ -10,11 +10,10 @@ type ProjectType = {
         altText: string,
         name: string, 
         category: string, 
-
 }
 
 const Gallery = (props : GalleryType)=>{
-
+    const filteredProjects = ''; 
     return ProjectDemo && ProjectDemo.projects && ProjectDemo.projects.length > 0 &&
                 ProjectDemo.projects.map((project: ProjectType) =>
                             <MasonryItem 

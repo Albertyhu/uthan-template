@@ -1,8 +1,8 @@
 ---
 import GalleryReact from './gallery-react.tsx'; 
 import "./gallery.css"
+import Selector from './selector.tsx'; 
 ---
-
 <section class="project-section relative pt-[32px] pb-[32px]">
     <div class="auto-container mx-auto">
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -10,14 +10,7 @@ import "./gallery.css"
                 <span class="sub-title">Projects</span>
                 <h2>Check Some Of Our <br />Recent Work.</h2>
             </div>
-            <div class="md:mt-[16px]">
-                <ul class="filter-tabs filter-btns md:float-right md:mt-[16px]">
-                    <li class="active filter" data-role="button" data-filter=".all">All</li>
-                    <li class="filter" data-role="button" data-filter=".gardens">Gardens</li>
-                    <li class="filter" data-role="button" data-filter=".urban">Urban</li>
-                    <li class="filter" data-role="button" data-filter=".maintanance">Maintenance</li>
-                </ul>
-            </div>
+            <Selector client:visible />
         </div>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
             <GalleryReact client:load />

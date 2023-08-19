@@ -34,3 +34,9 @@ export interface ImageMetadata {
 	height: number
 	format: string
 }
+
+
+export type GalleryContextType = {
+	selectCat: string, 
+	setSelect: (c:string)=>void, 
+}
