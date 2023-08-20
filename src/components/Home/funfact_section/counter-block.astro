@@ -1,0 +1,27 @@
+---
+import Counter from './counter.tsx'; 
+
+const {
+    label, 
+    number, 
+    icon, 
+} = Astro.props; 
+---
+<div class="w-full md:w-1/4 p-4">
+    <div class="counter-block-one animate__animated animate__slideInUp" style="animation-delay: 0ms; animation-duration: 1500ms;">
+        <div class="inner-box relative bg-transparent grid grid-cols-2">
+            <div class="text-[40px] text-theme-color">
+                <i class={`icon-${icon} w-[75px] h-[75px] leading-[40px] inline-block bg-white rounded-full before:item-center before:my-auto`}></i>
+            </div>
+            <div
+                class = "text-center sm:text-left"
+            >
+                <Counter 
+                    number = {number} 
+                    client:visible
+                    />
+                <h6 class="relative block mt-2 text-base font-medium text-white">{label}</h6>
+            </div>
+        </div>
+    </div>
+</div>

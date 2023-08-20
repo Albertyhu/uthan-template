@@ -1,5 +1,5 @@
 import './gallery.css';
-
+import { motion, AnimatePresence} from "framer-motion"
 type ProjectType = {
         image : string | HTMLImageElement, 
         altText: string,
@@ -15,7 +15,9 @@ const MasonaryItem = (props: ProjectType) =>{
         category = "", 
     } = props; 
     return(
-        <div class="masonry-item small-column all product urban maintanance">
+        <div 
+            class="masonry-item small-column all product urban maintanance"
+        >
             <div class="project-block-one">
                 <div class="inner-block relative block item-center mb-8">
                     <figure class="image-box relative block rounded-md">

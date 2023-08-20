@@ -1,1 +1,12 @@
+framer motion 
+
+            <motion.div
+                layout 
+                initial = {{opacity: 0}}
+                animate = {{opacity: 1}}
+                exit={{opacity: 0}}
+                transition = {{duraction:0.5}}
+            >
+            </motion.div>
+
 https://www.youtube.com/watch?v=f4f7vwL4TcQ

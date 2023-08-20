@@ -40,3 +40,10 @@ export type GalleryContextType = {
 	selectCat: string, 
 	setSelect: (c:string)=>void, 
 }
+
+export type ProjectType = {
+        image : string | HTMLImageElement, 
+        altText: string,
+        name: string, 
+        category: string, 
+}
