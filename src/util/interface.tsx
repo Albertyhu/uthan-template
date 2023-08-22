@@ -35,32 +35,31 @@ export interface ImageMetadata {
 	format: string
 }
 
-
 export type GalleryContextType = {
-	selectCat: string, 
-	setSelect: (c:string)=>void, 
+	selectCat: string
+	setSelect: (c: string) => void
 }
 
 export type ProjectType = {
-        image : string | HTMLImageElement, 
-        altText: string,
-        name: string, 
-        category: string, 
+	image: string | HTMLImageElement
+	altText: string
+	name: string
+	category: string
 }
 
 export type CarouselItemType = {
-	testimonial: string, 
-    name: string, 
-    designation: string,
-    rating: 1 | 2 | 3 | 4 | 5,
-    profile_image: string | HTMLImageElement, 
+	testimonial: string
+	name: string
+	designation: string
+	rating: 1 | 2 | 3 | 4 | 5
+	profile_image: string | HTMLImageElement
 }
 
 export type PricingType = {
-	plan: string,
-    price: number, 
-    features?: Array<string>,
-    CTA_link: string, 
-    main_color?: string, 
-    button_color?: string, 
+	plan: string
+	price: number
+	features?: Array<string>
+	CTA_link: string
+	main_color?: string
+	button_color?: string
 }

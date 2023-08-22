@@ -1,31 +1,31 @@
 {
-    "members":[
-        {
-            "name": "Margot Robbie",
-            "designation": "Garden Experts",
-            "link" : "index.html",
-            "facebook" : "http://www.facebook.com",
-            "twitter" : "http://wwww.twitter.com",
-            "google": "http://www.google.com",
-            "profile_image" : "../src/assets/images/team/team-2.jpg"
-        },
-        {
-            "name": "Sidney Poitier",
-            "designation": "Garden Experts",
-            "link" : "index.html",
-            "facebook" : "http://www.facebook.com",
-            "twitter" : "http://wwww.twitter.com",
-            "google": "http://www.google.com",
-            "profile_image" : "../src/assets/images/team/team-2.jpg"
-        },
-                {
-            "name": "Brie Larson",
-            "designation": "Garden Experts",
-            "link" : "index.html",
-            "facebook" : "http://www.facebook.com",
-            "twitter" : "http://wwww.twitter.com",
-            "google": "http://www.google.com",
-            "profile_image" : "../src/assets/images/team/team-2.jpg"
-        }
-    ]
+	"members": [
+		{
+			"name": "Margot Robbie",
+			"designation": "Garden Experts",
+			"link": "index.html",
+			"facebook": "http://www.facebook.com",
+			"twitter": "http://wwww.twitter.com",
+			"google": "http://www.google.com",
+			"profile_image": "../src/assets/images/team/team-2.jpg"
+		},
+		{
+			"name": "Sidney Poitier",
+			"designation": "Garden Experts",
+			"link": "index.html",
+			"facebook": "http://www.facebook.com",
+			"twitter": "http://wwww.twitter.com",
+			"google": "http://www.google.com",
+			"profile_image": "../src/assets/images/team/team-2.jpg"
+		},
+		{
+			"name": "Brie Larson",
+			"designation": "Garden Experts",
+			"link": "index.html",
+			"facebook": "http://www.facebook.com",
+			"twitter": "http://wwww.twitter.com",
+			"google": "http://www.google.com",
+			"profile_image": "../src/assets/images/team/team-2.jpg"
+		}
+	]
 }
