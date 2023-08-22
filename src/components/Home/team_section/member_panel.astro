@@ -1,0 +1,44 @@
+---
+const {
+    profile_image, 
+    profile_alt_text = "profile_image",
+    name, 
+    designation, 
+    link, 
+    facebook,
+    twitter,
+    google, 
+} = Astro.props; 
+---
+<div class="">
+    <div class="team-block-one wow fadeInUp animated" data-wow-delay="00ms" data-wow-duration="1500ms">
+        <div class="inner-box relative block pl-[30px] pt-[30px] pr-[30px] pb-[25px] team-block rounded-lg">
+            <figure class="image-box p_relative d_block b_radius_5"><a href="team-details.html"><img src={profile_image} alt={profile_alt_text}></a></figure>            
+            <div class="lower-content p_relative d_block pt_30">
+                <div class="share-box absolute text-center">
+                    <a 
+
+                    href="index.html" 
+                    class="inline-block text-white text-[14px] rounded-[5px] bg-[#2f7955] hov_color w-[45px] h-[45px] leading-[45px]">
+                        <i 
+                        class="fas fa-share-alt relative"
+                        id="ShareIcon"
+                        ></i>
+                    </a>
+                    <ul class="share-links absolute clearfix">
+                        <li class="relative block mb-[10px]"><a href={facebook} class="text-[16px] rounded-[5px] bg-white inline-block hov_bg w-[10px] h-[10px]"><i class="fab fa-facebook-f"></i></a></li>
+                        <li class="relative block mb-[10px]"><a href={twitter} class="text-[16px] rounded-[5px] bg-white inline-block hov_bg w-[10px] h-[10px]"><i class="fab fa-twitter"></i></a></li>
+                        <li class="relative block mb-[10px]"><a href={google} class="text-[16px] rounded-[5px] bg-white inline-block hov_bg w-[10px] h-[10px]"><i class="fab fa-google-plus-g"></i></a></li>
+                    </ul>
+                </div>
+                <h3 
+                    class="p_relative d_block fs_22 fw_medium mb_5"
+                    id ="team-member"
+                    >
+                    <a href={link} class="!hover:text-[#2f7955] hover:outline-none inline-block text-[22px] font-500">{name}</apx>
+                </h3>
+                <span class="designation p_relative d_block fs_15">{designation}</span>
+            </div>
+        </div>
+    </div>
+</div>

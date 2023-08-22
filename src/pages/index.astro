@@ -6,6 +6,10 @@ import BannerSection from '@/components/Home/banner.astro';
 import ServiceSection from '@/components/Home/service-section/index.astro'; 
 import ProjectSection from "@/components/project/gallery/index.astro"; 
 import FunFactSection from "@/components/Home/funfact_section/index.astro"; 
+import TeamSection from "@/components/Home/team_section/index.astro"; 
+
+import Testimonial from "@/components/Testimonial/index.astro"; 
+import TestimonialDemo from '@/demo/testimonial.json'; 
 ---
 <BaseLayout pageTitle = "Home">
     <BannerSection />
@@ -13,5 +17,8 @@ import FunFactSection from "@/components/Home/funfact_section/index.astro";
     <ChooseUsSection />
     <ServiceSection />
     <ProjectSection />
-    <FunFactSection />
+    <TeamSection />
+    <Testimonial 
+        testimonials = {TestimonialDemo.data}
+    />
 </BaseLayout>

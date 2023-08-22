@@ -1,0 +1,18 @@
+{
+    "data":[
+        {
+            "name": "Nicolas Lawson",
+            "designation": "Designer", 
+            "rating": 5, 
+            "testimonial": "Lorem ipsum dolor amet consectur adicing elit sed do usmod tempor incididunt enim ad minim veniam quis nostrud.",
+            "profile_image": "../src/assets/images/resource/testimonial-1.jpg"
+        },
+        {
+            "name": "Eva Green",
+            "designation": "Manager", 
+            "rating": 4, 
+            "testimonial": "Lorem ipsum dolor amet consectur adicing elit sed do usmod tempor incididunt enim ad minim veniam quis nostrud.",
+            "profile_image": "../src/assets/images/resource/testimonial-1.jpg"
+        }
+    ]
+}

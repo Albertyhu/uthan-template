@@ -1,0 +1,29 @@
+---
+import "./style.css"
+const {
+    testimonials, 
+} = Astro.props; 
+import CarouselItem from './carousel-item.tsx'; 
+import Carousel from './carousel.tsx'; 
+---
+<section class="testimonial-section relative sec-pad mb-[10px]">
+    <div class="bg-layer absolute" style="background-image: url(../src/assets/images/background/testimonial-bg.jpg);"></div>
+    <div class="auto-container">
+        <div class="flex flex-wrap">
+            <div class="w-full lg:w-4/12 md:w-full sm:w-full title-column">
+                <div class="sec-title">
+                    <span class="sub-title">Testimonials</span>
+                    <h2>Trusted by 10K Customer</h2>
+                </div>
+            </div>
+            <div class="w-full lg:w-8/12 md:w-full sm:w-full inner-column">
+                <div class="inner-content">
+                    <Carousel 
+                    testimonials={testimonials}
+                    client:visible 
+                    />
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

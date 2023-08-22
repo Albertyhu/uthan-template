@@ -47,3 +47,12 @@ export type ProjectType = {
         name: string, 
         category: string, 
 }
+
+export type CarouselItemType = {
+	testimonial: string, 
+    name: string, 
+    designation: string,
+    rating: 1 | 2 | 3 | 4 | 5,
+    profile_image: string | HTMLImageElement, 
+}
+
