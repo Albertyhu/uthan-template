@@ -56,3 +56,11 @@ export type CarouselItemType = {
     profile_image: string | HTMLImageElement, 
 }
 
+export type PricingType = {
+	plan: string,
+    price: number, 
+    features?: Array<string>,
+    CTA_link: string, 
+    main_color?: string, 
+    button_color?: string, 
+}

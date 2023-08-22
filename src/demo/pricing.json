@@ -1,0 +1,32 @@
+{
+    "data":[
+        {
+            "plan": "Basic",
+            "price": 29.99,
+            "features": ["Garden Service", "Preparing Landscape", "Forest Planning", "Tree Plantation", "Garden Fence"],
+            "CTA_link":  "/",
+            "main_color": "#ffffff", 
+            "button_color": "#ffffff"
+
+        },
+                {
+            "plan": "Standard",
+            "price": 49.99,
+            "features": ["Garden Service", "Preparing Landscape", "Forest Planning", "Tree Plantation", "Garden Fence"],
+            "CTA_link":  "/",
+            "main_color": "#ffffff", 
+            "button_color": "#ffffff"
+
+        },
+                {
+            "plan": "Ultimate",
+            "price": 69.99,
+            "features": ["Garden Service", "Preparing Landscape", "Forest Planning", "Tree Plantation", "Garden Fence"],
+            "CTA_link":  "/",
+            "main_color": "#ffffff", 
+            "button_color": "#ffffff"
+
+        }
+        
+    ]
+}

@@ -10,6 +10,13 @@ import TeamSection from "@/components/Home/team_section/index.astro";
 
 import Testimonial from "@/components/Testimonial/index.astro"; 
 import TestimonialDemo from '@/demo/testimonial.json'; 
+
+import PricingDemo from '@/demo/pricing.json'; 
+import PricingSection from '@/components/pricing_section/index.astro'; 
+
+const BackImg = '../src/assets/slides/hero/banner-1.jpg';
+import ParallaxBanner from '@/components/parallax_banner/index.astro'; 
+
 ---
 <BaseLayout pageTitle = "Home">
     <BannerSection />
@@ -20,5 +27,14 @@ import TestimonialDemo from '@/demo/testimonial.json';
     <TeamSection />
     <Testimonial 
         testimonials = {TestimonialDemo.data}
+    />
+    <PricingSection 
+        pricing_models = {PricingDemo.data}
+    />
+    <ParallaxBanner 
+        BackImg = {BackImg}
+        title = "Artistic solutions"
+        text = "We Provides Hassle-Free Garden solutions."
+        CTA_link = "/"
     />
 </BaseLayout>

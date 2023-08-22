@@ -1,0 +1,24 @@
+---
+import './pricing_style.css'
+import PricingPanel from './pricing_panel.astro'; 
+import type {PricingType} from '@/util/interface.tsx'
+const {
+    pricing_models 
+} = Astro.props; 
+---
+
+<!-- pricing-section -->
+<section class="pricing-section relative sec-pad text-center mb-[20px]">
+    <div class="auto-container">
+        <div class="sec-title mb-[45px]">
+            <span class="sub-title">Pricing Table</span>
+            <h2>Not Any Hidden Charge <br />Choose Your Price</h2>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[30px]">
+            {pricing_models && pricing_models.length > 0 &&
+                pricing_models.map((model: PricingType) => <PricingPanel {...model} /> )
+            }
+        </div>
+    </div>
+</section>
+<!-- pricing-section end -->

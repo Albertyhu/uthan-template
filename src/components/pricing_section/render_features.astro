@@ -1,0 +1,17 @@
+---
+import './pricing_style.css'
+const {
+    features
+} = Astro.props; 
+---
+
+<ul class="feature-list relative mb-[40px] clearfix">
+    {features && features.length > 0 &&
+        features.map((feature : string, index: number)=>{
+            if(index === features.length - 1){
+                return  <li class="relative block text-[17px]">{feature}</li>
+            }
+            return <li class="relative block text-[17px] mb-[14px]">{feature}</li>
+        })
+    }
+</ul>
