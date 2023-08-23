@@ -10,6 +10,7 @@ const {
 import ScrollTopButton from "../components/scrollTopButton.astro";
 import SEO from "@/components/SEO.astro";
 import MessageComponent from "@/components/MessageComponent/messageComponent";
+import FooterColumns from "@/demo/footer.json"
 
 ---
 <html lang="en">
@@ -45,7 +46,9 @@ import MessageComponent from "@/components/MessageComponent/messageComponent";
         >
             <slot />
         </div>
-        <Footer />
+        <Footer 
+            columns={FooterColumns}
+        />
         <ScrollTopButton />
         <script>
             if (window.netlifyIdentity) {

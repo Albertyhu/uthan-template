@@ -3,40 +3,79 @@ import CreatorComponent from '../creatorComponent.astro';
 import LogoComponent from '../logoComponent.astro';
 import Navigation from '../navigation.astro'; 
 import siteData from '../../customization/siteData.json'; 
+import './footer_style.css'
+import FooterColumn from './footer-column.astro'; 
+import type { FooterColumnType} from '@/util/interface.tsx';
+import Contacts from './contacts.astro'; 
+import ColumnLabel from './column_label.astro';
+const {
+    columns
+} = Astro.props;
 
 var YEAR = new Date().getFullYear(); 
 ---
-
-<footer
-    class = "grid gap-[1em] mt-[2rem] absolute bottom-0 right-0 left-0 min-h-[250px] bg-slate-300"
->
-    <div class = "w-11/12 mx-auto text-center my-5">
-        <div
-            class = "sm:grid sm:grid-cols-2 mx-auto"
-        >
-            <div
-                class = "mb-5 sm:mb-0"
-            >
-                <LogoComponent customStyle = "!mx-auto" />
-                <p
-                    class = "tagline"
-                >"Tagline"</p>
-            </div>
+<footer class="main_footer relative">
+    <div class="footer-logo relative block pb-[50px] text-center bg-[#1d4a34]">
+        <figure class="logo relative inline-block bg-[#1d4a34]">
             <div 
-                class = "grid footer-links mx-auto"
-            >
-                <h4
-                    class = "font-bold mb-1 text-2xl"
-                >Site</h4>
-                <Navigation />
+                class="shape absolute bg-transparent !z-[1] bg-[url('../../src/assets/images/shape/shape-13.png')]"
+                ></div>
+            <a 
+                href="index.html"
+               class="!z-10 relative"
+                >
+                <img 
+                src="../../src/assets/images/footer-logo.png" alt=""
+                >
+            </a>
+        </figure>
+    </div>
+    <div class="widget-section relative pt-[65px] pb-[70px] bg-[#1d4a34]">
+        <div class="pattern-layer">
+            <div class="pattern-1 absolute bg-[url('../../../src/assets/images/shape/shape-14.png')]"></div>
+            <div class="pattern-2 absolute bg-[url('../../../src/assets/images/shape/shape-15.png')]"></div>
+        </div>
+        <div class="auto-container">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-[30px]">
+                <div class="footer-column">
+                    <div class="footer-widget about-widget">
+                        <div class="widget-title relative block mb-[25px]">
+                            <ColumnLabel label ="About" />
+                        </div>
+                        <div class="widget-content">
+                            <div class="text relative block mb-[30px]">
+                                <p>Lorem ipsum dolor amet consetetur adi pisicing elit sed eiusm tempor incididunt ut labore dolore magna aliqua enim ad minim veniam quis nostrud exercita. laboris nisi ut aliquip ea commodo conse quatuis aute irure.</p>
+                            </div>
+                            <ul class="social-links clearfix">
+                                <li class="relative inline-block mr-[10px]"><a href="index.html" class="block color_white hover:bg hover:bg-[#FFFFFF1A] rounded-lg"><i class="fab fa-facebook-f"></i></a></li>
+                                <li class="relative inline-block mr-[10px]"><a href="index.html" class="block color_white hover:bg hover:bg-[#FFFFFF1A] rounded-lg"><i class="fab fa-twitter"></i></a></li>
+                                <li class="relative inline-block mr-[10px]"><a href="index.html" class="block color_white hover:bg hover:bg-[#FFFFFF1A] rounded-lg"><i class="fab fa-vimeo-v"></i></a></li>
+                                <li class="relative inline-block"><a href="index.html" class="block color_white hover:bg hover:bg-[#FFFFFF1A] rounded-lg"><i class="fab fa-google-plus-g"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                {columns && columns.length > 0 && 
+                    columns.map((column: FooterColumnType, index: number) => <FooterColumn {...column} key ={`footer-column-${index}`} />)                    
+                }
+                <Contacts />
             </div>
         </div>
     </div>
-    <div
-        class ="w-full min-h-[20px] bg-black text-slate-300 text-center relative"
-    >
-        <span id = "WebsiteName">{siteData.business_name}</span> &copy;
-        <span id = "CopyRight">{YEAR}</span>
-        <CreatorComponent customStyle = "sm:absolute sm:right-[10px] sm:top-0" />
+    <div class="footer-bottom pt-[30px] pb-[30px]">
+        <div class="auto-container">
+            <div class="bottom-inner clearfix">
+                <div class="w-full min-h-[20px] text-slate-300 text-center relative">
+                            <span id = "WebsiteName">{siteData.business_name}</span> &copy;
+                            <span id = "CopyRight">{YEAR}</span>
+                            <CreatorComponent customStyle = "sm:absolute sm:right-[10px] sm:top-0" />
+                </div>
+                <ul class="footer-nav pull-right clearfix">
+                    <li class="inline-block mr-[30px]"><a href="index.html" class="text-[15px]">Terms of Service</a></li>
+                    <li class="inline-block"><a href="index.html" class="text-[15px]">Privacy Policy</a></li>
+                </ul>
+            </div>
+        </div>
     </div>
 </footer>
+

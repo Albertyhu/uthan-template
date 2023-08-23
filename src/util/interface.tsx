@@ -64,3 +64,13 @@ export type PricingType = {
     main_color?: string, 
     button_color?: string, 
 }
+
+export type FooterColumnType = {
+	label: string, 
+	links?: Array<FooterLinkType>
+}
+
+export type FooterLinkType = {
+	label: string,
+	link?: string, 
+}
