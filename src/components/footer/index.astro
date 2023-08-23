@@ -64,16 +64,18 @@ var YEAR = new Date().getFullYear();
     </div>
     <div class="footer-bottom pt-[30px] pb-[30px]">
         <div class="auto-container">
-            <div class="bottom-inner clearfix">
+            <div class="grid">
                 <div class="w-full min-h-[20px] text-slate-300 text-center relative">
-                            <span id = "WebsiteName">{siteData.business_name}</span> &copy;
-                            <span id = "CopyRight">{YEAR}</span>
-                            <CreatorComponent customStyle = "sm:absolute sm:right-[10px] sm:top-0" />
+                    <div>
+                        <span id = "WebsiteName">{siteData.business_name}</span> &copy;
+                        <span id = "CopyRight">{YEAR}</span>
+                    </div>
+                    <ul class="">
+                        <li class="inline-block mr-[30px]"><a href="index.html" class="text-[15px]">Terms of Service</a></li>
+                        <li class="inline-block"><a href="index.html" class="text-[15px]">Privacy Policy</a></li>
+                    </ul>
+                    <CreatorComponent customStyle = "sm:absolute sm:right-[10px] sm:top-0" />
                 </div>
-                <ul class="footer-nav pull-right clearfix">
-                    <li class="inline-block mr-[30px]"><a href="index.html" class="text-[15px]">Terms of Service</a></li>
-                    <li class="inline-block"><a href="index.html" class="text-[15px]">Privacy Policy</a></li>
-                </ul>
             </div>
         </div>
     </div>
