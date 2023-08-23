@@ -1,11 +1,10 @@
-import ProjectDemo from '@/demo/projects.json'; 
 import MasonryItem from './masonry-item.tsx';
 import { SelectedCategory} from '@/util/atomItems.js';
-import { useStore } from '@nanostores/preact';
+import { useStore } from '@nanostores/react';
 import { motion, AnimatePresence } from "framer-motion"
 import uuid from 'react-uuid'
 type GalleryType = {
-
+    ProjectGallery: Array<ProjectType>, 
 }
 
 type ProjectType = {
@@ -16,18 +15,23 @@ type ProjectType = {
 }
 
 const Gallery = (props : GalleryType)=>{
+    const {
+        ProjectGallery
+    } = props; 
     const $SelectedCategory = useStore(SelectedCategory); 
     var filteredProjects : Array<ProjectType> = [];
-    if(ProjectDemo && ProjectDemo.projects && ProjectDemo.projects.length > 0){
+    if(ProjectGallery && ProjectGallery && ProjectGallery.length > 0){
             if($SelectedCategory.toLowerCase() === "all"){
-                filteredProjects = [...ProjectDemo.projects]; 
+                filteredProjects = [...ProjectGallery]; 
             }
             else{
 
-                filteredProjects = ProjectDemo.projects.filter(project =>project.category === $SelectedCategory)
+                filteredProjects = ProjectGallery.filter(project =>project.category === $SelectedCategory)
             }
     }
-    return (filteredProjects.map((project: ProjectType) =>
+    return (
+        <AnimatePresence>
+        {filteredProjects.map((project: ProjectType) =>
                             <MasonryItem 
                                 image = {project.image}
                                 altText={project.altText}
@@ -35,7 +39,8 @@ const Gallery = (props : GalleryType)=>{
                                 category = {project.category}
                                 key = {uuid()}
                             />
-                            )
+                            )}
+        </AnimatePresence>
     )
     
 }

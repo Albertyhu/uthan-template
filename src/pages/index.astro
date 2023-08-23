@@ -2,9 +2,12 @@
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import AboutSection from "@/components/Home/about_section/about.astro";
 import ChooseUsSection from "@/components/Home/choose-us/index.astro";
-import BannerSection from '@/components/Home/banner.astro';
-import ServiceSection from '@/components/Home/service-section/index.astro'; 
+import BannerSection from '@/components/Home/banner/index.astro';
+import ServiceSection from '@/components/Home/service-section/index.astro';
+
 import ProjectSection from "@/components/project/gallery/index.astro"; 
+import ProjectDemo from '@/demo/projects.json'; 
+
 import FunFactSection from "@/components/Home/funfact_section/index.astro"; 
 import TeamSection from "@/components/Home/team_section/index.astro"; 
 
@@ -23,7 +26,10 @@ import ParallaxBanner from '@/components/parallax_banner/index.astro';
     <AboutSection />
     <ChooseUsSection />
     <ServiceSection />
-    <ProjectSection />
+    <ProjectSection
+        ProjectGallery = {ProjectDemo.projects}
+    />
+    <FunFactSection />
     <TeamSection />
     <Testimonial 
         testimonials = {TestimonialDemo.data}

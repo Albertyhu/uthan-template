@@ -1,7 +1,5 @@
  
-import ProjectData from '@/demo/projects.json';
-import { useState, useEffect, useRef } from 'preact/hooks';  
-import { useStore } from '@nanostores/preact';
+import { useStore } from '@nanostores/react';
 import { SelectedCategory, AllCategories } from "@/util/atomItems.js"; 
 import uuid from 'react-uuid'; 
 
@@ -12,8 +10,8 @@ const Selector = (props: SelectorType) =>{
     // categories.unshift("all")
 
     return(
-        <div class="md:mt-[16px]">
-            <ul class="filter-tabs filter-btns md:float-right md:mt-[16px]">
+        <div className="md:mt-[16px]">
+            <ul className="filter-tabs filter-btns md:float-right md:mt-[16px]">
                 {$AllCategories  && $AllCategories .length > 0 && 
                     $AllCategories .map((item, index) =>
                         <CategoryLink 

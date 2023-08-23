@@ -1,7 +1,7 @@
 ---
-import Grass from '@/assets/images/shape/shape-2.png'; 
-import Slider from "../imageSlider/slider.tsx";
-import TitleSection from './title_section/index.astro'; 
+import Slider from "../../imageSlider/slider.tsx";
+import TitleSection from '../title_section/index.astro'; 
+import "./banner.css"; 
 var HeroImages : Array<string>= []
 try{
     var imageMap = import.meta.glob("../../assets/slides/hero/*")
@@ -21,7 +21,7 @@ try{
 >
     <div 
     class="pattern-layer absolute left-0 right-0 bottom-0 bg-repeat-x h-[54px] w-full z-[19]"
-    style = "background-image: url(../../../src/assets/images/shape/shape-2.png)"
+    id = "animated-grass"
     ></div>
     <Slider images={HeroImages} darkMask = {true} name = "hero" client:load />
     <TitleSection 

@@ -1,5 +1,5 @@
 import { defineConfig } from 'astro/config'
-import preact from '@astrojs/preact'
+//import preact from '@astrojs/preact'
 import react from '@astrojs/react'
 import tailwind from '@astrojs/tailwind'
 
@@ -11,5 +11,5 @@ export default defineConfig({
 		assets: true
 	},
 	output: 'server',
-	integrations: [preact(), react(), tailwind(), sitemap()]
+	integrations: [react(), tailwind(), sitemap()]
 })

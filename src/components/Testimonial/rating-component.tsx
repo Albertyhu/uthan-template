@@ -1,3 +1,5 @@
+import uuid from 'react-uuid';
+
 type RatingType = {
     rating: 1 | 2 | 3 | 4 | 5, 
 }
@@ -13,7 +15,13 @@ const RenderRating = (props : RatingType) =>{
     return(
         <ul className="rating relative block mb-[20px]">
             {renderRating && renderRating.length > 0 &&
-                renderRating.map(star =><li className="relative inline-block float-left text-2xl mr-[4px]"><i className="icon-25"></i></li>)
+                renderRating.map(star =>
+                    <li 
+                    className="relative inline-block float-left text-2xl mr-[4px]"
+                    key={uuid()}
+                    >
+                        <i className="icon-25"></i>
+                    </li>)
             }
         </ul>
     )

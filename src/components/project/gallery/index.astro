@@ -1,7 +1,10 @@
 ---
 import GalleryReact from './gallery-react.tsx'; 
 import "./gallery.css"
-import Selector from './selector.tsx'; 
+import Selector from './selector.tsx';
+const {
+    ProjectGallery
+} = Astro.props;  
 ---
 <section class="project-section relative pt-[32px] pb-[32px]">
     <div class="auto-container mx-auto">
@@ -13,7 +16,10 @@ import Selector from './selector.tsx';
             <Selector client:visible />
         </div>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
-            <GalleryReact client:visible />
+            <GalleryReact 
+            ProjectGallery = {ProjectGallery}
+            client:visible 
+            />
         </div>
     </div>
 </section>

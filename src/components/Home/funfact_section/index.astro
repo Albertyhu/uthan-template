@@ -3,7 +3,7 @@ import "./funfact_style.css";
 import CounterBlock from './counter-block.astro'; 
 ---
 
-<section class="funfact-section relative pt-[140px] pb-[140px] block" style="background-image: url(../src/assets/images/background/funfact-bg.jpg);">
+<section class="funfact-section relative pt-[140px] pb-[140px] block bg-[url('../src/assets/images/background/funfact-bg.jpg')]">
     <div class="container mx-auto">
         <div class="text-center mb-65">
             <span class="sub-title text-white">Fun Facts</span>
@@ -11,43 +11,25 @@ import CounterBlock from './counter-block.astro';
         </div>
         <div class="flex flex-wrap">
             <CounterBlock 
-                label = "GardenComplete"
+                label = "Garden Complete"
                 number = {90}
                 icon = {13}
             />
-            <div class="w-full md:w-1/4 p-4">
-                <div class="counter-block-one animate__animated animate__slideInUp" style="animation-delay: 200ms; animation-duration: 1500ms;">
-                    <div class="inner-box relative block pl-24">
-                        <div class="icon-box absolute inline-block text-2xl bg-white rounded-full text-theme-color p-2"><i class="icon-16"></i></div>
-                        <div class="count-outer relative block text-4xl leading-none text-white">
-                            <span class="count-text" data-speed="1500" data-stop="216">0</span>
-                        </div>
-                        <h6 class="relative block mt-2 text-base font-medium text-white">Satisfied Clients</h6>
-                    </div>
-                </div>
-            </div>
-            <div class="w-full md:w-1/4 p-4">
-                <div class="counter-block-one animate__animated animate__slideInUp" style="animation-delay: 400ms; animation-duration: 1500ms;">
-                    <div class="inner-box relative block pl-24">
-                        <div class="icon-box absolute inline-block text-2xl bg-white rounded-full text-theme-color p-2"><i class="icon-6"></i></div>
-                        <div class="count-outer relative block text-4xl leading-none text-white">
-                            <span class="count-text" data-speed="1500" data-stop="35">0</span>
-                        </div>
-                        <h6 class="relative block mt-2 text-base font-medium text-white">Experienced Staff</h6>
-                    </div>
-                </div>
-            </div>
-            <div class="w-full md:w-1/4 p-4">
-                <div class="counter-block-one animate__animated animate__slideInUp" style="animation-delay: 600ms; animation-duration: 1500ms;">
-                    <div class="inner-box relative block pl-24">
-                        <div class="icon-box absolute inline-block text-2xl bg-white rounded-full text-theme-color p-2"><i class="icon-15"></i></div>
-                        <div class="count-outer relative block text-4xl leading-none text-white">
-                            <span class="count-text" data-speed="1500" data-stop="10">0</span>
-                        </div>
-                        <h6 class="relative block mt-2 text-base font-medium text-white">Awards Win</h6>
-                    </div>
-                </div>
-            </div>
+            <CounterBlock 
+                label = "Satisfied Clients"
+                number = {216}
+                icon = {16}
+            />
+            <CounterBlock 
+                label = "Experienced Staff"
+                number = {35}
+                icon = {6}
+            />
+            <CounterBlock 
+                label = "Awards Win"
+                number = {6}
+                icon = {15}
+            />
         </div>
     </div>
 </section>

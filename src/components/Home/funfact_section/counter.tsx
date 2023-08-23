@@ -1,25 +1,18 @@
-import { useState } from "preact/hooks"; 
+
+import CountUp from 'react-countup';
 type CounterType = {
     number : number, 
+    delay? : number, 
 }
-const CounterComponent = (props: CounterType)=>{
+
+export default function CounterComponent (props: CounterType){
 const {
     number, 
 } = props; 
-    const [counter, setCounter] = useState<number>(0);
-    const SPEED = 300; 
-    let count = 0; 
-    const runCounter = () =>{
-        setInterval(()=>{
-            if(count < 90)
-                count++
-        }, SPEED)
-    }
-    runCounter(); 
     return(
-        <div class="count-outer relative block text-4xl leading-none text-white text-[70px]">
-            {count}
+        <div className="count-outer relative block text-4xl leading-none text-white text-[70px]">
+            <CountUp end = {number} />
         </div>
     )
 }
-export default CounterComponent; 
+

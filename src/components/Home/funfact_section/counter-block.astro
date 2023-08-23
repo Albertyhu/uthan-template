@@ -8,10 +8,10 @@ const {
 } = Astro.props; 
 ---
 <div class="w-full md:w-1/4 p-4">
-    <div class="counter-block-one animate__animated animate__slideInUp" style="animation-delay: 0ms; animation-duration: 1500ms;">
+    <div class="counter-block-one animate__animated animate__slideInUp">
         <div class="inner-box relative bg-transparent grid grid-cols-2">
-            <div class="text-[40px] text-theme-color">
-                <i class={`icon-${icon} w-[75px] h-[75px] leading-[40px] inline-block bg-white rounded-full before:item-center before:my-auto`}></i>
+            <div class="text-[40px] text-theme-color w-[75px]  h-[75px] leading-[40px] block bg-white rounded-full relative mx-auto">
+                <i class={`icon-${icon} iconStyle`}></i>
             </div>
             <div
                 class = "text-center sm:text-left"
@@ -20,7 +20,7 @@ const {
                     number = {number} 
                     client:visible
                     />
-                <h6 class="relative block mt-2 text-base font-medium text-white">{label}</h6>
+                <h6 class="relative block mt-2 text-base text-white !font-semibold whitespace-nowrap">{label}</h6>
             </div>
         </div>
     </div>

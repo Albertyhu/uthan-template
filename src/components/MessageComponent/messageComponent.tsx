@@ -1,8 +1,8 @@
-import { useEffect, useRef } from 'preact/hooks'
+import { useEffect, useRef } from 'react'
 import uuid from 'react-uuid'
 import './style.css'
 import { MessageArray } from '../../util/atomItems'
-import { useStore } from '@nanostores/preact'
+import { useStore } from '@nanostores/react'
 
 type MessagePropType = {
 	message: Array<string>
@@ -16,14 +16,14 @@ const MessageComponent = () => {
 		var obj1 = setTimeout(() => {
 			DivElem?.classList.remove('MessageFadeOut')
 			DivElem?.classList.add('MessageFadeIn')
-		}, [1])
+		}, 1)
 		var obj2 = setTimeout(() => {
 			MessageArray.set([])
-		}, [6000])
+		}, 6000)
 		var obj3 = setTimeout(() => {
 			DivElem?.classList.remove('MessageFadeIn')
 			DivElem?.classList.add('MessageFadeOut')
-		}, [5000])
+		}, 5000)
 	}
 
 	function RenderMessage() {

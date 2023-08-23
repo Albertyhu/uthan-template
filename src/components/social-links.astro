@@ -5,11 +5,13 @@ const { followUsText } = Astro.props;
 ---
 
 
-<ul class={`${customStyle ? customStyle : "flex flex-row [&>li]:mr-5 [&>li>a>span]:text-white"}`}>
-    {followUsText && <li><p>Follow Us:</p></li>}
-    {SiteData.twitter && <li><a href={SiteData.twitter}><span class="fab fa-twitter"></span></a></li>}
-    {SiteData.facebook && <li><a href={SiteData.facebook}><span class="fab fa-facebook-square"></span></a></li>}
-    {SiteData.pinterest && <li><a href={SiteData.pinterest}><span class="fab fa-pinterest-p"></span></a></li>}
-    {SiteData.instagram && <li><a href={SiteData.instagram}><span class="fab fa-instagram"></span></a></li>}
-    {SiteData.youtube && <li><a href={SiteData.youtube}><span class="fab fa-youtube"></span></a></li>}
-</ul>
+<div class={`${customStyle ? customStyle : "grid sm:flex sm:flex-row"}`}>
+    {followUsText && <div><p>Follow Us:</p></div>}
+    <div class="text-white [&>div]:mr-5 flex">
+        {SiteData.twitter && <div><a href={SiteData.twitter}><span class="fab fa-twitter"></span></a></div>}
+        {SiteData.facebook && <div><a href={SiteData.facebook}><span class="fab fa-facebook-square"></span></a></div>}
+        {SiteData.pinterest && <div><a href={SiteData.pinterest}><span class="fab fa-pinterest-p"></span></a></div>}
+        {SiteData.instagram && <div><a href={SiteData.instagram}><span class="fab fa-instagram"></span></a></div>}
+        {SiteData.youtube && <div><a href={SiteData.youtube}><span class="fab fa-youtube"></span></a></div>}    
+    </div>
+</div>

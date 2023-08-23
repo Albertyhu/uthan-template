@@ -10,3 +10,6 @@ framer motion
             </motion.div>
 
 https://www.youtube.com/watch?v=f4f7vwL4TcQ
+
+Lessons learnt:
+*Do not mix React with Preact. Just stick with React. 
