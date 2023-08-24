@@ -1,0 +1,75 @@
+---
+export const prerender = true; 
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import ContentWrapper from '@/layouts/ContentWrapper.astro';
+import RenderPagination from '../../../components/paginatedBlog/renderTagPagination.tsx';
+import { 
+    createStaticPathArray,
+    createStaticPathArrayForTagsAndPage, 
+ } from "../../../hooks/blogHooks"; 
+ import BlogPreview from '../../../components/blogComponents/previewLink.astro';
+import { RetrieveImageFromGlob } from "../../../hooks/imageHooks";
+import type { PostType } from '../../../util/interface';
+import { createRelativeSchema } from 'astro/dist/core/config/schema';
+
+export async function getStaticPaths() {
+    const PAGE_SIZE : number = 6;
+    var allPosts : Array<PostType> = []
+    try{
+        allPosts = await Astro.glob("../../posts/*.md") ;
+       // 
+    } catch (error){
+        allPosts = []; 
+    }
+    return createStaticPathArrayForTagsAndPage({allPosts, PAGE_SIZE})
+}
+
+const { 
+    tag,
+    page
+ } = Astro.params; 
+const { 
+    totalPages,
+    paginatedArray, 
+    totalPosts, 
+    PAGE_SIZE,
+ } = Astro.props; 
+
+---
+<BaseLayout pageTitle={tag}>
+    <ContentWrapper
+        customStyle = "w-11/12 h-auto mx-auto mb-[100px] sm:mb[0px]"
+    >
+        <h1
+            class="font-bold text-center text-2xl mt-5"
+        >Posts tagged with {tag}</h1>
+        <RenderPagination 
+            pageSize = {PAGE_SIZE}
+            totalCount = {totalPosts}}
+            currentPage = {parseInt(page)}
+            totalPages={totalPages}
+            isMobile={true}
+            client:load
+        />
+        {paginatedArray && paginatedArray.length > 0 ? 
+        <div class = "grid sm:grid-cols-2 md:grid-cols-3 gap-5 mt-10">
+            {paginatedArray.map((post : PostType) => {
+                if(post.frontmatter.featured_image){
+                    return <BlogPreview {...post.frontmatter} url = {post.url} thumbnail = {post.frontmatter.featured_image} />
+                }
+                return <BlogPreview {...post.frontmatter} url = {post.url}/>
+            })}
+        </div>
+        :
+        <div></div>
+        }
+        <RenderPagination 
+            pageSize = {PAGE_SIZE}
+            totalCount = {totalPosts}}
+            currentPage = {parseInt(page)}
+            totalPages={totalPages}
+            isMobile={false}
+            client:load
+        />
+    </ContentWrapper>
+</BaseLayout>

@@ -1,43 +1,55 @@
 ---
 import TagList  from './tagList.astro'
+import { Image } from "astro:assets";
 const {
     title,
     author, 
     description,
+    thumbnail,
     images,
     pubDate,
     tags, 
     url
 } = Astro.props; 
+import DescriptionComponent from './description.tsx'; 
 let datePublished : Date | null = pubDate ? new Date(pubDate)  : null; 
 const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+import "./style.css"; 
 ---
 <div
-    class = "rounded-lg box_shadow m-5" 
+    class = "rounded-lg post-box-shadow bg-white blog-preview-panel mb-[20px]"
+    id="blog-preview-panel"
 >
-    <div
-        id="preview_wrapper"
-        class = "w-11/12 mx-auto py-10"
-    >
-    {title && 
-        <a 
-            href={url} 
-            class = "cursor-pointer text-center text-2xl"
-            ><h2 class = "font-bold">{title}</h2></a>
-    }
-    {images && images.length > 0 &&
+    {thumbnail &&
         <div
-        class = "object-fit cursor-pointer"
+        class = "overflow-hidden cursor-pointer h-[250px] w-auto rounded-[5px_5px_0px_0px]"
         >
             <a 
                 href={url}
             >
-                <img 
-                    src = {images[0].image[0].url}
-                    alt ={images[0].image[1].alt}
+                <img
+                    src = {thumbnail}
+                    alt = {`${title} featured image`}
+                    class = "w-full h-full object-cover"
                 />
             </a>
         </div>
+        
+    }
+    <div
+        id="preview_wrapper"
+        class = "w-9/12 mx-auto py-10"
+    >
+    {datePublished &&
+        <div
+            class="text-[#7a7b80]"
+        >{datePublished.toLocaleDateString()}</div>
+    }
+    {title && 
+        <a 
+            href={url} 
+            class = "cursor-pointer text-2xl"
+            ><h2 class = "font-bold">{title}</h2></a>
     }
     <p>
     {author &&
@@ -45,16 +57,12 @@ const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric
         class = "font-bold"
         >Published by <b>{author}</b></span>
     } 
-    {datePublished &&
-        <span> | {datePublished.toLocaleDateString()}</span>
-    }
     </p>
     {description &&
-        <p><b>Description: </b>{description}</p>
-
+        <DescriptionComponent {description} client:visible />
     }
     {tags && tags.length > 0 &&
         <TagList tags = {tags} />
-    }
-</div>
+    }   
+    </div>
 </div>

@@ -20,6 +20,13 @@ import PricingSection from '@/components/pricing_section/index.astro';
 const BackImg = '../src/assets/slides/hero/banner-1.jpg';
 import ParallaxBanner from '@/components/parallax_banner/index.astro'; 
 
+import BlogSection from "@/components/blogSection/index.astro"
+const allPosts = await Astro.glob("./posts/*.md"); 
+const sortedPosts = allPosts.sort((a, b)=> {
+        var a_date : Date = new Date(a.frontmatter.pubDate)
+        var b_date : Date = new Date(b.frontmatter.pubDate)
+        return b_date.getTime() - a_date.getTime();
+        }).slice(0,3)
 ---
 <BaseLayout pageTitle = "Home">
     <BannerSection />
@@ -42,5 +49,8 @@ import ParallaxBanner from '@/components/parallax_banner/index.astro';
         title = "Artistic solutions"
         text = "We Provides Hassle-Free Garden solutions."
         CTA_link = "/"
+    />
+    <BlogSection 
+        postSelection ={sortedPosts}
     />
 </BaseLayout>
