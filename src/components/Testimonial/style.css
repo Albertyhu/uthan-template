@@ -164,3 +164,27 @@
     transform: translateX(0%)
   } 
 } 
+
+.mobile_carousel{
+  display: block; 
+}
+
+.desktop_carousel{
+  display: none; 
+}
+
+@media screen and (min-width: 770px){
+  .mobile_carousel{
+    display: none; 
+  }
+
+  .desktop_carousel{
+    display: block; 
+  }
+}
+
+@media screen and (min-width: 1140px){
+  .inner-column {
+    width: 66%; 
+  }
+}

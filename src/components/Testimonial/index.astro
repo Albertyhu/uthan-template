@@ -25,14 +25,14 @@ import NavButtons from './carousel-nav.tsx';
                             />
                 </div>
             </div>
-            <div class="w-full lg:w-8/12 md:w-full sm:w-full inner-column">
-                <div class="inner-content hidden sm:block">
+            <div class="w-full md:w-full sm:w-full inner-column">
+                <div class="inner-content desktop_carousel">
                         <Carousel 
                         testimonials={testimonials}
                         client:visible 
                         />
                 </div>
-                <div class="inner-content block sm:hidden">
+                <div class="inner-content mobile_carousel">
                         <MobileCarousel 
                         testimonials={testimonials}
                         client:visible 

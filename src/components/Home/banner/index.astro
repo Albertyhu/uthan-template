@@ -4,9 +4,8 @@ import TitleSection from '../title_section/index.astro';
 import "./banner.css"; 
 var HeroImages : Array<string>= []
 try{
-    var imageMap = import.meta.glob("../../assets/slides/hero/*")
+    var imageMap = import.meta.glob("../../../assets/slides/hero/*")
     var originalPaths = Object.keys(imageMap)
-    
     HeroImages = originalPaths.map(path => {
         return path.replace('../../assets/', '../../src/assets/');
     });

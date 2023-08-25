@@ -10,21 +10,21 @@ const {
 ---
 <div
     id = "TitleSection"
-    class = "absolute h-fit w-full top-[50%] translate-y-[-50%] left-[50%] translate-x-[-50%] z-[50] text-white font-['Prata']"
+    class = "absolute h-fit w-full top-[50%] translate-y-[-50%] left-[50%] translate-x-[-50%] z-[50] text-white font-['Prata', sans-serif]"
     >
     <div
         class="w-11/12 sm:max-w-[800px] mx-auto"
     >
         <h1
-            class = "text-white text-[50px] leading-[50px] sm:text-[90px] sm:leading-[90px] fadeInUp font-['Prata']"
+            class = "text-white text-[50px] leading-[50px] sm:text-[90px] sm:leading-[90px] fadeInUp font-['Prata',serif]"
         >{MainTitle}</h1>
         <h2
-            class = "text-white text-[20px] my-10 fadeInUp opacity-0 animation-delay-1 font-['Montserrat']"
+            class = "text-white text-[20px] my-10 fadeInUp opacity-0 animation-delay-1 font-['Montserrat',sans-serif]"
         >{Subtext}</h2>
         <LiquidButton 
             {button_label}
             {link}
-            customStyle ="fadeInUp opacity-0 animation-delay-2 font-['Montserrat'] text-[17px]"
+            customStyle ="fadeInUp opacity-0 animation-delay-2 font-['Montserrat',sans-serif] text-[17px]"
         />
     </div>
 </div>

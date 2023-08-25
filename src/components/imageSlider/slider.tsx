@@ -3,6 +3,7 @@ import {
     useEffect, 
 } from 'react'; 
 import uuid from 'react-uuid'; 
+import './slider.css';
 
 //takes in array of string pathways of the images
 type SliderType = {

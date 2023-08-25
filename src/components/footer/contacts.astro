@@ -1,5 +1,7 @@
 ---
 import ColumnLabel from './column_label.astro';
+import SiteData from '@/customization/siteData.json'; 
+import { formatPhoneNumber, phoneNumberToNumeric } from "@/hooks/number_hooks.tsx"; 
 ---
 <div class="col-lg-3 col-md-6 col-sm-12 footer-column">
     <div class="footer-widget contact-widget">
@@ -8,15 +10,22 @@ import ColumnLabel from './column_label.astro';
         </div>
         <div class="widget-content">
             <ul class="contact-info clearfix">
+                {SiteData.address && SiteData.address != "" && 
                 <li class="relative block mb-[20px]">
-                    <p class="text-lg">Flat 20, Reynolds Neck, North Helenaville, FV77 8WS</p>
+                    <p class="text-lg">{SiteData.address}</p>
                 </li>
+                }
+                {SiteData.business_phone &&
                 <li class="relative block mb-[20px]">
-                    <p class="text-lg"><a href="tel:23055873407">+2(305) 587-3407</a></p>
-                </li>
+                    <p class="text-lg"><a href={`tel:${phoneNumberToNumeric(SiteData.business_phone)}`}>{ formatPhoneNumber(SiteData.business_phone)}</a></p>
+                </li>            
+                }
+                {SiteData.business_email && SiteData.business_email.length > 0 &&
                 <li class="relative block">
-                    <p class="text-lg"><a href="mailto:info@example.com">info@example.com</a></p>
+                    <p class="text-lg"><a href={SiteData.business_email}>{SiteData.business_email}</a></p>
                 </li>
+                }
+
             </ul>
         </div>
     </div>
