@@ -11,3 +11,7 @@ export const MessageArray = atom([])
 export const SelectedCategory = atom("all")
 
 export const AllCategories = atom(categories); 
+
+export const CarouselPosition = atom(0)
+
+export const TestimonialSideDirection = atom("");

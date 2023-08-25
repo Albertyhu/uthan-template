@@ -3,27 +3,52 @@ import "./style.css"
 const {
     testimonials, 
 } = Astro.props; 
-import CarouselItem from './carousel-item.tsx'; 
 import Carousel from './carousel.tsx'; 
+import MobileCarousel from './carousel-mobile.tsx'; 
+import NavButtons from './carousel-nav.tsx'; 
+
 ---
 <section class="testimonial-section relative sec-pad mb-[10px]">
-    <div class="bg-layer absolute" id = "testimonial-background"></div>
+    <div class="bg-layer absolute bg-[url('../../src/assets/images/background/testimonial-bg.jpg')]" id = "testimonial-background"></div>
+    <div
+        id = "shape-9"  
+        class="slideOutLeft absolute left-[0px] bottom-[0px] w-[341px] h-[385px] bg-norepeat bg-[url('../src/assets/images/shape/shape-9.png')]"></div>
     <div class="auto-container">
         <div class="flex flex-wrap">
             <div class="w-full lg:w-4/12 md:w-full sm:w-full title-column">
                 <div class="sec-title">
                     <span class="sub-title">Testimonials</span>
                     <h2>Trusted by 10K Customer</h2>
+                        <NavButtons 
+                            client:visible 
+                            size = {testimonials.length}
+                            />
                 </div>
             </div>
             <div class="w-full lg:w-8/12 md:w-full sm:w-full inner-column">
-                <div class="inner-content">
-                    <Carousel 
-                    testimonials={testimonials}
-                    client:visible 
-                    />
+                <div class="inner-content hidden sm:block">
+                        <Carousel 
+                        testimonials={testimonials}
+                        client:visible 
+                        />
+                </div>
+                <div class="inner-content block sm:hidden">
+                        <MobileCarousel 
+                        testimonials={testimonials}
+                        client:visible 
+                        />
                 </div>
             </div>
         </div>
     </div>
 </section>
+<script>
+    const ShapeNine = document.getElementById("shape-9")
+    const ShapeNineObserver = new IntersectionObserver((entries)=>{
+        if(entries[0].isIntersecting){
+            entries[0].target.classList.remove("slideOutLeft")
+        }
+    })
+    if(ShapeNine)
+        ShapeNineObserver.observe(ShapeNine); 
+</script>

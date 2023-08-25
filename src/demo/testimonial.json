@@ -13,6 +13,27 @@
             "rating": 4, 
             "testimonial": "Lorem ipsum dolor amet consectur adicing elit sed do usmod tempor incididunt enim ad minim veniam quis nostrud.",
             "profile_image": "../src/assets/images/resource/testimonial-1.jpg"
+        },
+        {
+            "name": "Rob Townsend",
+            "designation": "Real Estate Agent", 
+            "rating": 5, 
+            "testimonial": "Lorem ipsum dolor amet consectur adicing elit sed do usmod tempor incididunt enim ad minim veniam quis nostrud.",
+            "profile_image": "../src/assets/images/resource/testimonial-1.jpg"
+        },
+        {
+            "name": "Henry Tsar",
+            "designation": "Pricinpal administrator", 
+            "rating": 5, 
+            "testimonial": "Lorem ipsum dolor amet consectur adicing elit sed do usmod tempor incididunt enim ad minim veniam quis nostrud.",
+            "profile_image": "../src/assets/images/resource/testimonial-1.jpg"
+        },
+        {
+            "name": "Sarah Jenkins",
+            "designation": "Project coordinator", 
+            "rating": 5, 
+            "testimonial": "Lorem ipsum dolor amet consectur adicing elit sed do usmod tempor incididunt enim ad minim veniam quis nostrud.",
+            "profile_image": "../src/assets/images/resource/testimonial-1.jpg"
         }
     ]
 }

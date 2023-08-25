@@ -99,12 +99,6 @@
     box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px;
 }
 
-/* .carousel-grid{
-    display: grid;
-    grid-template-columns: repeat(auto-fill, 375px);
-    gap: 1rem;
-} */
-
 #testimonial-background{
   background-image: url('../src/assets/images/background/testimonial-bg.jpg');
 }
@@ -112,3 +106,61 @@
 #Carousel-shape-8 {
   background-image: url('../src/assets/images/shape/shape-8.png')
 }
+
+#shape-9 {
+  transition-duration: 1500ms; 
+  transition: transform 1500ms, opacity 1500ms;  
+}
+
+.slideOutLeft{
+  opacity: 0;
+  transform:translateX(-100%)
+} 
+
+.nav_box_shadow{
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px;
+}
+
+ .carousel-grid{
+  transition: opacity 2000s, transform 2000s;
+  animation-fill-mode: forwards;
+  animation-play-state: running;
+
+} 
+
+.slideFromLeft{
+  animation-duration: 1s;
+  animation-name: slide-in-left;
+  animation-iteration-count: 1;
+  /* animation-fill-mode: forwards;  */
+
+}
+.slideFromRight{
+  animation-duration: 1s;
+  animation-name: slide-in-right;
+  animation-iteration-count: 1;
+  /* animation-fill-mode: forwards;  */
+} 
+
+
+@keyframes slide-in-left {
+  from {
+    opacity: 0; 
+    transform: translateX(-100px)
+  } 
+  to {    
+    opacity: 1; 
+    transform: translateX(0%)
+  } 
+} 
+
+@keyframes slide-in-right {
+  from {
+    opacity: 0; 
+    transform: translateX(100px)
+  } 
+  to {    
+    opacity: 1; 
+    transform: translateX(0%)
+  } 
+} 

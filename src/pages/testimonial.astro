@@ -1,0 +1,12 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro"
+import TestimonialSection from '@/components/Testimonial/index.astro'; 
+import TestimonialDemo from '@/demo/testimonial.json'; 
+---
+<BaseLayout
+pageTitle="Testimonial"
+>
+<TestimonialSection 
+    testimonials = {TestimonialDemo.data}
+/>
+</BaseLayout>

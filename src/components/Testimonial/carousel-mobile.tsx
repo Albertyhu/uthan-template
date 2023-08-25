@@ -22,7 +22,7 @@ const Carousel = (props : PropsType) =>{
     } = props; 
     const $CarouselPosition  = useStore(CarouselPosition);  
     const $TestimonialSideDirection = useStore(TestimonialSideDirection); 
-    var displaySize = 2; 
+    var displaySize = 1; 
     const [displayed, setDisplayed] = useState<Array<CarouselItemType>>(testimonials.slice(0, displaySize)); 
     const slideRef = useRef<HTMLDivElement>(null); 
     const setPosition = (position : number) : Array<CarouselItemType>=>{
@@ -73,11 +73,10 @@ const Carousel = (props : PropsType) =>{
     },[])
 
     return(
-        <div 
-
+        <div
             ref={slideRef}
             id="CarouselSlide"
-            className="carousel-grid grid gap-10 grid-cols-[repeat(auto-fill,250px)] xm:grid-cols-[repeat(auto-fill,300px)] sm:grid-cols-[repeat(auto-fill,350px)] mx-auto">
+            className="carousel-grid grid mx-auto">
             {testimonials && testimonials.length > 0 && 
                 displayed.map(testimonial => <CarouselItem {...testimonial} key = {uuid()} />)
             }
