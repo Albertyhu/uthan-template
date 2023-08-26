@@ -1,0 +1,97 @@
+---
+export const prerender = true;
+import BaseLayout from '../../layouts/BaseLayout.astro'; 
+import RenderPagination from '../../components/paginatedBlog/renderPagination.tsx';
+import { 
+    createStaticPathArray,
+ } from "@/hooks/blogHooks.tsx"; 
+import Searchbar from '@/components/search/index.astro';
+import BlogPreview from '../../components/blogComponents/previewLink.astro';
+import { RetrieveImageFromGlob } from "../../hooks/imageHooks.tsx";
+import type { PostType } from '../../util/interface.tsx';
+
+
+export async function getStaticPaths() {
+    const PAGE_SIZE : number = 6;
+    var allPosts : Array<PostType> | [] = []; 
+    var totalPages : number = 0
+    try{
+        allPosts = await Astro.glob("../posts/*.md")
+        totalPages = Math.ceil(allPosts.length/PAGE_SIZE);
+    } catch(error){
+        allPosts = []
+    }
+    var imageFiles = {}
+    try{
+        imageFiles = import.meta.glob("../../assets/uploads/*"); 
+    } catch (error){
+        imageFiles = {}
+    }
+    return createStaticPathArray({
+        allPosts, 
+        PAGE_SIZE,
+        totalPages, 
+        imageFiles, 
+    })
+}   
+const {page} = Astro.params; 
+const {
+    totalPages,
+    imageFiles,
+    paginatedArray,
+    totalPosts,
+    PAGE_SIZE
+    } = Astro.props;  
+let inBound = page && typeof parseInt(page) === "number" && parseInt(page) <= totalPages; 
+if(!inBound && totalPages != 0) {
+    return Astro.redirect("/error")
+}
+---
+<BaseLayout pageTitle = "Blog posts">
+    <div
+    class = "mb-[100px] w-11/12 mx-auto"
+    id="content-wrapper"
+    >
+    <h1 
+            class = "font-bold text-2xl text-center mt-10"
+        >Blog posts</h1>
+        <Searchbar />
+        {totalPosts === 0 &&
+            <h2
+                class ="text-center text-2xl my-5"
+            >There are currently no blog posts published at the moment.</h2>
+        }
+        {totalPages > 1 &&
+            <RenderPagination 
+                pageSize = {PAGE_SIZE}
+                totalCount = {totalPosts as number}
+                currentPage = {parseInt(page)}
+                totalPages = {totalPages}
+                isMobile = {true}
+                client:load
+            />
+        }
+        {paginatedArray && paginatedArray.length > 0 && 
+            <div class = "grid sm:grid-cols-2 md:grid-cols-3 gap-5 mt-10">
+                {paginatedArray.map(async (post :PostType) =>{
+                    if(post.frontmatter.featured_image){
+                        return <BlogPreview {...post.frontmatter} url = {post.url} thumbnail = {post.frontmatter.featured_image} />
+                    }
+                    return <BlogPreview {...post.frontmatter} url = {post.url}/>
+                })}
+            </div>
+        }
+        {totalPages > 1 &&
+            <div class = "w-full h-auto">
+                    <RenderPagination 
+                        pageSize = {PAGE_SIZE}
+                        totalCount = {totalPosts as number}
+                        currentPage = {parseInt(page)}
+                        totalPages = {totalPages}
+                        isMobile = {false}
+                        client:load
+                    />
+            </div>
+        }
+    </div>
+</BaseLayout>

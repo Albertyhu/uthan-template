@@ -1,13 +1,13 @@
 ---
-import Header from "../components/HeaderComponent/header.astro";
-import Footer from "../components/footer/index.astro";
-import "../styles/global.css";
+import Header from "@/components/HeaderComponent/header.astro";
+import Footer from "@/components/footer/index.astro";
+import "@/styles/global.css";
 const { 
     pageTitle, 
     customDescription, 
     frontmatter, 
  } = Astro.props;
-import ScrollTopButton from "../components/scrollTopButton.astro";
+import ScrollTopButton from "@/components/scrollTopButton.astro";
 import SEO from "@/components/SEO.astro";
 import MessageComponent from "@/components/MessageComponent/messageComponent";
 import FooterColumns from "@/demo/footer.json"
@@ -17,12 +17,12 @@ import FooterColumns from "@/demo/footer.json"
     <head>
         <meta charset="utf-8" />
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-        <link href="../../src/assets/css/font-awesome-all.css" rel="stylesheet">
-        <link href="../../src/assets/css/animate.css" rel="stylesheet">
-        <link href="../../src/assets/css/flaticon.css" rel="stylesheet">
-        <link href="../../src/assets/css/color.css" rel="stylesheet">
-        <link href="../../src/assets/css/style.css" rel="stylesheet">
-        <link href="../../src/assets/css/responsive.css" rel="stylesheet">
+        <link href="../../../src/assets/css/font-awesome-all.css" rel="stylesheet">
+        <link href="../../../src/assets/css/animate.css" rel="stylesheet">
+        <link href="../../../src/assets/css/flaticon.css" rel="stylesheet">
+        <link href="../../../src/assets/css/color.css" rel="stylesheet">
+        <link href="../../../src/assets/css/style.css" rel="stylesheet">
+        <link href="../../../src/assets/css/responsive.css" rel="stylesheet">
         <meta name="viewport" content="width=device-width" />
         <meta name="generator" content={Astro.generator} />
         <SEO 

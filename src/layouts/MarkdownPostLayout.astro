@@ -2,11 +2,35 @@
 import BaseLayout from "./BaseLayout.astro";
 import TagList from "../components/taglist/taglist.astro";
 import RecentPosts from '@/components/blogComponents/recent_post/index.astro'; 
+import AnimatedGrass from "@/components/animated_grass/index.astro"; 
+import type { PostType } from "@/util/interface.tsx"; 
+import SearchComponent from '@/components/search/index.astro';
 const { frontmatter } = Astro.props;
 const tags = frontmatter.tags; 
+
+var allPosts : Array<PostType> = []; 
+try {
+    allPosts = await Astro.glob("../pages/posts/*.md"); 
+} catch(error){
+    console.log("error: ", error)
+}
+var selectedPosts : Array<PostType> = []
+if(allPosts && allPosts.length > 0){
+    selectedPosts = allPosts.sort((a, b)=> {
+            var a_date : Date = new Date(a.frontmatter.pubDate)
+            var b_date : Date = new Date(b.frontmatter.pubDate)
+            return b_date.getTime() - a_date.getTime();
+            }).slice(0,3)
+}
+
 ---
 
 <BaseLayout pateTitle={frontmatter.title} {frontmatter}>
+    <div
+        class="relative h-[250px] w-full bg-[url('../../src/assets/images/banner/japanese-garden.jpg')] bg-center before:absolute before:content-[''] before:bg-[rgba(0,0,0,0.4)] before:w-full before:h-full before:z-10"
+    >
+        <AnimatedGrass /> 
+    </div>
     <div 
         class = "flex flex-col sm:flex-row sm:gap-10 mt-5 w-11/12 mx-auto"
     > 
@@ -25,12 +49,17 @@ const tags = frontmatter.tags;
                 ><b>{frontmatter.author}</b></a></p>
             <hr class="border-2 bg-black w-full mb-5" />
             <slot />
-        </div>
-        <div class = "grid min-w-[33.33%]">
             {tags && tags.length > 0 &&
                 <TagList tags = {tags} />
             }
-            <RecentPosts />
+        </div>
+        <div class = "flex flex-col min-w-[33.33%]">
+            <SearchComponent 
+                {allPosts}
+            />
+            <RecentPosts 
+                posts = {selectedPosts}
+             />
         </div>
     </div>  
 </BaseLayout>
