@@ -1,0 +1,40 @@
+
+---
+import './style.css'
+import type { ReactElement} from 'react';
+
+type PostType = {
+    thumbnail?: HTMLImageElement,
+    title: string, 
+    date: string, 
+    url: string
+}
+const {
+    thumbnail,
+    title, 
+    date, 
+    url
+} = Astro.props; 
+const formattedTittle = title.length < 32 ? title : `${title.substr(0 ,32)}...`;
+const formattedDate = new Date(date); 
+---
+<a href = {url}>
+<div class="flex flex-row gap-10 relative min-h-[100px] text-[16px] my-5 ">
+        <div>
+        {thumbnail && 
+            <figure class="rounded-lg overflow-hidden w-[80px] h-[80px]">
+                <img 
+                src={thumbnail} 
+                alt="thumbnail image"
+                class="w-full h-full object-cover" />
+            </figure>
+        }
+        </div>
+        <div class = "grid">
+            <h5 class="text-lg font-medium mb-[6px]">{formattedTittle}</h5>
+            <span class="post-date relative block text-xl leading-[28px]">{formattedDate.toDateString()}</span>
+        </div>
+
+</div>
+</a>
+

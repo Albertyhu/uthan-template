@@ -1,148 +1,147 @@
 export interface postType {
-	title: string
-	pubDate: Date
-	description: string
-	author: string
-	images: Array<ImageType | string>
-	tags: Array<TagType | string>
-	body: HTMLElement | string
+  title: string,
+  pubDate: Date,
+  description: string,
+  author: string,
+  images: Array<ImageType | string>,
+  tags: Array<TagType | string>,
+  body: HTMLElement | string,
 }
 
 export interface ImageMetadata {
-	src: string
-	width: number
-	height: number
-	format: string
+  src: string,
+  width: number,
+  height: number,
+  format: string,
 }
 
-
 export type GalleryContextType = {
-	selectCat: string, 
-	setSelect: (c:string)=>void, 
+  selectCat: string,
+  setSelect: (c: string) => void,
 }
 
 export type ProjectType = {
-        image : string | HTMLImageElement, 
-        altText: string,
-        name: string, 
-        category: string, 
+  image: string | HTMLImageElement,
+  altText: string,
+  name: string,
+  category: string,
 }
 
 export type CarouselItemType = {
-	testimonial: string, 
-    name: string, 
-    designation: string,
-    rating: 1 | 2 | 3 | 4 | 5,
-    profile_image: string | HTMLImageElement, 
+  testimonial: string,
+  name: string,
+  designation: string,
+  rating: 1 | 2 | 3 | 4 | 5,
+  profile_image: string | HTMLImageElement,
 }
 
 export type PricingType = {
-	plan: string,
-    price: number, 
-    features?: Array<string>,
-    CTA_link: string, 
-    main_color?: string, 
-    button_color?: string, 
+  plan: string,
+  price: number,
+  features?: Array<string>,
+  CTA_link: string,
+  main_color?: string,
+  button_color?: string,
 }
 
 export type FooterColumnType = {
-	label: string, 
-	links?: Array<FooterLinkType>
+  label: string,
+  links?: Array<FooterLinkType>,
 }
 
 export type FooterLinkType = {
-	label: string,
-	link?: string, 
+  label: string,
+  link?: string,
 }
 
 export interface PostType {
-    frontmatter: {
-        layout: string,    
-        title: string, 
-        pubDate: Date, 
-        description: string, 
-        author: string, 
-        featured_image: string, 
-        images: Array<ImageType> | null | undefined, 
-        tags: Array<TagType> | null | undefined, 
-        body: HTMLElement | string | null | undefined, 
-    }
+  frontmatter: {
+    layout: string,
+    title: string,
+    pubDate: Date,
+    description: string,
+    author: string,
+    featured_image: string | HTMLImageElement,
+    images: Array<ImageType> | null | undefined,
+    tags: Array<TagType> | null | undefined,
+    body: HTMLElement | string | null | undefined,
+  },
 }
 
 export type ImageType = {
-    url: string,
-    alt: string,
-}; 
+  url: string,
+  alt: string,
+}
 
 export type TagType = {
-    tag: string, 
-};
+  tag: string,
+}
 
 export type TagObject = {
-    tag: string, 
+  tag: string,
 }
 
 export type TagListType = {
-    tags: Array<TagType>, 
+  tags: Array<TagType>,
 }
 
 export type ContactSubmission = {
-    email: string, 
-    subject: string, 
-    message: string, 
+  email: string,
+  subject: string,
+  message: string,
 }
 
 export interface ImageMetadata {
-  src: string;
-  width: number;
-  height: number;
-  format: string;
+  src: string,
+  width: number,
+  height: number,
+  format: string,
 }
 
 export interface GlobObjectType {
-  [key: string]: () => Promise<any>; // Change 'any' to the actual type of the image if known
+  [key: string]: () => Promise<any>, // Change 'any' to the actual type of the image if known
 }
 
 export type UsePaginationType = {
-    currentPage: number,
-    totalCount: number,
-    pageSize: number, 
-} 
+  currentPage: number,
+  totalCount: number,
+  pageSize: number,
+}
 
 export type RenderPaginationType = {
-    currentPage: number,
-    totalCount: number,
-    pageSize: number, 
-    totalPages: number, 
-    isMobile: boolean, 
-    search_query?: string | null | undefined, 
-} 
+  currentPage: number,
+  totalCount: number,
+  pageSize: number,
+  totalPages: number,
+  isMobile: boolean,
+  search_query?: string | null | undefined,
+}
 
 export type SearchQueryType = {
-    query : string, 
-    list: Array<any>, 
-} 
+  query: string,
+  list: Array<any>,
+}
 
 export interface CreateStaticPathArrayType {
-    allPosts: Array<PostType>, 
-    PAGE_SIZE: number,
-    totalPages: number, 
-    imageFiles: object, 
+  allPosts: Array<PostType>,
+  PAGE_SIZE: number,
+  totalPages: number,
+  imageFiles: object,
 }
 
 export interface TagStaticPathArrayType {
-    allPosts: Array<PostType>, 
-    PAGE_SIZE: number,
+  allPosts: Array<PostType>,
+  PAGE_SIZE: number,
 }
 
 export interface PathArray_TagsAndPageType {
-    params: {
-        tag: string, 
-        page: number, 
-    },
-    props: {
-        totalPages: number,
-        paginatedArray: Array<PostType>, 
-        totalPosts: number, 
-    }
+  params: {
+    tag: string,
+    page: number,
+  },
+  props: {
+    totalPages: number,
+    paginatedArray: Array<PostType>,
+    totalPosts: number,
+  },
 }

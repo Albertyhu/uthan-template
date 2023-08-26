@@ -11,6 +11,7 @@ tags:
   - tag: Trees
   - tag: methods
 ---
+
 1. Selection and Planting
 
 Choosing the right tree for your garden is a crucial first step. Consider factors such as your climate, soil type, and available space. Native trees often adapt better to local conditions, requiring less maintenance. When planting, follow these guidelines:

@@ -1,36 +1,35 @@
-/*slider */ 
-.darkMask::before{
-	position:absolute;
+/*slider */
+.darkMask::before {
+	position: absolute;
 	inset: 0;
-	content: ''; 
-	z-index: 3; 
+	content: '';
+	z-index: 3;
 	width: 100%;
 	height: 100%;
-	background-color: rgba(0,0,0, 0.6); 
-	background-position: center;	
+	background-color: rgba(0, 0, 0, 0.6);
+	background-position: center;
 }
 
 .slideProp {
-	transition: opacity 2s; 
-	background-position: center; 
-	z-index:1;
-	opacity: 1.0;
-
+	transition: opacity 2s;
+	background-position: center;
+	z-index: 1;
+	opacity: 1;
 }
 
-.slide-pan-forward{
-	animation: slidePanForward 10s; 
+.slide-pan-forward {
+	animation: slidePanForward 10s;
 }
 
-.slide-fade-out{
-	opacity: 0.0 !important; 
+.slide-fade-out {
+	opacity: 0 !important;
 }
 
 .hiddenSlide {
-	display: none; 
+	display: none;
 }
 
-/*keyframes for grass */ 
+/*keyframes for grass */
 @keyframes slide {
 	from {
 		background-position: 0 0;
@@ -49,7 +48,7 @@
 	}
 }
 
-/*keyframes for slide scale of slider */ 
+/*keyframes for slide scale of slider */
 
 @keyframes slidePanForward {
 	from {

@@ -1,0 +1,23 @@
+---
+import type { PostType } from '../../../util/interface.tsx';
+import PostItem from './item.astro'; 
+const { RecentPosts } = Astro.props; 
+---
+<div class="flex flex-col">
+    {
+        RecentPosts.map((post : PostType, index: number) => 
+        <div>
+            <PostItem 
+                thumbnail = {post.frontmatter.featured_image}
+                title = {post.frontmatter.title}
+                date = {post.frontmatter.pubDate}
+                url = {post.url}
+            />
+        {index < RecentPosts.length - 1 && 
+            <hr class = "border-[1px] bg-[#dbdbdb]" />
+        }
+        </div>
+        )
+    }
+</div>
+    

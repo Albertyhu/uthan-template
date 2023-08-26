@@ -22,7 +22,7 @@ import { formatPhoneNumber, phoneNumberToNumeric } from "@/hooks/number_hooks.ts
                 }
                 {SiteData.business_email && SiteData.business_email.length > 0 &&
                 <li class="relative block">
-                    <p class="text-lg"><a href={SiteData.business_email}>{SiteData.business_email}</a></p>
+                    <p class="text-lg"><a href={`mailto:${SiteData.business_email}`}>{SiteData.business_email}</a></p>
                 </li>
                 }
 

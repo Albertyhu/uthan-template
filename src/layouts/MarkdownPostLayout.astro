@@ -1,15 +1,23 @@
 ---
 import BaseLayout from "./BaseLayout.astro";
 import TagList from "../components/taglist/taglist.astro";
+import RecentPosts from '@/components/blogComponents/recent_post/index.astro'; 
 const { frontmatter } = Astro.props;
 const tags = frontmatter.tags; 
 ---
 
 <BaseLayout pateTitle={frontmatter.title} {frontmatter}>
     <div 
-        class = "flex flex-col sm:flex-row sm:gap-[5em] mt-5"
-    >
+        class = "flex flex-col sm:flex-row sm:gap-10 mt-5 w-11/12 mx-auto"
+    > 
         <div>
+            {frontmatter.featured_image && 
+                <div
+                    class ="max-h-[500px] w-full overflow-hidden justify-center mb-10"
+                >
+                    <img src ={frontmatter.featured_image} class = "w-full h-full object-cover" />
+                </div>
+            }
             <h1 class="text-2xl font-bold">{frontmatter.title}</h1>
             <p>Written by <a 
                 href ={`/authors/${frontmatter.author}`}
@@ -18,10 +26,11 @@ const tags = frontmatter.tags;
             <hr class="border-2 bg-black w-full mb-5" />
             <slot />
         </div>
+        <div class = "grid min-w-[33.33%]">
             {tags && tags.length > 0 &&
                 <TagList tags = {tags} />
             }
-        <div>
+            <RecentPosts />
         </div>
     </div>  
 </BaseLayout>

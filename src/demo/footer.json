@@ -1,59 +1,60 @@
 [
-    {
-    "label": "Links",
-    "links":[
-            {
-                "label": "About Company",
-                "link": "/"
-            },
-            {
-                "label": "Services",
-                "link": "/"
-            },
-            {
-                "label": "How It Works",
-                "link": "/"
-            },
-            {
-                "label": "Our Blog",
-                "link": "/"
-            },
-            {
-                "label": "Contact Us",
-                "link": "/"
-            },
-            {
-                "label": "Testimonials",
-                "link": "/"
-            }
-    ]},
-    {
-        "label": "Services",
-        "links":[
-            {
-                "label": "Donate",
-                "link": "/"
-            },
-            {
-                "label": "Sponsor",
-                "link": "/"
-            },
-            {
-                "label": "Fundraise",
-                "link": "/"
-            },
-            {
-                "label": "Volunteer",
-                "link": "/"
-            },
-            {
-                "label": "Partner",
-                "link": "/"
-            },
-            {
-                "label": "Jobs",
-                "link": "/"
-            }
-    ]}
+	{
+		"label": "Links",
+		"links": [
+			{
+				"label": "About Company",
+				"link": "/"
+			},
+			{
+				"label": "Services",
+				"link": "/"
+			},
+			{
+				"label": "How It Works",
+				"link": "/"
+			},
+			{
+				"label": "Our Blog",
+				"link": "/"
+			},
+			{
+				"label": "Contact Us",
+				"link": "/"
+			},
+			{
+				"label": "Testimonials",
+				"link": "/"
+			}
+		]
+	},
+	{
+		"label": "Services",
+		"links": [
+			{
+				"label": "Donate",
+				"link": "/"
+			},
+			{
+				"label": "Sponsor",
+				"link": "/"
+			},
+			{
+				"label": "Fundraise",
+				"link": "/"
+			},
+			{
+				"label": "Volunteer",
+				"link": "/"
+			},
+			{
+				"label": "Partner",
+				"link": "/"
+			},
+			{
+				"label": "Jobs",
+				"link": "/"
+			}
+		]
+	}
 ]
-

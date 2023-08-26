@@ -92,10 +92,10 @@
 		@apply text-center;
 	}
 	.p_relative {
-		@apply relative; 
+		@apply relative;
 	}
-	.feature-block{
-		@apply relative w-full
+	.feature-block {
+		@apply relative w-full;
 	}
 }
 :root {
@@ -247,15 +247,15 @@ html.dark {
 	-webkit-animation: slide 60s linear infinite;
 }
 
-#BannerSection::before{
-	position:absolute;
+#BannerSection::before {
+	position: absolute;
 	inset: 0;
-	content: ''; 
-	z-index: 1; 
+	content: '';
+	z-index: 1;
 	width: 100%;
 	height: 100%;
-	opacity: 0.6; 
-	background-color: rgba(0,0,0); 
+	opacity: 0.6;
+	background-color: rgba(0, 0, 0);
 	background-position: center;
 }
 

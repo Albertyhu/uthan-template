@@ -1,1 +1,1 @@
-export const DOTS = "...";
+export const DOTS = '...'

@@ -1,4 +1,5 @@
 ---
+import type { PostType} from "@/util/interface.tsx"; 
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import AboutSection from "@/components/Home/about_section/about.astro";
 import ChooseUsSection from "@/components/Home/choose-us/index.astro";
@@ -21,12 +22,14 @@ const BackImg = '../src/assets/slides/hero/banner-1.jpg';
 import ParallaxBanner from '@/components/parallax_banner/index.astro'; 
 
 import BlogSection from "@/components/blogSection/index.astro"
+import { RecentPostsStore } from "@/util/atomItems.js"
 const allPosts = await Astro.glob("./posts/*.md"); 
 const sortedPosts = allPosts.sort((a, b)=> {
         var a_date : Date = new Date(a.frontmatter.pubDate)
         var b_date : Date = new Date(b.frontmatter.pubDate)
         return b_date.getTime() - a_date.getTime();
         }).slice(0,3)
+        RecentPostsStore.set(sortedPosts)
 ---
 <BaseLayout pageTitle = "Home">
     <BannerSection />

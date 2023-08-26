@@ -1,28 +1,26 @@
-import { useRef, useEffect } from 'react'; 
-import "./style.css"
+import { useRef, useEffect } from 'react'
+import './style.css'
 
-const RenderDescription = ( props  : {description: string}) =>{
-  const {description} = props; 
-  const paraRef = useRef<HTMLParagraphElement>(null)
+const RenderDescription = (props: { description: string }) => {
+	const { description } = props
+	const paraRef = useRef<HTMLParagraphElement>(null)
 
-  useEffect(()=>{
-    if(paraRef.current && paraRef.current.offsetHeight > 50){
-        paraRef.current.classList.add("description")
-    }
+	useEffect(() => {
+		if (paraRef.current && paraRef.current.offsetHeight > 50) {
+			paraRef.current.classList.add('description')
+		}
+	}, [paraRef.current])
 
-  },[paraRef.current]) 
-
-
-return(
-    <p 
-        ref = {paraRef}
-        id = "description_p"
-        className = "h-auto w-full overflow-hidden relative before:absolute before:inset-0 before:z-[2] max-h-[100px]"
-    >
-        <b>Description: </b>{description}
-    </p>
-)
+	return (
+		<p
+			ref={paraRef}
+			id="description_p"
+			className="relative h-auto max-h-[100px] w-full overflow-hidden before:absolute before:inset-0 before:z-[2]"
+		>
+			<b>Description: </b>
+			{description}
+		</p>
+	)
 }
 
-
-export default RenderDescription; 
+export default RenderDescription

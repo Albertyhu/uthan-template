@@ -1,16 +1,17 @@
 ---
 layout: ../../layouts/MarkdownPostLayout.astro
-title: "Mastering the Art of Potted Plant Care: A Comprehensive Guide"
+title: 'Mastering the Art of Potted Plant Care: A Comprehensive Guide'
 pubDate: '2023-07-31T19:17:10-07:00'
 description: "Potted plants are a wonderful addition to any space, bringing a touch of nature's beauty indoors and outdoors alike. However, the art of keeping potted plants thriving requires a combination of knowledge, dedication, and a green thumb. Whether you're a seasoned plant enthusiast or just starting out on your gardening journey, this guide will provide you with valuable insights to ensure your potted plants flourish and bring joy to your surroundings."
 author: Marwa Lake
 images: []
 featured_image: /src/assets/uploads/pots.jpg
-tags: 
+tags:
   - tag: potted plants
   - tag: art
   - tag: methods
 ---
+
 <h1>1. Choosing the Right Containers</h1>
 
 Selecting the right pots is the foundation of successful potted plant care:
