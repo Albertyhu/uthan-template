@@ -16,11 +16,11 @@
 			},
 			{
 				"label": "Our Blog",
-				"link": "/"
+				"link": "/blog/1"
 			},
 			{
 				"label": "Contact Us",
-				"link": "/"
+				"link": "/contact"
 			},
 			{
 				"label": "Testimonials",

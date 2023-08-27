@@ -1,0 +1,18 @@
+---
+import AnimatedGrass from "../animated_grass/index.astro"; 
+const {
+  image = '../../src/assets/images/banner/japanese-garden.jpg'
+} = Astro.props; 
+
+---
+<div
+    id = "small_banner"
+    class={`relative h-[250px] w-full bg-center before:absolute  before:content-[''] before:bg-[rgba(0,0,0,0.4)] before:w-full before:h-full before:z-10`}
+>
+    <img 
+        src = {image} 
+        class = "w-full h-full object-cover"
+        alt="banner image"
+    />
+    <AnimatedGrass /> 
+</div>

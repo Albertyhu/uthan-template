@@ -16,7 +16,7 @@ export const menuMap = [
 		]
 	},
 	{
-		url: '/blog/',
+		url: '/blog/1',
 		label: 'Blog',
 		subDirectory: []
 	},

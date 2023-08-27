@@ -23,6 +23,8 @@ if(allPosts && allPosts.length > 0){
             }).slice(0,3)
 }
 
+const formattedDate = new Date(frontmatter.pubDate)
+
 ---
 
 <BaseLayout pateTitle={frontmatter.title} {frontmatter}>
@@ -42,15 +44,25 @@ if(allPosts && allPosts.length > 0){
                     <img src ={frontmatter.featured_image} class = "w-full h-full object-cover" />
                 </div>
             }
+            {frontmatter.pubDate && 
+                <p
+                    class = "relative block text-[15px] mb-[2px] text-slate-400"
+                >{formattedDate.toLocaleDateString()}</p>
+            }
             <h1 class="text-2xl font-bold">{frontmatter.title}</h1>
             <p>Written by <a 
                 href ={`/authors/${frontmatter.author}`}
                 class = "hover:underline cursor-pointer"
                 ><b>{frontmatter.author}</b></a></p>
-            <hr class="border-2 bg-black w-full mb-5" />
+            <hr class="border-2 bg-black w-full my-5" />
             <slot />
             {tags && tags.length > 0 &&
+            <div class = "mt-10">
+                <h3
+                    class ="font-bold text-base"
+                >Tags: </h3>
                 <TagList tags = {tags} />
+            </div>
             }
         </div>
         <div class = "flex flex-col min-w-[33.33%]">

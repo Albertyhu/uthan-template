@@ -2,14 +2,11 @@
 export const prerender = true;
 import BaseLayout from '../../layouts/BaseLayout.astro'; 
 import RenderPagination from '../../components/paginatedBlog/renderPagination.tsx';
-import { 
-    createStaticPathArray,
- } from "@/hooks/blogHooks.tsx"; 
+import { createStaticPathArray } from "../../hooks/blogHooks.ts"; 
 import Searchbar from '@/components/search/index.astro';
 import BlogPreview from '../../components/blogComponents/previewLink.astro';
 import { RetrieveImageFromGlob } from "../../hooks/imageHooks.tsx";
 import type { PostType } from '../../util/interface.tsx';
-
 
 export async function getStaticPaths() {
     const PAGE_SIZE : number = 6;
