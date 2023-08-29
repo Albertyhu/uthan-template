@@ -5,6 +5,7 @@ import RecentPosts from '@/components/blogComponents/recent_post/index.astro';
 import AnimatedGrass from "@/components/animated_grass/index.astro"; 
 import type { PostType } from "@/util/interface.tsx"; 
 import SearchComponent from '@/components/search/index.astro';
+import Banner from '@/components/small_banner/index.astro'
 const { frontmatter } = Astro.props;
 const tags = frontmatter.tags; 
 
@@ -24,15 +25,11 @@ if(allPosts && allPosts.length > 0){
 }
 
 const formattedDate = new Date(frontmatter.pubDate)
-
 ---
 
 <BaseLayout pateTitle={frontmatter.title} {frontmatter}>
-    <div
-        class="relative h-[250px] w-full bg-[url('../../src/assets/images/banner/japanese-garden.jpg')] bg-center before:absolute before:content-[''] before:bg-[rgba(0,0,0,0.4)] before:w-full before:h-full before:z-10"
-    >
-        <AnimatedGrass /> 
-    </div>
+    <Banner 
+    />
     <div 
         class = "flex flex-col sm:flex-row sm:gap-10 mt-5 w-11/12 mx-auto"
     > 

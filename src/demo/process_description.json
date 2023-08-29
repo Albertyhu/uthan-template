@@ -1,0 +1,24 @@
+{
+    "data":[
+        {
+            "title": "Easy Online Booking",
+            "description": "Can be done in a few minutes.",
+            "iconNumber": 17
+        },
+        {
+            "title": "Set Gardening Service",
+            "description": "To assist, we provide excellent onsite consulting free of charge.",
+            "iconNumber": 18
+        },
+        {
+            "title": "Generate Unique Ideas",
+            "description": "We help to identify the best solution tailored to your needs.",
+            "iconNumber": 19
+        },
+        {
+            "title": "Final Delivery",
+            "description": "We guarantee excellent service.",
+            "iconNumber": 20
+        }
+    ]
+}

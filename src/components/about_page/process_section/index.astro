@@ -1,0 +1,27 @@
+---
+import WorkBlock from './work-block.astro'; 
+import "../about-style.css"; 
+const {
+    process
+} = Astro.props; 
+---
+<section class="working-section alternat-2 relative pb-[140px] text-center">
+    <div class="auto-container">
+        <div class="sec-title mb-[65px]">
+            <span class="sub-title">Process</span>
+            <h2>We Always Work Done by The <br>Following Process</h2>
+        </div>
+        <div class="flex flex-col sm:flex-row">
+            {process && process && process.length > 0 && 
+                process.map((item, index) =>
+                    <WorkBlock title = {item.title}
+                        description = {item.description}
+                        iconNumber= {item.iconNumber}
+                        index = {index + 1}
+                        hidden = {index >= process.length - 1}
+                    /> 
+                )
+            }
+        </div>
+    </div>
+</section>

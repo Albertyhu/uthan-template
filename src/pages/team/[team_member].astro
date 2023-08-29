@@ -1,0 +1,131 @@
+---
+export const prerender = true; 
+import TeamMembers from "../../demo/team_members.json";
+import BaseLayout from "../../layouts/BaseLayout.astro";  
+import Banner from '../../components/small_banner/index.astro'; 
+import ContentWrapper from '../../layouts/ContentWrapper.astro'
+import { 
+    phoneNumberToNumeric,
+     formatPhoneNumber
+ } from '../../hooks/number_hooks'; 
+
+export const getStaticPaths = ( async () => {
+    return TeamMembers.members.map(member=>{
+        const urlName = (member.name.toLowerCase()).replace(/\s+/g, '_')
+        return{
+            params: {team_member: urlName}, 
+            props: {
+                name: member.name, 
+                designation: member.designation,
+                phone: member.phone,
+                email: member.email,  
+                link: member.link,
+                facebook: member.facebook,
+                twitter: member.twitter,
+                google: member.google,
+                profile_image: member.profile_image, 
+                biography: member.biography,
+            }
+        }
+    });
+})
+const {team_member} = Astro.params; 
+const {
+        name, 
+        designation,
+        phone,
+        email,  
+        link,
+        facebook,
+        twitter,
+        google, 
+        profile_image, 
+        biography, 
+
+} = Astro.props; 
+---
+<style>
+    .profile_image{
+        transition-duration: 5000ms; 
+    }
+    .iconStyle::before {
+        position: absolute; 
+        display: block;
+        top: 50%;
+        left: 50%;
+        transform: translateY(-50%) translateX(-50%);
+        text-align: center;        
+    }
+</style>
+<BaseLayout pageTitle = {TeamMembers.name}>
+
+<Banner 
+    title = {name}
+    subtitle = {designation}
+/>
+<ContentWrapper>
+    <div
+    id="team-layout"
+    class = "flex flex-col sm:flex-row" 
+    >
+        <div id = "left-column">
+        {profile_image && 
+            <div
+                class = "w-11/12 h-auto mx-auto sm:ml-0 rounded-lg my-10 overflow-hidden"
+            >
+                <img 
+                    id = "profile_image"
+                    src = {profile_image} 
+                    alt={name} 
+                    class = "h-full w-full object-cover transition-all hover:scale-125"
+                    />
+            </div>    
+        }
+            <ul>
+            {phone && 
+                <li class="relative block mb-[20px]">
+                    <p class="text-lg"><a href={`tel:${phoneNumberToNumeric(phone)}`}><b>Phone number: </b>{ formatPhoneNumber(phone)}</a></p>
+                </li>                 
+            }
+            {email && 
+                <li class="relative block">
+                    <p class="text-lg"><a href={`mailto:${email}`}><b>Email: </b>{email}</a></p>
+                </li>       
+            }
+            </ul>    
+        </div>
+        <div 
+        id ="right-column"
+        class = "sm:max-w-[60%]"
+        >
+            <h1
+                class ="font-bold text-3xl font-['Montserrat',sans-serif] mt-8"
+            >{name}</h1>
+            {designation &&
+                <h3
+                class ="text-slate-400"
+                >{designation}</h3>
+            }
+            {biography && 
+                <p
+                    class = "my-10 text-slate-500"
+                >{biography}</p>
+            }
+                <h3
+                    class ="text-slate-800 font-['Monserrat',sans-serif] text-2xl mb-5"
+                >Follow Me On: </h3>
+                <ul class="[&>li]:rounded-full [&>li]:border-[#dbdbdb] [&>li]:border-[1px] [&>li]:p-1 [&>li]:w-[44px] [&>li]:h-[44px] [&>li]:text-center [&>li>a>*]:m-auto">
+                    {facebook && 
+                    <li class="relative inline-block mr-[10px]"><a href={facebook} class="block black hover:bg hover:bg-[#FFFFFF1A] text-center"><i class="fab fa-facebook-f iconStyle"></i></a></li>
+                    }
+                    {twitter && 
+                    <li class="relative inline-block mr-[10px]"><a href={twitter} class="block black hover:bg hover:bg-[#FFFFFF1A]"><i class="fab fa-twitter iconStyle"></i></a></li>
+                    }
+                    {google &&
+                    <li class="relative inline-block"><a href={google} class="block black hover:bg hover:bg-[#FFFFFF1A]"><i class="fab fa-google-plus-g iconStyle"></i></a></li>
+                    }
+                </ul>
+        </div>
+    </div>
+</ContentWrapper>
+</BaseLayout>

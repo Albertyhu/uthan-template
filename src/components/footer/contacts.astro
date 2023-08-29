@@ -15,6 +15,30 @@ import { formatPhoneNumber, phoneNumberToNumeric } from "@/hooks/number_hooks.ts
                     <p class="text-lg">{SiteData.address}</p>
                 </li>
                 }
+                {(SiteData.city || SiteData.state || SiteData.country || SiteData.zip) && 
+                    <li class="relative block mb-[20px]">
+                        <p class="text-lg">
+                            {SiteData.city &&
+                            <span>{SiteData.city},</span>
+                            }
+                            {SiteData.state && 
+                            <span>{SiteData.state}</span>
+                            }
+                            {SiteData.zip && 
+                            <span>{SiteData.zip}</span>
+                            }
+                        </p>
+                    </li>
+                }
+                {SiteData.country && 
+                    <li
+                        class="relative block mb-[20px]"
+                    >
+                        <p
+                            class="text-lg"
+                        >{SiteData.country}</p>
+                    </li>
+                }
                 {SiteData.business_phone &&
                 <li class="relative block mb-[20px]">
                     <p class="text-lg"><a href={`tel:${phoneNumberToNumeric(SiteData.business_phone)}`}>{ formatPhoneNumber(SiteData.business_phone)}</a></p>

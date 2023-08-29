@@ -1,7 +1,8 @@
 {
 	"title": "template site",
-	"business_name": "Uthan",
+	"business_name": "Green Tusk Landscaping",
 	"description": "My musings about the Astro framework",
+	"year_founded": 1997, 
 	"owner_name": "TheLastSliceOfPizza",
 	"owner_email": "hualbert@rocketmail.com",
 	"address": "Chicago 13",

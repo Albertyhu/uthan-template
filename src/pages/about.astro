@@ -1,7 +1,27 @@
   
 ---
+export const prerender = true
 import BaseLayout from '../layouts/BaseLayout.astro';
+import ContentWrapper from '@/layouts/ContentWrapper.astro';
+import Banner from '@/components/small_banner/index.astro'; 
+import SiteData from '@/customization/siteData.json'; 
+import ProcessSection from '@/components/about_page/process_section/index.astro';
+import HistorySection from "@/components/about_page/history-section.astro";
+import Process from '@/demo/process_description.json'; 
 ---
+<style>
+.about-box-shadow{
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+</style>
 <BaseLayout pageTitle = "About Us" >
-  <h2>My awesome blog subtitle</h2>
+  <Banner 
+  image = "../../src/assets/images/banner/garden-worker.jpg" 
+  title = "About Us"
+  subtitle = "Serving clients in US for over 20 years"
+  />
+  <HistorySection />
+  <ContentWrapper>
+    <ProcessSection process = {Process.data} />
+  </ContentWrapper>
 </BaseLayout>

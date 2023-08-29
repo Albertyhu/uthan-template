@@ -1,0 +1,26 @@
+---
+const {
+    title,
+    description, 
+    index, 
+    hidden, 
+    iconNumber, 
+} = Astro.props; 
+var number = index > 10 ? index : `0${index}`; 
+---
+<div class="w-11/12 sm:w-[300px] mx-auto">
+    <div class="working-block-one wow fadeInUp animated animated" data-wow-delay="0ms" data-wow-duration="1500ms" style="visibility: visible; animation-duration: 1500ms; animation-delay: 0ms; animation-name: fadeInUp;">
+        <div class="inner-box relative block pl-[15px] pr-[15px]">
+            {!hidden && 
+            <div class="top-[66px] right-[-22%] translate-x-[-50%] w-[66px] h-[36px] bg-no-repeat absolute hidden sm:block" style="background-image: url(../src/assets/images/icons/arrow-2.png);"></div>
+            }
+            <div class="icon-box relative inline-block mb-[35px] transition-[5s]">
+                <div class="shape absolute transition-[5s]" style="background-image: url(../src/assets/images/shape/shape-20.png);"></div>
+                <div class="icon relative inline-block text-[70px] theme-color z-[1]"><i class={`icon-${iconNumber}`}></i></div>
+                <span class="absolute text-[22px] font-medium text-white bg-[#2f7955] w-fit h-fit rounded-lg transition-[5s]">{number}</span>
+            </div>
+            <h3 class="block text-[24px] leading-[30px] font-medium mb-[20px]">{title}</h3>
+            <p class="block text-[15px] leading-[26px]">{description}</p>
+        </div>
+    </div>
+</div>
