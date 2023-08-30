@@ -1,11 +1,13 @@
 ---
+import "./style.css"; 
 const { 
     image,
     altText,
     } = Astro.props; 
 ---
 <div
-    class ="h-auto w-11/12 mx-auto sm:h-[370px] sm:w-[370px] overflow-hidden rounded-lg" 
+    id = "image-component"
+    class ="h-auto w-11/12 mx-auto md:h-[370px] md:w-[370px] overflow-hidden rounded-lg  grow-[3]" 
 >
     <img 
     src = {image} 

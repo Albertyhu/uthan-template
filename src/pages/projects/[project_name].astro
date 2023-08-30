@@ -48,19 +48,21 @@ const {
     endDate, 
 } = Astro.props;
 var imageArr = images && images.length > 0 ? [...images] : []; 
-var gridImages = images.slice(0,3);
+var gridImages = images ? images.slice(0,3) : [];
 const challenge_image = imageArr.pop();
 const solution_image = imageArr.pop(); 
 
 ---
 <BaseLayout pageTitle = {name}>
     <Banner title = {name} />
-    <ContentWrapper>
+    <div
+        class = "w-11/12 mx-auto sm:w-9/12"
+    >
         {images && images.length >= 3 && 
             <ImageGrid images ={gridImages} />
         }
         <div
-            class = "flex flex-col-reverse sm:flex-row gap-10"
+            class = "flex flex-col-reverse grow xl:flex-row gap-10"
         >
             <div
                 id="Project-left-column"
@@ -88,6 +90,5 @@ const solution_image = imageArr.pop();
                 />
             </div>
         </div>
-    </ContentWrapper>
-
+    </div>
 </BaseLayout>

@@ -9,11 +9,13 @@ import "./style.css";
 <section 
     class = "my-10"
 >
-    <h2>Project Challenges</h2>
+    <h2>Project Challenge</h2>
     <div
-        class = "grid sm:grid-cols-[auto_1fr] gap-10"
+        class = "flex flex-col-reverse sm:flex-row sm:gap-10"
     >
-        <div>{challenge}</div>
+        <div
+            class = "grow basis-36"
+        >{challenge}</div>
         {image && 
             <ImageComponent 
                 image = {image} 

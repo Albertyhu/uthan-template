@@ -4,7 +4,6 @@ export const prerender = true
 import BaseLayout from '../layouts/BaseLayout.astro';
 import ContentWrapper from '@/layouts/ContentWrapper.astro';
 import Banner from '@/components/small_banner/index.astro'; 
-import SiteData from '@/customization/siteData.json'; 
 import ProcessSection from '@/components/about_page/process_section/index.astro';
 import HistorySection from "@/components/about_page/history-section.astro";
 import Process from '@/demo/process_description.json'; 
@@ -20,8 +19,8 @@ import Process from '@/demo/process_description.json';
   title = "About Us"
   subtitle = "Serving clients in US for over 20 years"
   />
-  <HistorySection />
   <ContentWrapper>
+    <HistorySection />
     <ProcessSection process = {Process.data} />
   </ContentWrapper>
 </BaseLayout>

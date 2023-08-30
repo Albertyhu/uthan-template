@@ -1,9 +1,11 @@
 ---
 const {images} = Astro.props; 
+import './style.css';
 import ImageComponent from "./image_component.astro";
 ---
 <div 
-    class = "grid sm:grid-cols-3 gap-10 sm:mt-10"
+    id = "image-grid"
+    class = "flex flex-row flex-wrap gap-5 mt-10 [&>div]:w-[250px] [&>div]:h-[250px] xm:[&>div]:w-[330px] xm:[&>div]:h-[330px]"
 >
     {images && images.length > 0 &&
         images.map((image : string | HTMLImageElement, index : number) =>
