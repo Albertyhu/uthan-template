@@ -8,15 +8,21 @@ const {
 ---
 <div class="rounded-lg service-block">
     <div class="service-block-one wow fadeInUp animated" data-wow-delay="00ms" data-wow-duration="1500ms">
-        <div class="inner-box relative block bg-white rounded-[5px] pt_40 pl_20 pr_20 pb_40 tran_5">
+        <div class="inner-box relative block bg-white rounded-[5px] h-[550px]">
             <div class="image-box relative block mb-[45px]">
-                <figure class="image inline-block rounded-[50%] img_hover_1"><img src={thumbnail} alt=""></figure>
+                <figure class="w-[190px] h-[190px] inline-block rounded-full img_hover_1 overflow-hidden">
+                    <img 
+                        src={thumbnail} 
+                        alt={`${title} thumbnail`}
+                        class = "bg-center w-full h-full object-cover"
+                        />
+                </figure>
                 <div class="absolute overflow-hidden w-[70px] h-[70px] leading-[70px] bg-[#eaf1ee] left-[50%] translate-x-[-50%] bottom-[-46px] icon_overlay text-[#2f7955] rounded-[10px] z-2 mb-[30px] text-[35px] inline-block icon-block">
                     <i class="icon-10"></i></div>
             </div>
             <h3 class="relative block text-[22px] mb-[17px] font-medium"><a href="service-details.html" class="inline-block">{title}</a></h3>
-            <p class="mb-[17px]">{tagline}}</p>
-            <div class="link-box relative">
+            <p class="mb-[17px]">{tagline}</p>
+            <div class="link-box relative cursor-pointer">
                 <a href={link} class="text-[#b6b7b9] inline-block link-btn"><i class="far fa-long-arrow-right text-[20px]"></i></a>
                 <a href={link} class="overlay-btn font-[16px] absolute font-medium inline-block whitespace-nowrap">Learn More<i class="far fa-long-arrow-right absolute text-[20px]"></i></a>
             </div>

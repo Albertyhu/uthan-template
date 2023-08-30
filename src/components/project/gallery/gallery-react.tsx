@@ -2,16 +2,10 @@ import MasonryItem from './masonry-item.tsx'
 import { SelectedCategory } from '@/util/atomItems.js'
 import { useStore } from '@nanostores/react'
 import { motion, AnimatePresence } from 'framer-motion'
+import type { ProjectType } from '@/util/interface.tsx'
 import uuid from 'react-uuid'
 type GalleryType = {
 	ProjectGallery: Array<ProjectType>
-}
-
-type ProjectType = {
-	image: string | HTMLImageElement
-	altText: string
-	name: string
-	category: string
 }
 
 const Gallery = (props: GalleryType) => {
@@ -30,6 +24,8 @@ const Gallery = (props: GalleryType) => {
 			{filteredProjects.map((project: ProjectType) => (
 				<MasonryItem
 					image={project.image}
+					thumbnail = {project.thumbnail}
+					images = {project.images}
 					altText={project.altText}
 					name={project.name}
 					category={project.category}

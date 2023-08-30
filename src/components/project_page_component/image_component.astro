@@ -1,0 +1,15 @@
+---
+const { 
+    image,
+    altText,
+    } = Astro.props; 
+---
+<div
+    class ="h-auto w-11/12 mx-auto sm:h-[370px] sm:w-[370px] overflow-hidden rounded-lg" 
+>
+    <img 
+    src = {image} 
+    alt = {altText ? altText : "projectimage"}  
+    class = "object-cover w-full h-full"
+    />
+</div>

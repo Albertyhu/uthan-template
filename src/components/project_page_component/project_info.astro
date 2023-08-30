@@ -1,0 +1,46 @@
+---
+const {
+    category,
+    client, 
+    startDate,
+    endDate,
+} = Astro.props; 
+---
+<div
+    class = "rounded-lg border-[1px] border-slate-300 w-11/12 mx-auto sm:w-[400px] mt-5 sm:mt-10" 
+>
+    <div
+        class = "w-10/12 m-auto py-10 [&>*]:mb-5 [&>*]:font-['Montserrat',sans-serif]"
+    >
+        <h3
+            class = "font-['Prata',serif] block text-[30px] mb-[12px]"
+        >Project Info</h3>
+        {category &&
+            <>
+                <div><b>Category : </b>{category}</div>            
+                <hr 
+                    class ="border-[1px] bg-slate-300 w-full"
+                />
+            </>
+        }
+        {client && 
+            <>
+                <div><b>Client : </b>{client}</div>
+                <hr 
+                    class ="border-[1px] bg-slate-300 w-full"
+                />
+            </>
+        }
+        {startDate && 
+            <>
+                <div><b>Start : </b>{startDate}</div>
+                <hr 
+                        class ="border-[1px] bg-slate-300 w-full"
+                    />
+            </> 
+        }
+        {endDate &&
+            <div><b>End : </b>{endDate}</div>
+        }
+    </div>
+</div>

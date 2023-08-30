@@ -1,0 +1,24 @@
+---
+const {
+    solution, 
+    image
+} = Astro.props; 
+import ImageComponent from "./image_component.astro";
+import "./style.css"; 
+---
+<section
+    class = "my-10"
+>
+    <h2>Project Challenges</h2>
+    <div
+        class = "grid sm:grid-cols-[1fr_auto] gap-10"
+    >
+    {image && 
+        <ImageComponent 
+            image = {image} 
+            altText="challenge project"
+        />
+    }
+    <div>{solution}</div>
+    </div>
+</section>

@@ -1,0 +1,93 @@
+---
+export const prerender = true;
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import ContentWrapper from "../../layouts/ContentWrapper.astro";
+import Banner from '../../components/small_banner/index.astro'; 
+import {projects} from '../../demo/projects.json';
+import ImageGrid from "@/components/project_page_component/image_grid.astro";
+import DescriptionSection from "@/components/project_page_component/description_section.astro";
+import ChallengeSection from "@/components/project_page_component/challenge_section.astro";
+import SolutionSection from "@/components/project_page_component/solution_section.astro";
+import ProjectInfo
+ from "@/components/project_page_component/project_info.astro";
+export async function getStaticPaths() {
+    return projects.map(project =>{
+        const urlTitle = (project.name.toLowerCase()).replace(/\s+/g, '_')
+        return {
+            params: {
+                project_name: urlTitle, 
+            }, 
+            props: {
+                name: project.name, 
+                category: project.category,
+                altText: project.altText, 
+                thumbnail: project.thumbnail, 
+                images: project.images,
+                description: project.description,
+                client: project.client,
+                challenge: project.challenge,
+                solution: project.solution,
+                startDate: project.startDate,
+                endDate: project.endDate, 
+            }
+        }
+    })
+}
+const {project_name} = Astro.params; 
+const {
+    name, 
+    category,
+    altText, 
+    thumbnail, 
+    images,
+    description,
+    client,
+    challenge,
+    solution,
+    startDate,
+    endDate, 
+} = Astro.props;
+var imageArr = images && images.length > 0 ? [...images] : []; 
+var gridImages = images.slice(0,3);
+const challenge_image = imageArr.pop();
+const solution_image = imageArr.pop(); 
+
+---
+<BaseLayout pageTitle = {name}>
+    <Banner title = {name} />
+    <ContentWrapper>
+        {images && images.length >= 3 && 
+            <ImageGrid images ={gridImages} />
+        }
+        <div
+            class = "flex flex-col-reverse sm:flex-row gap-10"
+        >
+            <div
+                id="Project-left-column"
+            >
+                <DescriptionSection
+                    description={description}
+                />
+                <ChallengeSection 
+                    {challenge}
+                    image = {challenge_image ? challenge_image : null}
+                />
+                <SolutionSection 
+                    {solution}
+                    image = {solution_image ? solution_image : null}
+                />
+            </div>
+            <div
+                id="project-right-column"
+            >
+                <ProjectInfo 
+                    {category}
+                    {client}
+                    {startDate}
+                    {endDate}
+                />
+            </div>
+        </div>
+    </ContentWrapper>
+
+</BaseLayout>

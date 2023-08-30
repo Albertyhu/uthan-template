@@ -22,6 +22,8 @@ export type GalleryContextType = {
 
 export type ProjectType = {
   image: string | HTMLImageElement,
+  thumbnail?: string | HTMLImageElement, 
+  images?: Array<string | HTMLImageElement>,
   altText: string,
   name: string,
   category: string,

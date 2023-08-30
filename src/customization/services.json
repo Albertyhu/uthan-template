@@ -1,0 +1,28 @@
+{
+    "data": [
+        {
+            "thumbnail": "../../src/assets/images/service/landscape-design.jpg",
+            "title": "Landscape Design", 
+            "tagline": "Transforming visions into breathtaking outdoor realities, our landscape designs weave nature's beauty with your dreams.",
+            "link": "/services/landscape-design"
+        },
+        {
+            "thumbnail": "../../src/assets/images/service/tree-removal-small.jpg",
+            "title": "Tree Removal", 
+            "tagline": "Safely and sensitively removing trees to preserve your landscape's harmony and safety.",
+            "link": "/services/tree-removal"
+        },
+        {
+            "thumbnail": "../../src/assets/images/service/lawn-2-small.jpg",
+            "title": "Lawn Returfing", 
+            "tagline": "From patchy to pristine, we revive lawns into lush, inviting carpets of green.",
+            "link": "/services/lawn-returfing"
+        },
+        {
+            "thumbnail": "../../src/assets/images/service/lawn-small.jpg",
+            "title": "Artifical Turf Installation", 
+            "tagline": "Enjoy the look of real grass without the upkeep – artificial turf that's always perfectly manicured.",
+            "link": "/services/artifical-turf-installation"
+        }
+    ]
+}

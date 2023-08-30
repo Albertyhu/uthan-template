@@ -1,13 +1,17 @@
 import './gallery.css'
 import { motion, AnimatePresence } from 'framer-motion'
-type ProjectType = {
-	image: string | HTMLImageElement
-	altText: string
-	name: string
-	category: string
-}
+import type { ProjectType } from '@/util/interface'
+
 const MasonaryItem = (props: ProjectType) => {
-	const { image, altText = '', name = '', category = '' } = props
+	const { 
+		image,
+		thumbnail,
+		altText = '',
+		name = '', 
+		category = '' 
+	} = props
+
+	const urlTitle = (name.toLowerCase()).replace(/\s+/g, '_')
 	return (
 		<motion.div
 			layout
@@ -19,8 +23,12 @@ const MasonaryItem = (props: ProjectType) => {
 		>
 			<div className="project-block-one">
 				<div className="inner-block item-center relative mb-8 block">
-					<figure className="image-box relative block rounded-md">
-						<img src={image} alt={altText} />
+					<figure className="image-box relative block rounded-md w-[370px] h-[290px] overflow-hidden">
+						<img 
+							src={thumbnail} 
+							alt={altText} 
+							className = "object-cover w-full h-full"
+							/>
 					</figure>
 					<div className="content-box absolute flex text-center transition duration-300">
 						<div className="inner relative">
@@ -28,7 +36,7 @@ const MasonaryItem = (props: ProjectType) => {
 								<i className="icon-10"></i>
 							</div>
 							<h3 className="mb-3 block text-lg font-medium text-white transition duration-300">
-								<a href="project-details.html" className="inline-block text-white">
+								<a href={`./projects/${urlTitle}`} className="inline-block text-white">
 									{name.toUpperCase()}
 								</a>
 							</h3>

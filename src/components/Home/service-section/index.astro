@@ -1,6 +1,7 @@
 ---
 import "./service-style.css"; 
 import ServiceBlock from './service-block.astro'; 
+import ServicesDemo from '@/customization/services.json';
 ---
 
 <!-- service-section -->
@@ -11,30 +12,16 @@ import ServiceBlock from './service-block.astro';
             <h2>What Kind of Services <br />We are Offering</h2>
         </div>
         <div class="grid sm:grid-cols-4 gap-5">
-            <ServiceBlock 
-                thumbnail="../src/assets/images/service/service-1.jpg"
-                title = "Green Technology"
-                tagline = "Lorem ipsum dolor sit elit consectetur sed."
-                link = "service-details.html"
-            />
-             <ServiceBlock 
-                thumbnail="../src/assets/images/service/service-1.jpg"
-                title = "Urban Gardening"
-                tagline = "Lorem ipsum dolor sit elit consectetur sed."
-                link = "service-details.html"
-            />
-            <ServiceBlock 
-                thumbnail="../src/assets/images/service/service-1.jpg"
-                title = "Nursery/Tree Farm"
-                tagline = "Lorem ipsum dolor sit elit consectetur sed."
-                link = "service-details.html"
-            />           
-            <ServiceBlock 
-                thumbnail="../src/assets/images/service/service-1.jpg"
-                title = "Trimming & Pruning"
-                tagline = "Lorem ipsum dolor sit elit consectetur sed."
-                link = "service-details.html"
-            />                   
+            {ServicesDemo && ServicesDemo.data && ServicesDemo.data.length > 0 &&
+                ServicesDemo.data.map(service =>
+                    <ServiceBlock 
+                        thumbnail = {service.thumbnail}
+                        title = {service.title}
+                        tagline = {service.tagline}
+                        link = {service.link}
+                    />
+                )
+            }      
         </div>
     </div>
 </section>

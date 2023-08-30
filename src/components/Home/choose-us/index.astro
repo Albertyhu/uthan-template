@@ -2,6 +2,7 @@
 ---
 import "./choose-style.css"
 import SellingPoints from './selling-ponts.astro'; 
+import SiteData from '@/customization/siteData.json'; 
 ---
 <!-- chooseus-section -->
 <section class="chooseus-section relative block">
@@ -17,17 +18,17 @@ import SellingPoints from './selling-ponts.astro';
             </div>
             <div class="grid sm:grid-cols-[40%_60%]">
                 <div class="image-column">
-                    <figure class="image-box relative block img_hover_3"><img src="../src/assets/images/resource/chooseus-1.jpg" alt=""></figure>
+                    <figure class="image-box relative block img_hover_3"><img src="../src/assets/images/resource/garden-worker.jpg" alt=""></figure>
                 </div>
                 <div class="content-column">
                     <div class="content_block_2">
                         <div class="content-box relative block pt-[65px] pl-[40px] pr-[70px] pb-[30px]">
                             <div class="sec-title mb-10">
-                                <span class="sub-title">People Love</span>
+                                <span class="sub-title">When People Want a Peace of Mind</span>
                                 <h2>They Choose Us.</h2>
                             </div>
                             <div class="text relative block mb-35">
-                                <p>Fruit is their fill meat, hath abundantly place meat don't stars so and which signs third second after seasons under.</p>
+                                <p>Discover tranquility in the beauty of nature. At {SiteData.business_name}, we understand the significance of peace of mind. Our expert team specializes in crafting landscapes that not only captivate the senses but also create a sanctuary of serenity. When the world feels overwhelming, our harmonious designs bring solace. Choose {SiteData.business_name} for landscapes that inspire calm and elevate your spirits.</p>
                             </div>
                             <div class="relative block bg-transparent pt-10">
                                 <SellingPoints />

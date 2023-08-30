@@ -4,36 +4,36 @@
 			"name": "Nicolas Lawson",
 			"designation": "Designer",
 			"rating": 5,
-			"testimonial": "Lorem ipsum dolor amet consectur adicing elit sed do usmod tempor incididunt enim ad minim veniam quis nostrud.",
-			"profile_image": "../src/assets/images/resource/testimonial-1.jpg"
+			"testimonial": "Natural Patterns turned our vague ideas into an awe-inspiring reality. Their design team crafted a paradise that exceeded our wildest dreams!",
+			"profile_image": "../src/assets/images/resource/nicolas.jpg"
 		},
 		{
-			"name": "Eva Green",
+			"name": "Charlotte McGreggor",
 			"designation": "Manager",
 			"rating": 4,
-			"testimonial": "Lorem ipsum dolor amet consectur adicing elit sed do usmod tempor incididunt enim ad minim veniam quis nostrud.",
-			"profile_image": "../src/assets/images/resource/testimonial-1.jpg"
+			"testimonial": "We were blown away by the attention to detail in our landscape design. Every corner feels like a work of art. Thank you, Natural Patterns!",
+			"profile_image": "../src/assets/images/resource/charlotte.jpg"
 		},
 		{
 			"name": "Rob Townsend",
 			"designation": "Real Estate Agent",
 			"rating": 5,
-			"testimonial": "Lorem ipsum dolor amet consectur adicing elit sed do usmod tempor incididunt enim ad minim veniam quis nostrud.",
-			"profile_image": "../src/assets/images/resource/testimonial-1.jpg"
+			"testimonial": "The Natural Patterns team truly captured the essence of our home in their design. Our outdoor space has become an extension of who we are.",
+			"profile_image": "../src/assets/images/resource/rob.jpg"
 		},
 		{
-			"name": "Henry Tsar",
+			"name": "Lara Tsar",
 			"designation": "Pricinpal administrator",
 			"rating": 5,
-			"testimonial": "Lorem ipsum dolor amet consectur adicing elit sed do usmod tempor incididunt enim ad minim veniam quis nostrud.",
-			"profile_image": "../src/assets/images/resource/testimonial-1.jpg"
+			"testimonial": "From concept to completion, the process was smooth and collaborative. Their designers brought creativity and expertise that made our project seamless.",
+			"profile_image": "../src/assets/images/resource/lara.jpg"
 		},
 		{
 			"name": "Sarah Jenkins",
 			"designation": "Project coordinator",
 			"rating": 5,
-			"testimonial": "Lorem ipsum dolor amet consectur adicing elit sed do usmod tempor incididunt enim ad minim veniam quis nostrud.",
-			"profile_image": "../src/assets/images/resource/testimonial-1.jpg"
+			"testimonial": "Natural Patterns transformed our backyard into a haven of tranquility. We now spend more time outdoors, surrounded by the beauty they created.",
+			"profile_image": "../src/assets/images/resource/sarah.jpg"
 		}
 	]
 }
