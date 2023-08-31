@@ -11,7 +11,7 @@ import ScrollTopButton from "@/components/scrollTopButton.astro";
 import SEO from "@/components/SEO.astro";
 import MessageComponent from "@/components/MessageComponent/messageComponent";
 import FooterColumns from "@/demo/footer.json"
-
+import ServiceDemo from '@/customization/services.json'; 
 ---
 <html lang="en">
     <head>
@@ -34,7 +34,9 @@ import FooterColumns from "@/demo/footer.json"
         <title>{pageTitle}</title>
     </head>
     <body>
-        <Header />
+        <Header 
+            serviceList = {ServiceDemo.data}
+        />
         <MessageComponent client:load />
         <div
         id="backdrop"

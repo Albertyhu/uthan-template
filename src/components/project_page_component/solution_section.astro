@@ -3,7 +3,7 @@ const {
     solution, 
     image
 } = Astro.props; 
-import ImageComponent from "./image_component.astro";
+import ImageComponent from "../image_component.astro";
 import "./style.css"; 
 ---
 <section
@@ -20,7 +20,7 @@ import "./style.css";
         />
     }
     <div
-        class = "grow basis-36"
+        class = "grow basis-80"
     >{solution}</div>
     </div>
 </section>

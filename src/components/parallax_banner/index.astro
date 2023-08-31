@@ -3,20 +3,23 @@
 const {
     BackImg,
     title,
-    text, 
-    CTA_link, 
+    text = "We Provide Hassle-Free Garden Solutions.", 
+    CTA_link,
+    btnText ="Learn How  We Do?",  
 } = Astro.props;  
 ---
 <!-- cta-section -->
 <section class="cta-section relative pt-[140px] pb-[140px]" style={`background-image: url(${BackImg});`}>
     <div class="auto-container">
-        <div class="relative block clearfix">
+        <div class="relative flex flex-col gap-1 sm:flex-row clearfix">
             <div class="sec-title light float-left">
                 <span class="sub-title">{title.toUpperCase()}</span>
-                <h2>We Provides Hassle-Free <br />Garden solutions.</h2>
+                <h2
+                    class=""
+                >{text}</h2>
             </div>
-            <div class="btn-box float-right mt-[50px]">
-                <a href={CTA_link} class="theme-btn btn-one">Learn How  We Do?<i class="far fa-long-arrow-right"></i></a>
+            <div class="btn-box float-right mt-[50px] whitespace-nowrap">
+                <a href={CTA_link} class="theme-btn btn-one">{btnText}<i class="far fa-long-arrow-right"></i></a>
             </div>
         </div>
     </div>

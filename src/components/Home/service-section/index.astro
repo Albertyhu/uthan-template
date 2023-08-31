@@ -2,6 +2,7 @@
 import "./service-style.css"; 
 import ServiceBlock from './service-block.astro'; 
 import ServicesDemo from '@/customization/services.json';
+const displayServices = ServicesDemo && ServicesDemo.data.length > 0 ? ServicesDemo.data.slice(0 , 4) : []; 
 ---
 
 <!-- service-section -->
@@ -12,8 +13,8 @@ import ServicesDemo from '@/customization/services.json';
             <h2>What Kind of Services <br />We are Offering</h2>
         </div>
         <div class="grid sm:grid-cols-4 gap-5">
-            {ServicesDemo && ServicesDemo.data && ServicesDemo.data.length > 0 &&
-                ServicesDemo.data.map(service =>
+            {displayServices && displayServices && displayServices.length > 0 &&
+                displayServices.map(service =>
                     <ServiceBlock 
                         thumbnail = {service.thumbnail}
                         title = {service.title}

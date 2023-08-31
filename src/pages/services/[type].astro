@@ -1,0 +1,109 @@
+---
+export const prerender = true
+const BackImg = '../../src/assets/slides/hero/banner-1.jpg';
+import {data} from '../../customization/services.json'; 
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import ContentWrapper from "../../layouts/ContentWrapper.astro";
+import Banner from '../../components/small_banner/index.astro'; 
+import ParallaxBanner from "../../components/parallax_banner/index.astro"; 
+import ImageComponent from '@/components/image_component.astro';
+
+export async function getStaticPaths() {
+    return data.map(service =>{
+        const urlTitle = (service.title.toLowerCase()).replace(/\s+/g, '_')
+        return{
+            params: {
+                type: urlTitle, 
+            },
+            props:{
+                title: service.title,
+                tagline: service.tagline,
+                description: service.description,
+                promise: service.promise,
+                features: service.features,
+                image1: service.image1, 
+            }
+        }
+    })
+}
+const {type} = Astro.params;  
+const {
+    title,
+    tagline,
+    description,
+    promise,
+    features,
+    image1, 
+} = Astro.props; 
+---
+<style>
+    h3{
+        font-family: 'Montserrat', sans-serif; 
+        font-size: 30px; 
+        margin-bottom: 10px;
+    }
+    </style>
+<BaseLayout pageTitle={title}>
+    <Banner 
+        title = {title} 
+        subtitle = {tagline}
+        />
+    <ContentWrapper>
+    <div
+        class = "flex flex-col sm:flex-row sm:gap-10"
+    >
+        <div
+            class = "grow-0"
+        >
+        {description && 
+            <section
+                class = "my-10"
+            >
+                <h3
+                    class = "text-[30px] mb-5"
+                >Description</h3>
+                <div>{description}</div>
+            </section>
+        }
+        {features &&
+            <section
+                class = "my-10"
+            >
+                <h3
+                    class = "text-[30px] mb-5"
+                >Features</h3>
+                <ul
+                    class = "list-disc list-inside"
+                >
+                    {features.map((feature: string) =>
+                        <li class = "list-disc list-inside">{feature}</li>)}
+                </ul>
+            </section>
+        }
+        </div>
+    {image1 && 
+        <ImageComponent 
+            image={`../../src/assets/images/service/${image1}`} 
+            altText = {title}
+            customStyle = "w-auto h-auto overflow-hidden my-10 rounded-lg mx-auto grow"
+            />
+    }
+    </div>
+    {promise && 
+        <section
+            class = "my-10"
+        >
+            <h3
+                class = "text-[30px] mb-5"
+            >What we promise to deliver</h3>
+            <div>{promise}</div>
+        </section>
+    }
+    </ContentWrapper>
+    <ParallaxBanner 
+        BackImg = {BackImg}
+        title = "Ready to transform your space?"
+        text = "Make an appointment with us"
+        CTA_link = "/"
+    />
+</BaseLayout>

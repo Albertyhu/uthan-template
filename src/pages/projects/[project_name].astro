@@ -8,6 +8,7 @@ import ImageGrid from "@/components/project_page_component/image_grid.astro";
 import DescriptionSection from "@/components/project_page_component/description_section.astro";
 import ChallengeSection from "@/components/project_page_component/challenge_section.astro";
 import SolutionSection from "@/components/project_page_component/solution_section.astro";
+import Shape23 from "@/assets/images/shape/shape-3.png"
 import ProjectInfo
  from "@/components/project_page_component/project_info.astro";
 export async function getStaticPaths() {
@@ -56,7 +57,7 @@ const solution_image = imageArr.pop();
 <BaseLayout pageTitle = {name}>
     <Banner title = {name} />
     <div
-        class = "w-11/12 mx-auto sm:w-9/12"
+        class = "w-11/12 mx-auto"
     >
         {images && images.length >= 3 && 
             <ImageGrid images ={gridImages} />
@@ -80,7 +81,7 @@ const solution_image = imageArr.pop();
                 />
             </div>
             <div
-                id="project-right-column"
+                id="project-right-column relative"
             >
                 <ProjectInfo 
                     {category}
@@ -88,6 +89,15 @@ const solution_image = imageArr.pop();
                     {startDate}
                     {endDate}
                 />
+                <div
+                    class = "hidden xl:block overflow-hidden h-auto w-11/12 mt-10 z-1"
+                >
+                    <img 
+                        src = {Shape23.src}
+                        class = "w-full h-full object-cover" 
+                        alt="shape-23"
+                    />
+                </div>
             </div>
         </div>
     </div>

@@ -19,7 +19,7 @@ const MasonaryItem = (props: ProjectType) => {
 			animate={{ opacity: 1 }}
 			exit={{ opacity: 0 }}
 			transition={{ duration: 0.5 }}
-			className="masonry-item small-column all product urban maintanance"
+			className="masonry-item small-column all product urban maintanance mx-auto"
 		>
 			<div className="project-block-one">
 				<div className="inner-block item-center relative mb-8 block">

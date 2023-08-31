@@ -5,11 +5,12 @@ import MobileMenu from './MobileMenu/index.astro';
 import StickyHeader from './StickyHeader/index.astro';
 import Wrapper from './wrapper.tsx'; 
 import './header.css'
+const {serviceList } = Astro.props; 
 ---
 <!-- Fav Icon -->
 <header class="main-header">
     <HeaderTop />
-    <HeaderLower />
+    <HeaderLower {serviceList} />
 </header>
 <MobileMenu />
 <StickyHeader />

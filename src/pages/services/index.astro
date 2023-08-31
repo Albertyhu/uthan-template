@@ -1,0 +1,27 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import ContentWrapper from "../../layouts/ContentWrapper.astro";
+import Banner from '../../components/small_banner/index.astro'; 
+import ServiceSection from '../../components/serviceComponent/index.astro'; 
+import ServiceDemo from '../../customization/services.json'; 
+import ParallaxBanner from "../../components/parallax_banner/index.astro"; 
+const BackImg = '../../src/assets/slides/hero/banner-1.jpg';
+---
+<BaseLayout pageTitle = "Services">
+    <Banner 
+        title = "Services"
+        />
+    <ContentWrapper>
+        <ServiceSection 
+            title = "Transforming Outdoor Dreams into Breathtaking Realities"
+            subtitle = "Your Landscape, Our Expertise"
+            serviceList = {ServiceDemo.data}
+        />
+    </ContentWrapper>
+    <ParallaxBanner 
+        BackImg = {BackImg}
+        title = "Artistic solutions"
+        text = "We Provide Hassle-Free Garden Solutions."
+        CTA_link = "/about"
+    />
+</BaseLayout>

@@ -3,7 +3,7 @@ const {
     challenge, 
     image
 } = Astro.props; 
-import ImageComponent from "./image_component.astro";
+import ImageComponent from "../image_component.astro";
 import "./style.css"; 
 ---
 <section 
@@ -14,7 +14,7 @@ import "./style.css";
         class = "flex flex-col-reverse sm:flex-row sm:gap-10"
     >
         <div
-            class = "grow basis-36"
+            class = "grow basis-80 justify-center"
         >{challenge}</div>
         {image && 
             <ImageComponent 
