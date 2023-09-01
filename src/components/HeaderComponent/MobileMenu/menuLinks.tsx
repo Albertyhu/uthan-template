@@ -1,5 +1,5 @@
 import { useRef, useEffect } from 'react'
-import { menuMap } from '@/util/menu-map.js'
+import { menuMap } from '@/customization/navigation-map.js'
 const MenuLinks = () => {
 	return (
 		menuMap.length > 0 &&

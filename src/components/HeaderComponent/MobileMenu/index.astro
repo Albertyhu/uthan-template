@@ -1,7 +1,7 @@
 ---
 import SocialLinks from "../../social-links.astro";
 import MenuLinks from "./menuLinks.tsx";
-import WhiteLogo from "@/assets/images/logo-2.png"; 
+import WhiteLogo from "@/assets/images/logo-white.png"; 
 import SiteData from "@/customization/siteData.json"; 
 ---
 <!-- Mobile Menu  -->
@@ -11,8 +11,14 @@ import SiteData from "@/customization/siteData.json";
 >
     <div id = "close-btn" class="h-fit"><i class="fas fa-times close-btn"></i></div>
     <nav class="">
-        <div class="nav-logo pl-[25px]">
-            <a href="index.html"><img src={WhiteLogo.src} alt="" title=""></a>
+        <div class="nav-logo w-10/12 mx-auto userselect-none">
+            <a href="../../../">
+                <img 
+                    src={WhiteLogo.src} 
+                    alt="Logo"
+                    class="h-full w-full"
+                    >
+            </a>
         </div>
         <div class="menu-outer mt-[25px] ">
             <MenuLinks client:visible />

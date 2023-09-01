@@ -6,14 +6,34 @@ import FooterColumn from './footer-column.astro';
 import type { FooterColumnType} from '@/util/interface.tsx';
 import Contacts from './contacts.astro'; 
 import ColumnLabel from './column_label.astro';
+import ParallaxBanner from "../parallax_banner/index.astro"; 
+const BackImg = '../../../src/assets/slides/hero/banner-1.jpg';
 const {
-    columns
+    columns,
+    CTA_Banner
 } = Astro.props;
 
 var YEAR = new Date().getFullYear(); 
 ---
 <footer class="main_footer relative">
     <div class="footer-logo relative block pb-[50px] text-center bg-[#1d4a34]">
+        {CTA_Banner && 
+            <section class="cta-section relative pt-[140px] pb-[140px]" style={`background-image: url(${BackImg});`}>
+                <div class="auto-container">
+                    <div class="relative flex flex-col gap-1 sm:flex-row clearfix justify-between">
+                        <div class="sec-title light float-left">
+                            <span class="sub-title">Have an idea for a project?</span>
+                            <h2
+                                class=""
+                            >Get in touch with us</h2>
+                        </div>
+                        <div class="btn-box float-right mt-[50px] whitespace-nowrap">
+                            <a href="../../contact" class="theme-btn btn-one">Make an appointment<i class="far fa-long-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        }
         <figure class="logo relative inline-block bg-[#1d4a34]">
             <div 
                 class="shape absolute bg-transparent !z-[1] bg-[url('../../src/assets/images/shape/shape-13.png')]"

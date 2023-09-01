@@ -43,7 +43,10 @@ const {
         margin-bottom: 10px;
     }
     </style>
-<BaseLayout pageTitle={title}>
+<BaseLayout 
+pageTitle={title}
+CTA_Banner={true}
+>
     <Banner 
         title = {title} 
         subtitle = {tagline}
@@ -100,10 +103,4 @@ const {
         </section>
     }
     </ContentWrapper>
-    <ParallaxBanner 
-        BackImg = {BackImg}
-        title = "Ready to transform your space?"
-        text = "Make an appointment with us"
-        CTA_link = "/"
-    />
 </BaseLayout>

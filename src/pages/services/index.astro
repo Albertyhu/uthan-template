@@ -7,7 +7,10 @@ import ServiceDemo from '../../customization/services.json';
 import ParallaxBanner from "../../components/parallax_banner/index.astro"; 
 const BackImg = '../../src/assets/slides/hero/banner-1.jpg';
 ---
-<BaseLayout pageTitle = "Services">
+<BaseLayout 
+pageTitle = "Services"
+CTA_Banner={true}
+>
     <Banner 
         title = "Services"
         />
@@ -18,10 +21,4 @@ const BackImg = '../../src/assets/slides/hero/banner-1.jpg';
             serviceList = {ServiceDemo.data}
         />
     </ContentWrapper>
-    <ParallaxBanner 
-        BackImg = {BackImg}
-        title = "Artistic solutions"
-        text = "We Provide Hassle-Free Garden Solutions."
-        CTA_link = "/about"
-    />
 </BaseLayout>

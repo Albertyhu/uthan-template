@@ -147,3 +147,21 @@ export interface PathArray_TagsAndPageType {
     totalPosts: number,
   },
 }
+
+
+export interface ServiceType {
+  thumbnail?: string,
+  title: string, 
+  tagline?: string,
+  link: string,
+  description?: string,
+  promise?: string,
+  features?: string,
+  image1?: string | HTMLImageElement,
+}
+
+export type NavItemType = {
+  url: string,
+  label: string, 
+  subDirectory?: Array<NavItemType>,
+} 

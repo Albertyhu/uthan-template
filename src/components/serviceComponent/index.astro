@@ -3,6 +3,7 @@ import "./service-style.css";
 import ServiceBlock from './service-block.astro'; 
 import LeftLeaf from '@/assets/images/shape/shape-35.png';
 import RightLeaf from '@/assets/images/shape/shape-34.png'
+import type { ServiceType } from "@/util/interface";
 const {
     serviceList, 
     title,
@@ -27,9 +28,9 @@ const {
             }
             <h2>What Kind of Services <br />We are Offering</h2>
         </div>
-        <div class="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 h-fit">
             {serviceList && serviceList.length > 0 &&
-                serviceList.map(service =>
+                serviceList.map((service: ServiceType) =>
                     <ServiceBlock 
                         thumbnail = {service.thumbnail}
                         title = {service.title}

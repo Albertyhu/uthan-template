@@ -1,12 +1,14 @@
 ---
 import LogoComponent from "../logoComponent.astro"
 import ShapeOne from "./shape-1.astro";
-const { serviceList } = Astro.props; 
+import type {NavItemType} from '@/util/interface.tsx'; 
+import NavItem from './NavItem.astro'
+import {menuMap} from '@/customization/navigation-map.js'; 
 ---
 <!-- header-lower -->
 <div 
 id="header-lower"
-class="header-lower font-[Monserrat]"
+class="header-lower font-[Monserrat] box_shadow"
 >
     <div class="auto-container">
         <div class="justify-between flex flex-nowrap">
@@ -28,24 +30,9 @@ class="header-lower font-[Monserrat]"
                 <nav class="main-menu navbar-expand-md navbar-light">
                     <div class="" id="navbarSupportedContent">
                         <ul class="navigation clearfix flex">
-                            <li class="current dropdown text-[#25283a] z-[99] cursor-pointer !block"><a href="../">Home</a>
-                            </li>
-                            <li class="dropdown"><a href="../about">About</a>
-                            </li> 
-                            <li class="dropdown"><a href="/services">Services</a>
-                                {serviceList && serviceList.length > 0 &&
-                                <ul>
-                                    {serviceList.map((service) =>{
-                                        const urlTitle = `../../services/${(service.title.toLowerCase()).replace(/\s+/g, '_')}`
-                                        return <li><a href={urlTitle}>{service.title}</a></li>
-                                    }
-                                        )}
-                                </ul>
-                                }
-
-                            </li> 
-                            <li class="dropdown"><a href="/blog/1">Blog</a></li>  
-                            <li><a href="../../contact">Contact</a></li> 
+                        {menuMap && menuMap.length > 0 &&
+                            menuMap.map((item: NavItemType) =><NavItem {...item}/>)
+                        }
                         </ul>
                     </div>
                 </nav>

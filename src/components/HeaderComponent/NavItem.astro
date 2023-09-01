@@ -1,0 +1,24 @@
+---
+/*desktop nav item*/ 
+import type {NavItemType} from "@/util/interface.tsx";
+const {
+    label, 
+    url, 
+    subDirectory, 
+} = Astro.props; 
+---
+<li
+    class = "current dropdown text-[#25283a] cursor-pointer !block"
+>
+    <a href = {url} >{label}</a>
+    {subDirectory && subDirectory.length > 0 &&
+    <ul>
+        {subDirectory.map((item : NavItemType) =>
+            <li
+                class = "current dropdown text-[#25283a] cursor-pointer !block"
+            >
+                <a href = {item.url.toLowerCase()}>{item.label}</a>
+            </li>)}
+    </ul>
+    }
+</li>

@@ -75,3 +75,7 @@
 .header_top .info-box li:last-child:before {
 	display: none;
 }
+
+.box_shadow {
+	box-shadow: 0px 25px 15px 0px rgba(0,0,0,0.1);
+}
