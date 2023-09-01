@@ -1,6 +1,5 @@
 ---
-import Logo from "@/assets/images/logo.png"; 
-import PlaceHolderLogo from "../logoComponent.astro"
+import LogoComponent from "../logoComponent.astro"
 import ShapeOne from "./shape-1.astro";
 const { serviceList } = Astro.props; 
 ---
@@ -14,11 +13,10 @@ class="header-lower font-[Monserrat]"
             <div class="logo-box p-5 sm:py-[37.5px] my-auto">
                 <ShapeOne />
                 <figure class="logo">
-                    <a href="index.html"><PlaceHolderLogo /></a>
+                    <a href="index.html"><LogoComponent /></a>
                 </figure>
             </div>
             <div class="menu-area clearfix my-auto">
-                <!--Mobile Navigation Toggler-->
                 <div
                     id="mobile-nav-toggler"
                     class="mobile-nav-toggler"
