@@ -62,9 +62,7 @@ const createStaticPathArrayForTagsAndPage = ({
 		var totalPages: number = Math.ceil(filteredPosts.length / PAGE_SIZE)
 		var i = 0
 		do {
-			console.log('fired')
 			var paginatedArray: Array<PostType> = getPaginatedArray(filteredPosts, i, PAGE_SIZE)
-			console.log('paginatedArray: ', paginatedArray)
 			var path = {
 				params: {
 					tag: unique_tag,

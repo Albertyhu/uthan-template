@@ -36,7 +36,6 @@ const CategoryLink = (props: LinkType) => {
 			className={`filter ${$SelectedCategory == category ? 'active' : ''}`}
 			onClick={() => {
 				ClickEvent({ category })
-				console.log(category)
 			}}
 		>
 			{category}

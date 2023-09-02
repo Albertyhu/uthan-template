@@ -68,9 +68,7 @@ const RenderItem = ( props : HistoryResultType ) =>{
     const deleteValue = () =>{
         var arr = [...historyResults]; 
         arr.splice(index, 1)
-        console.log("arr: ", arr)
         setSearchHistory(arr); 
-        console.log("search history: ", historyResults)
         localStorage.setItem("searchHistory", JSON.stringify(arr))
     }
     return(
