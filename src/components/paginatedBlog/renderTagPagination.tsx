@@ -2,6 +2,7 @@ import usePagination from '../../hooks/usePagination.ts'
 import { DOTS } from '../../util/dots.js'
 import type { RenderPaginationType } from '@/util/interface.tsx'
 import uuid from 'react-uuid'
+import './style.css'; 
 
 const RenderPagination = (props: RenderPaginationType) => {
 	const { pageSize, totalCount, currentPage, totalPages, isMobile } = props
@@ -14,11 +15,11 @@ const RenderPagination = (props: RenderPaginationType) => {
 	return (
 		<div
 			id="PaginationContainer"
-			class={`my-10 block list-none text-center ${isMobile ? 'sm:hidden' : ''}`}
+			className={`my-10 block list-none text-center ${isMobile ? 'sm:hidden' : ''}`}
 		>
 			<li
 				id="leftArrow"
-				class="PaginatedListItem PaginatedArrow"
+				className="PaginatedListItem PaginatedArrow"
 				onClick={() => onPageChange(currentPage - 1)}
 			>
 				&#706; Prev
@@ -45,7 +46,7 @@ const RenderPagination = (props: RenderPaginationType) => {
 				}
 				return (
 					<li
-						class="PaginatedListItem"
+						className="PaginatedListItem"
 						onClick={() => onPageChange(page as number)}
 						key={uniqueKey}
 					>
@@ -55,7 +56,7 @@ const RenderPagination = (props: RenderPaginationType) => {
 			})}
 			<li
 				id="rightArrow"
-				class="PaginatedListItem PaginatedArrow"
+				className="PaginatedListItem PaginatedArrow"
 				onClick={() => {
 					onPageChange(currentPage + 1)
 				}}

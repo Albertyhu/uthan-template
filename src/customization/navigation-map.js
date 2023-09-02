@@ -81,7 +81,11 @@ export const menuMap = [
 			}
 		]
 	},
-
+	{
+		url: '/blog/1',
+		label: 'Blog',
+		subDirectory: []
+	}, 
 	{
 		url: '/contact/',
 		label: 'Contact',

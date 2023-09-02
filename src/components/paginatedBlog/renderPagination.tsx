@@ -2,6 +2,7 @@ import usePagination from '../../hooks/usePagination.ts'
 import { DOTS } from '../../util/dots.js'
 import type { RenderPaginationType } from '@/util/interface.tsx'
 import uuid from 'react-uuid'
+import './style.css'; 
 
 const RenderPagination = (props: RenderPaginationType) => {
 	const { pageSize, totalCount, currentPage, totalPages, isMobile, search_query } = props
@@ -17,7 +18,7 @@ const RenderPagination = (props: RenderPaginationType) => {
 	return (
 		<div
 			id="PaginationContainer"
-			className={`my-10 block list-none text-center ${isMobile ? 'sm:hidden' : ''}`}
+			className={`my-10 block list-none text-center ${isMobile ? 'sm:hidden' : ''} [&>li]:cursor-pointer`}
 		>
 			<li
 				id="leftArrow"
