@@ -1,6 +1,6 @@
 import { useRef } from 'preact/hooks'
 import { MobileMenuOpen } from '../../util/atomItems'
-import { useStore } from '@nanostores/preact'
+import { useStore } from '@nanostores/react'
 
 const MobileMenu = () => {
 	const $MobileMenuOpen = useStore(MobileMenuOpen)
@@ -16,13 +16,13 @@ const MobileMenu = () => {
 	return (
 		<div
 			id="MobileIcon"
-			class="hamburger bg-transparent"
+			className="hamburger bg-transparent"
 			onClick={() => toggleMobileMenu()}
 			ref={MobileIconRef}
 		>
-			<span class="line mb-[10px]"></span>
-			<span class="line mb-[10px]"></span>
-			<span class="line"></span>
+			<span className="line mb-[10px]"></span>
+			<span className="line mb-[10px]"></span>
+			<span className="line"></span>
 		</div>
 	)
 }

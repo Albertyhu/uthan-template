@@ -1,15 +1,15 @@
-import { defineConfig } from 'astro/config'
+import { defineConfig } from 'astro/config';
 //import preact from '@astrojs/preact'
-import react from '@astrojs/react'
-import tailwind from '@astrojs/tailwind'
+import react from '@astrojs/react';
+import tailwind from '@astrojs/tailwind';
+import sitemap from '@astrojs/sitemap';
 
-import sitemap from '@astrojs/sitemap'
+import netlify from "@astrojs/netlify/functions";
 
 // https://astro.build/config
 export default defineConfig({
-	experimental: {
-		assets: true
-	},
-	output: 'server',
-	integrations: [react(), tailwind(), sitemap()]
-})
+  experimental: {},
+  output: 'server',
+  integrations: [react(), tailwind(), sitemap()],
+  adapter: netlify()
+});
