@@ -7,7 +7,7 @@ import type { GlobObjectType } from '@/util/interface'
 //If the loop finds a match, extract image
 export const RetrieveImageFromGlob = async (imagePath: string, globObject: GlobObjectType, post?: string) =>{
     try{
-        const imageFilename : string = retrieveFileName(imagePath, altText);
+        const imageFilename : string = retrieveFileName(imagePath);
         for(var property in globObject){
             if(property.includes(imageFilename)){
                 const image = await globObject[property]()
