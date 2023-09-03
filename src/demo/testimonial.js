@@ -2,7 +2,7 @@ import Nicolas from "@/assets/images/resource/nicolas.jpg";
 import Charlotte from "@/assets/images/resource/charlotte.jpg";
 import Rob from "@/assets/images/resource/rob.jpg"; 
 import Lara from "@/assets/images/resource/lara.jpg";
-import Sarah from "../src/assets/images/resource/sarah.jpg"; 
+import Sarah from "@/assets/images/resource/sarah.jpg"; 
 
 const data = [
 		{
