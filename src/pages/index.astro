@@ -7,18 +7,18 @@ import BannerSection from '@/components/Home/banner/index.astro';
 import ServiceSection from '@/components/Home/service-section/index.astro';
 
 import ProjectSection from "@/components/project/gallery/index.astro"; 
-import ProjectDemo from '@/demo/projects.json'; 
+import ProjectDemo from '@/demo/projects.js'; 
 
 import FunFactSection from "@/components/Home/funfact_section/index.astro"; 
 import TeamSection from "@/components/Home/team_section/index.astro"; 
 
 import Testimonial from "@/components/Testimonial/index.astro"; 
-import TestimonialDemo from '@/demo/testimonial.json'; 
+import TestimonialDemo from '@/demo/testimonial.js'; 
 
 import PricingDemo from '@/demo/pricing.json'; 
 import PricingSection from '@/components/pricing_section/index.astro'; 
 
-const BackImg = '../src/assets/slides/hero/banner-1.jpg';
+import BackImg from '@/assets/slides/hero/slide-1.jpg';
 import ParallaxBanner from '@/components/parallax_banner/index.astro'; 
 
 import BlogSection from "@/components/blogSection/index.astro"
@@ -37,11 +37,11 @@ const sortedPosts = allPosts.sort((a, b)=> {
     <ChooseUsSection />
     <ServiceSection />
     <ProjectSection
-        ProjectGallery = {ProjectDemo.projects}
+        ProjectGallery = {ProjectDemo}
     />
     <TeamSection />
     <Testimonial 
-        testimonials = {TestimonialDemo.data}
+        testimonials = {TestimonialDemo}
     />
     <PricingSection 
         pricing_models = {PricingDemo.data}

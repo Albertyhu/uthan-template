@@ -75,6 +75,13 @@ export type ImageType = {
   alt: string,
 }
 
+export type Image_Type = {
+  src: string,
+  width?: number,
+  height?: number,
+  format: string
+}
+
 export type TagType = {
   tag: string,
 }

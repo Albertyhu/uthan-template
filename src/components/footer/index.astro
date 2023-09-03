@@ -7,7 +7,11 @@ import type { FooterColumnType} from '@/util/interface.tsx';
 import Contacts from './contacts.astro'; 
 import ColumnLabel from './column_label.astro';
 import ParallaxBanner from "../parallax_banner/index.astro"; 
-const BackImg = '../../../src/assets/slides/hero/banner-1.jpg';
+import BannerImage from '@/assets/slides/hero/slide-1.jpg';
+import FooterLogo from '@/assets/logo/footer-logo.png'
+import Shape13 from '@/assets/images/shape/shape-13.png'; 
+import Shape14 from '@/assets/images/shape/shape-14.png'; 
+import Shape15 from '@/assets/images/shape/shape-15.png'; 
 const {
     columns,
     CTA_Banner
@@ -18,7 +22,10 @@ var YEAR = new Date().getFullYear();
 <footer class="main_footer relative">
     <div class="footer-logo relative block pb-[50px] text-center bg-[#1d4a34]">
         {CTA_Banner && 
-            <section class="cta-section relative pt-[140px] pb-[140px]" style={`background-image: url(${BackImg});`}>
+            <section 
+                class="cta-section relative pt-[140px] pb-[140px]" 
+                style={{backgroundImage: `url(${BannerImage.src})`}}
+                >
                 <div class="auto-container">
                     <div class="relative flex flex-col gap-1 sm:flex-row clearfix justify-between">
                         <div class="sec-title light float-left">
@@ -36,22 +43,24 @@ var YEAR = new Date().getFullYear();
         }
         <figure class="logo relative inline-block bg-[#1d4a34]">
             <div 
-                class="shape absolute bg-transparent !z-[1] bg-[url('../../src/assets/images/shape/shape-13.png')]"
+                class="shape absolute bg-transparent !z-[1]"
+                style=`background-image: url(${Shape13.src})`
                 ></div>
             <a 
-                href="index.html"
+                href="/"
                class="!z-10 relative"
                 >
                 <img 
-                src="./assets/images/footer-logo.png" alt=""
+                    src={FooterLogo.src} 
+                    alt="footer logo"
                 >
             </a>
         </figure>
     </div>
     <div class="widget-section relative pt-[65px] pb-[70px] bg-[#1d4a34]">
         <div class="pattern-layer">
-            <div class="pattern-1 absolute bg-[url('../../../src/assets/images/shape/shape-14.png')]"></div>
-            <div class="pattern-2 absolute bg-[url('../../../src/assets/images/shape/shape-15.png')]"></div>
+            <div class="pattern-1 absolute" style = `background-image: url(${Shape14.src})`></div>
+            <div class="pattern-2 absolute" style = `background-image: url(${Shape15.src})`></div>
         </div>
         <div class="auto-container">
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-[30px]">

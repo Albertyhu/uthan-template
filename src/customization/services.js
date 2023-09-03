@@ -1,0 +1,52 @@
+import LandscapeDesign from "@/assets/images/service/landscape-design.jpg";
+import TreeRemoval from "@/assets/images/service/tree-removal-small.jpg"
+import LawnReturfing from "@/assets/images/service/lawn-2-small.jpg"
+import ArtificalTurfInstallation from "@/assets/images/service/lawn-small.jpg"
+import LandscapeDesignImg1 from "@/assets/images/service/landscape-design-2.jpg"; 
+import TreeRemovalImg1 from "@/assets/images/service/tree-removal.jpg";
+import LawnReturfingImg1 from "@/assets/images/service/lawn-2.jpg";
+import ArtificalTurfInstallationImg1 from "@/assets/images/service/lawn.jpg";
+
+const Services = [
+        {
+            "thumbnail": LandscapeDesign,
+            "title": "Landscape Design", 
+            "tagline": "Transforming visions into breathtaking outdoor realities, our landscape designs weave nature's beauty with your dreams.",
+            "link": "/services/landscape-design",
+            "description" : "Our Landscape Design service is the gateway to transforming your outdoor space into a breathtaking masterpiece. Our expert designers combine their creativity with your vision to craft landscapes that seamlessly blend nature's beauty with your dreams.",
+            "promise" : "Experience the evolution of your ideas into captivating outdoor realities. Your space will be carefully planned, taking into account elements like functionality, aesthetics, and sustainability.",
+            "features": ["Customized design plans", "Plant selection for diverse landscapes", "Hardscape integration (pathways, patios, etc.)", "Drainage and irrigation solutions", "Visual mock-ups for a clear vision"],
+            "image1": LandscapeDesignImg1
+        },
+        {
+            "thumbnail": TreeRemoval,
+            "title": "Tree Removal", 
+            "tagline": "Safely and sensitively removing trees to preserve your landscape's harmony and safety.",
+            "link": "/services/tree-removal",
+            "description" : "Our Tree Removal service ensures the safe and considerate removal of trees to maintain the harmony and safety of your landscape. We prioritize the health of your environment and execute removal with precision and care.",
+            "promise": "Your landscape will remain harmonious and safe, free from potentially hazardous or overgrown trees. Our experts will handle removal without disrupting the balance of your outdoor space.",
+            "features": ["Certified arborists for safe removal", "Eco-friendly disposal practices", "Preservation of surrounding vegetation", "Site cleanup post-removal"],
+            "image1": TreeRemovalImg1
+        },
+        {
+            "thumbnail": LawnReturfing,
+            "title": "Lawn Returfing", 
+            "tagline": "From patchy to pristine, we revive lawns into lush, inviting carpets of green.",
+            "link": "/services/lawn-returfing",
+            "description": "Revive your patchy and worn-out lawn with our Lawn Returfing service. We rejuvenate your green space into a lush and inviting carpet of vibrant green, perfect for relaxation and outdoor activities.",
+            "promise": "Witness the transformation of your dull and uneven lawn into a vibrant and smooth expanse of lush greenery, creating an inviting ambiance for outdoor enjoyment.",
+            "features": ["Removal of old turf", "Grading and soil preparation", "Premium quality turf installation", "Post-installation care guidelines", "Regular maintenance options"],
+            "image1": LawnReturfingImg1
+        },
+        {
+            "thumbnail": ArtificalTurfInstallation,
+            "title": "Artifical Turf Installation", 
+            "tagline": "Enjoy the look of real grass without the upkeep – artificial turf that's always perfectly manicured.",
+            "link": "/services/artifical-turf-installation",
+            "description": "Say goodbye to lawn maintenance woes with our Artificial Turf Installation service. Enjoy the look and feel of real grass without the upkeep, as our artificial turf always remains impeccably manicured.",
+            "promise": "Experience the convenience of a pristine lawn that requires minimal maintenance, while adding a touch of green luxury to your outdoor space.",
+            "features": ["High-quality artificial turf selection", "Realistic appearance and texture", "UV-resistant and durable materials", "Efficient drainage system", "No need for mowing or watering"],
+            "image1": ArtificalTurfInstallationImg1
+        }
+    ]
+export default Services; 

@@ -1,6 +1,6 @@
 ---
 import MemberPanel from './member_panel.astro'; 
-import TeamMembers from "@/demo/team_members.json"; 
+import TeamMembers from "@/demo/team_members.js"; 
 import "./team_style.css"; 
 ---
         <!-- team-section -->
@@ -11,8 +11,8 @@ import "./team_style.css";
                     <h2>We Handle Everything <br />for You!</h2>
                 </div>
                 <div class="grid sm:grid-cols-3 sm:gap-5">
-                {TeamMembers && TeamMembers.members && TeamMembers.members.length > 0 &&
-                    TeamMembers.members.map(member =>
+                {TeamMembers && TeamMembers.length > 0 &&
+                    TeamMembers.map(member =>
                         <MemberPanel 
                             {...member}
                         />

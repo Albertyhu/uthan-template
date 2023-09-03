@@ -1,28 +1,29 @@
 ---
+/*This slider is only for the homepage */
 import Slider from "../../imageSlider/slider.tsx";
 import TitleSection from '../../TitleComponent/index.astro'; 
-import "./banner.css"; 
-var HeroImages : Array<string>= []
+import Slide1 from '@/assets/slides/hero/slide-1.jpg'; 
+import Slide2 from '@/assets/slides/hero/slide-2.jpg';
+import Slide3 from '@/assets/slides/hero/slide-3.jpg';
+import Grass from '@/assets/images/shape/shape-2.png'
+
+var HeroImages : Array<ImageMetadata>= []
 try{
-    var imageMap = import.meta.glob("../../../assets/slides/hero/*")
-    var originalPaths = Object.keys(imageMap)
-    HeroImages = originalPaths.map(path => {
-        return path.replace('../../assets/', '../../src/assets/');
-    });
+    HeroImages.push(Slide1)
+    HeroImages.push(Slide2)
+    HeroImages.push(Slide3)
 }catch(error){
     console.log("Error: ", error)
 }
 ---
-<!-- banner-section -->
 <section 
     id="BannerSection"
     class="relative text-center block bg-cover bg-no-repeat bg-center overflow-hidden min-h-[80vh] w-full"
 >
     <div 
     class="pattern-layer absolute left-0 right-0 bottom-0 bg-repeat-x h-[54px] w-full z-[19]"
-    id = "animated-grass"
+    style = `background-image:url(${Grass.src})`
     ></div>
-    <Slider images={HeroImages} darkMask = {true} name = "hero" client:load />
     <TitleSection 
         title = "Make your vision an ideal landscape come to life"
         subtitle = "We help homeowners craft beauty through nature's design"
@@ -30,5 +31,5 @@ try{
         link = "/"
         wrapperStyle = "w-11/12 sm:max-w-[1000px] mx-auto"
     />  
+    <Slider images = {HeroImages} darkMask = {true} name = "hero" client:load />
 </section>
-        <!-- banner-section end -->

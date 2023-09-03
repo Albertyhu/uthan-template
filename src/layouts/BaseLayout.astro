@@ -8,22 +8,23 @@ const {
     frontmatter, 
     CTA_Banner
  } = Astro.props;
-import ScrollTopButton from "@/components/scrollTopButton.astro";
+import ScrollTopButton from "@/components/buttons/scrollTopButton.tsx";
 import SEO from "@/components/SEO.astro";
 import MessageComponent from "@/components/MessageComponent/messageComponent";
 import FooterColumns from "@/demo/footer.json"
 import ServiceDemo from '@/customization/services.json'; 
+import "@/assets/css/font-awesome-all.css"; 
+import "@/assets/css/animate.css"
+import "@/assets/css/flaticon.css"
+import "@/assets/css/color.css"
+import "@/assets/css/style.css"
+import "@/assets/css/responsive.css" 
 ---
 <html lang="en">
     <head>
         <meta charset="utf-8" />
         <link rel="icon" type="image/svg+xml" href="/favicon.png" />
-        <link href="/assets/css/font-awesome-all.css" rel="stylesheet">
-        <link href="/assets/css/animate.css" rel="stylesheet">
-        <link href="/assets/css/flaticon.css" rel="stylesheet">
-        <link href="/assets/css/color.css" rel="stylesheet">
-        <link href="/assets/css/style.css" rel="stylesheet">
-        <link href="/assets/css/responsive.css" rel="stylesheet">
+
         <meta name="viewport" content="width=device-width" />
         <meta name="generator" content={Astro.generator} />
         <SEO 
@@ -53,7 +54,7 @@ import ServiceDemo from '@/customization/services.json';
             columns={FooterColumns}
             {CTA_Banner}
         />
-        <ScrollTopButton />
+        <ScrollTopButton client:load />
         <script>
             if (window.netlifyIdentity) {
                 window.netlifyIdentity.on("init", user => {

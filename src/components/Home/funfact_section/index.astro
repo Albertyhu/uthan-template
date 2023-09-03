@@ -1,9 +1,13 @@
 ---
 import "./funfact_style.css";
 import CounterBlock from './counter-block.astro'; 
+import BackImg from '@/assets/images/background/funfact-bg.jpg'
 ---
 
-<section class="funfact-section relative pt-[140px] pb-[140px] block bg-[url('../src/assets/images/background/funfact-bg.jpg')]">
+<section 
+    class="funfact-section relative pt-[140px] pb-[140px] block" 
+    style = `background-image: url(${BackImg})`
+    >
     <div class="container mx-auto">
         <div class="text-center mb-65">
             <span class="sub-title text-white">Fun Facts</span>

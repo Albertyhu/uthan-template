@@ -1,7 +1,8 @@
 ---
 export const prerender = true
 const BackImg = '../../src/assets/slides/hero/banner-1.jpg';
-import {data} from '../../customization/services.json'; 
+//import {data} from '../../customization/services.json'; 
+import data from '@/customization/services.js'; 
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import ContentWrapper from "../../layouts/ContentWrapper.astro";
 import Banner from '../../components/small_banner/index.astro'; 
@@ -86,7 +87,7 @@ CTA_Banner={true}
         </div>
     {image1 && 
         <ImageComponent 
-            image={`../../src/assets/images/service/${image1}`} 
+            image={image1.src}
             altText = {title}
             customStyle = "w-auto h-auto overflow-hidden my-10 rounded-lg mx-auto grow"
             />

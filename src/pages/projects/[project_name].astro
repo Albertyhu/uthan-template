@@ -1,14 +1,13 @@
 ---
 export const prerender = true;
 import BaseLayout from "../../layouts/BaseLayout.astro";
-import ContentWrapper from "../../layouts/ContentWrapper.astro";
 import Banner from '../../components/small_banner/index.astro'; 
-import {projects} from '../../demo/projects.json';
+import projects from '../../demo/projects.js';
 import ImageGrid from "@/components/project_page_component/image_grid.astro";
 import DescriptionSection from "@/components/project_page_component/description_section.astro";
 import ChallengeSection from "@/components/project_page_component/challenge_section.astro";
 import SolutionSection from "@/components/project_page_component/solution_section.astro";
-import Shape23 from "@/assets/images/shape/shape-3.png"
+import Shape3 from "@/assets/images/shape/shape-3.png"
 import ProjectInfo
  from "@/components/project_page_component/project_info.astro";
 export async function getStaticPaths() {
@@ -96,7 +95,7 @@ CTA_Banner = {true}
                     class = "hidden xl:block overflow-hidden h-auto w-11/12 mt-10 z-1"
                 >
                     <img 
-                        src = {Shape23.src}
+                        src = {Shape3.src}
                         class = "w-full h-full object-cover" 
                         alt="shape-23"
                     />

@@ -3,6 +3,8 @@
 import "./choose-style.css"
 import SellingPoints from './selling-ponts.astro'; 
 import SiteData from '@/customization/siteData.json'; 
+import Shape5 from "@/assets/images/shape/shape-5.png"
+import Shape6 from "@/assets/images/shape/shape-6.png"
 ---
 <!-- chooseus-section -->
 <section class="chooseus-section relative block">
@@ -13,8 +15,8 @@ import SiteData from '@/customization/siteData.json';
         >
         <div class="inner-container relative block bg-white rounded-md box_shadow mb-5">
             <div class="shape-layer">
-                <div class="shape-1 absolute" style="background-image: url(../src/assets/images/shape/shape-5.png);"></div>
-                <div class="shape-2 absolute" style="background-image: url(../src/assets/images/shape/shape-6.png);"></div>
+                <div class="shape-1 absolute" style=`background-image: url(${Shape5.src});`></div>
+                <div class="shape-2 absolute" style=`background-image: url(${Shape6.src});`></div>
             </div>
             <div class="grid sm:grid-cols-[40%_60%]">
                 <div class="image-column">

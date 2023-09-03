@@ -5,6 +5,7 @@ import Selector from './selector.tsx';
 const {
     ProjectGallery
 } = Astro.props;  
+
 ---
 <section 
 class="project-section relative pt-[32px] pb-[32px]"
@@ -12,9 +13,11 @@ id="project-section"
 >
     <div class="auto-container mx-auto">
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div class="mb-[12px] text-center sec-title [&>*]:text-left">
+            <div class="mb-[12px] text-center sec-title leading-[65px] [&>*]:text-left">
                 <span class="sub-title">Projects</span>
-                <h2>Check Some Of Our <br />Recent Work.</h2>
+                <h2
+                    class = "text-2xl sm:text-[55px]"
+                >Check Some Of Our <br />Recent Work.</h2>
             </div>
             <Selector client:visible />
         </div>
