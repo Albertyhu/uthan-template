@@ -172,3 +172,12 @@ export type NavItemType = {
   label: string, 
   subDirectory?: Array<NavItemType>,
 } 
+
+export type AboutProcessType = {
+    title: string,
+    description: string, 
+    index: number, 
+    hidden: boolean, 
+    iconNumber: number, 
+
+} 

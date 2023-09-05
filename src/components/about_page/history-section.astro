@@ -1,8 +1,10 @@
   
 ---
 export const prerender = true
-import SiteData from '../../customization/siteData.json'; 
+import SiteData from '@/customization/siteData.json'; 
 import "./about-style.css"
+import GardenerImage from "@/assets/images/resource/about-1.png"; 
+
 ---
 
 <section
@@ -17,7 +19,7 @@ import "./about-style.css"
         <div class="absolute top-[153px] hidden sm: block right-[-75px] w-[150px] h-[219px] bg-no-repeat bg-[url('../src/assets/images/shape/shape-19.png')]"></div>
         <figure class="absolute w-[200px] sm:w-[350px] left-[50%] translate-x-[-50%] bottom-0 z-30 block sm:w-[375px] h-auto">
             <img 
-                src="../src/assets/images/resource/about-1.png" 
+                src={GardenerImage.src}
                 alt="about-us-image"
                 class ="object-cover w-full h-full mx-auto"
                 >

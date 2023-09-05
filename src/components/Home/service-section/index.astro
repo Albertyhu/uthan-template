@@ -1,8 +1,8 @@
 ---
 import "./service-style.css"; 
 import ServiceBlock from './service-block.astro'; 
-import ServicesDemo from '@/customization/services.json';
-const displayServices = ServicesDemo && ServicesDemo.data.length > 0 ? ServicesDemo.data.slice(0 , 4) : []; 
+import ServicesDemo from '@/customization/services.js';
+const displayServices = ServicesDemo && ServicesDemo.length > 0 ? ServicesDemo.slice(0 , 4) : []; 
 ---
 
 <!-- service-section -->

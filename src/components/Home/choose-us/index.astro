@@ -3,12 +3,14 @@
 import "./choose-style.css"
 import SellingPoints from './selling-ponts.astro'; 
 import SiteData from '@/customization/siteData.json'; 
-import Shape5 from "@/assets/images/shape/shape-5.png"
-import Shape6 from "@/assets/images/shape/shape-6.png"
+import Shape5 from "@/assets/images/shape/shape-5.png";
+import Shape6 from "@/assets/images/shape/shape-6.png";
+import Shape7 from "@/assets/images/shape/shape-7.png";
+import GardenWorker from "@/assets/images/resource/garden-worker.jpg"
 ---
 <!-- chooseus-section -->
 <section class="chooseus-section relative block">
-    <div class="pattern-layer p_absolute" id = "chooseus_grass" style="background-image: url(../src/assets/images/shape/shape-7.png);"></div>
+    <div class="pattern-layer p_absolute" id = "chooseus_grass" style=`background-image: url(${Shape7});`></div>
     <div
         id="Chooseus_mainContainer" 
         class="auto-container"
@@ -20,7 +22,7 @@ import Shape6 from "@/assets/images/shape/shape-6.png"
             </div>
             <div class="grid sm:grid-cols-[40%_60%]">
                 <div class="image-column">
-                    <figure class="image-box relative block img_hover_3"><img src="../src/assets/images/resource/garden-worker.jpg" alt=""></figure>
+                    <figure class="image-box relative block img_hover_3"><img src={GardenWorker.src} alt=""></figure>
                 </div>
                 <div class="content-column">
                     <div class="content_block_2">

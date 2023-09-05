@@ -1,4 +1,5 @@
 ---
+import Arrow from "@/assets/images/icons/arrow-2.png"
 const {
     title,
     description, 
@@ -15,7 +16,7 @@ var number = index > 10 ? index : `0${index}`;
             <div class="top-[66px] right-[-22%] translate-x-[-50%] w-[66px] h-[36px] bg-no-repeat absolute hidden sm:block" style="background-image: url(../src/assets/images/icons/arrow-2.png);"></div>
             }
             <div class="icon-box relative inline-block mb-[35px] transition-[5s]">
-                <div class="shape absolute transition-[5s]" style="background-image: url(../src/assets/images/shape/shape-20.png);"></div>
+                <div class="shape absolute transition-[5s]" style=`background-image: url(${Arrow});`></div>
                 <div class="icon relative inline-block text-[70px] theme-color z-[1]"><i class={`icon-${iconNumber}`}></i></div>
                 <span class="absolute text-[22px] font-medium text-white bg-[#2f7955] w-fit h-fit rounded-lg transition-[5s]">{number}</span>
             </div>

@@ -1,6 +1,7 @@
 ---
 import WorkBlock from './work-block.astro'; 
 import "../about-style.css"; 
+import type { AboutProcessType } from "@/util/interface.tsx"; 
 const {
     process
 } = Astro.props; 
@@ -13,7 +14,7 @@ const {
         </div>
         <div class="flex flex-col sm:flex-row">
             {process && process && process.length > 0 && 
-                process.map((item, index) =>
+                process.map((item: AboutProcessType, index:number) =>
                     <WorkBlock title = {item.title}
                         description = {item.description}
                         iconNumber= {item.iconNumber}
