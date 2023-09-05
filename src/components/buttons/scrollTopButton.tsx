@@ -1,4 +1,4 @@
-import { BsArrowUpCircle } from 'react-icons/Bs/index';
+import { BsArrowUpCircle } from 'react-icons/Bs/index.js';
 import {IconContext} from 'react-icons'; 
 const Button = () =>{
     return(
