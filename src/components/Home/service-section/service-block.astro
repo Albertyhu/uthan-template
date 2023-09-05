@@ -4,7 +4,7 @@ const {
     title, 
     tagline, 
 } = Astro.props; 
-const urlTitle = `./services/${(title.toLowerCase()).replace(/\s+/g, '_')}`
+const urlTitle = `./service/${(title.toLowerCase()).replace(/\s+/g, '_')}`
 ---
 <div class="rounded-lg service-block">
     <div class="service-block-one wow fadeInUp animated" data-wow-delay="00ms" data-wow-duration="1500ms">
