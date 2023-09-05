@@ -3,7 +3,7 @@ import AnimatedGrass from "../animated_grass/index.astro";
 import TitleComponent from '../TitleComponent/index.astro';
 import defaultImage from '@/assets/images/banner/japanese-garden.jpg';
 const {
-    image = '../../src/assets/images/banner/japanese-garden.jpg',
+    image,
     title, 
     subtitle,
     button_label, 
@@ -16,7 +16,7 @@ const {
     class={`relative h-[250px] w-full bg-center before:absolute  before:content-[''] before:bg-[rgba(0,0,0,0.4)] before:w-full before:h-full before:z-10`}
 >   
     <img 
-        src = {image ? image : defaultImage} 
+        src = {image ? image.src : defaultImage.src} 
         class = "w-full h-full object-cover"
         alt="banner image"
     />
