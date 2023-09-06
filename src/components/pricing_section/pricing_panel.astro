@@ -9,19 +9,22 @@ const {
 } = Astro.props; 
 import './pricing_style.css'
 import RenderFeatures from "./render_features.astro";
+import Shape10 from "@/assets/images/shape/shape-10.png";
+import Shape11 from "@/assets/images/shape/shape-11.png";
+import Shape12 from "@/assets/images/shape/shape-12.png";
 ---
 <div class="pricing-block">
     <div class="pricing-block-one wow fadeInUp animated" data-wow-delay="00ms" data-wow-duration="1500ms">
         <div class="pricing-table relative block rounded-lg pricing_shadow">
             <div class="table-header pt-[60px] pb-[60px] pl-[15px] pr-[15px] relative block">
-                <div class="shape-1 absolute" style="background-image: url(../src/assets/images/shape/shape-11.png);"></div>
-                <div class="shape-2 absolute" style="background-image: url(../src/assets/images/shape/shape-12.png);"></div>
+                <div class="shape-1 absolute" style=`background-image: url(${Shape11.src});`></div>
+                <div class="shape-2 absolute" style=`background-image: url(${Shape12.src});`></div>
                 <h4 class="relative block text-xl font-medium mb-[7px]">{plan.toUpperCase()}</h4>
                 <h2 class="relative block text-2xl font-semibold theme_color mb-[7px]">${price.toFixed(2)}</h2>
             </div>
             <div class="pricing-content relative block pt-[45px] pr-[15px] pb-[50px] pl-[15px]">
                 <div class="list-inner relative">
-                    <div class="shape-3 absolute" style="background-image: url(../src/assets/images/shape/shape-10.png);"></div>
+                    <div class="shape-3 absolute" style=`background-image: url(${Shape10.src});`></div>
                     <RenderFeatures features = {features} />
                 </div>
                 <div class="btn-box">
