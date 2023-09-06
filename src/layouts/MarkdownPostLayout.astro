@@ -63,7 +63,9 @@ const formattedDate = new Date(frontmatter.pubDate)
                 </div>
                 
             }
+            {FeaturedImage && <div>{FeaturedImage.default.src}</div>}
             {frontmatter.featured_image && <div>{frontmatter.featured_image}</div>}
+            
             {frontmatter.pubDate && 
                 <p
                     class = "relative block text-[15px] mb-[2px] text-slate-400"
