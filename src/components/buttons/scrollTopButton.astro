@@ -12,7 +12,7 @@ import { Icon } from 'astro-icon'
     class = "whitespace-nowrap mx-auto text-center"
 >Scroll to top</p>
 </div>
-<script>
+<script is:inline>
     const button = document.getElementById("ScrollTopButton")
     button?.addEventListener("mousedown", ()=>window.scrollTo({top: 0,left: 0,behavior: "smooth",}))
 </script>
