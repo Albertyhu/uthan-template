@@ -56,11 +56,18 @@ const formattedDate = new Date(frontmatter.pubDate)
         >
             {frontmatter.featured_image && FeaturedImage &&
                 <div
+                    id="FeaturedImage"
                     class ="max-h-[500px] w-full overflow-hidden justify-center mb-10"
                 >
                     <img src ={FeaturedImage.default.src} class = "w-full h-full object-cover" />
                 </div>
             }
+            <div
+                    id="FeaturedImage"
+                    class ="max-h-[500px] w-full overflow-hidden justify-center mb-10"
+                >
+                    <img src ={FeaturedImage.default.src} class = "w-full h-full object-cover" />
+            </div>
             {frontmatter.pubDate && 
                 <p
                     class = "relative block text-[15px] mb-[2px] text-slate-400"
