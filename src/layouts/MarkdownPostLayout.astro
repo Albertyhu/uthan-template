@@ -23,6 +23,7 @@ if(assets){
     if(frontmatter.featured_image){
         var pathArray = frontmatter.featured_image.split("/")
         var fileName = pathArray[pathArray.length - 1]
+        console.log("fileName: ", fileName)
         FeaturedImage = assets.find((asset: PostAssetType) =>{
             if(!asset || !asset.default.src)
                 return false 
@@ -104,3 +105,6 @@ const formattedDate = new Date(frontmatter.pubDate)
         </div>
     </div>  
 </BaseLayout>
+<script define:vars={{image: frontmatter.featured_image}}>
+console.log("frontmatter.feature_image: ", image)
+</script>
