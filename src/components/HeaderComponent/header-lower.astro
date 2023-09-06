@@ -43,12 +43,15 @@ class="header-lower font-[Monserrat] box_shadow"
         </div>
     </div>
 </div>
-<script is:inline>
-    console.log("inline script is working")
+<script>
     const MobileToggler = document.getElementById("mobile-nav-toggler")
     const MobileMenu = document.getElementById("mobile-menu")
     const Backdrop = document.getElementById("backdrop"); 
+    console.log("MobileToggler: ", MobileToggler)
+    console.log("MobileMenu: ", MobileMenu)
+    console.log("Backdrop: ", Backdrop)
     const OpenMenu = () =>{
+        console.log("OpenMenu")
         if(MobileMenu?.classList.contains("mobile-menu-close")){
             MobileMenu?.classList.remove("mobile-menu-close")
             Backdrop?.classList.add("backdrop-visible")

@@ -42,11 +42,12 @@ import SiteData from "@/customization/siteData.json";
         <SocialLinks customStyle = "clearfix flex flex-row [&>li]:mr-5 [&>li>a>span]:text-white my-10 pl-[25px]"/>
     </nav>
 </div><!-- End Mobile Menu -->
-<script>
+<script is:inline>
     const CloseBtn= document.getElementById("close-btn")
     const MobileMenu = document.getElementById("mobile-menu")
     const BackDrop = document.getElementById('backdrop')
     const CloseMenu = () =>{
+        console.log("close menu")
         if(!MobileMenu?.classList.contains("mobile-menu-close")){
             MobileMenu?.classList.add("mobile-menu-close")
             BackDrop?.classList.remove("backdrop-visible")
