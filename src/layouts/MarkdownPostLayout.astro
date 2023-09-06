@@ -18,14 +18,20 @@ try{
 console.log("fontmatter.featured_image: ", frontmatter.featured_image)
 console.log("assets: ", assets)
 var FeaturedImage = null; 
+
 if(assets){
-    FeaturedImage = assets.find((asset: PostAssetType) =>{
-        if(!asset || !asset.default.src)
+    if(frontmatter.featured_image){
+        var pathArray = frontmatter.featured_image.split("/")
+        var fileName = pathArray[pathArray.length - 1]
+        FeaturedImage = assets.find((asset: PostAssetType) =>{
+            if(!asset || !asset.default.src)
+                return false 
+            if(asset.default.src.includes(fileName))
+                return asset.default.src
             return false 
-        if(asset.default.src.includes(frontmatter.featured_image))
-            return asset.default.src
-        return false 
-    })
+        }) 
+    }
+
 }
 console.log('featured image: ', FeaturedImage)
 var allPosts : Array<PostType> = []; 
