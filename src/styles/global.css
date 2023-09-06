@@ -164,7 +164,7 @@ html.dark {
 
 .mobile-menu-close {
 	transform: translateX(var(--mobile-menu-close-width));
-	opacity: 0;
+	opacity: 0.1;
 }
 
 /*Mobile menu arrow */
