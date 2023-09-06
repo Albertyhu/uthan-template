@@ -15,15 +15,12 @@ try{
     assets = await Astro.glob("../assets/uploads/*")
     } catch(e){
 }
-console.log("fontmatter.featured_image: ", frontmatter.featured_image)
-console.log("assets: ", assets)
 var FeaturedImage = null; 
-
+var fileName = ""
 if(assets){
     if(frontmatter.featured_image){
         var pathArray = frontmatter.featured_image.split("/")
-        var fileName = pathArray[pathArray.length - 1]
-        console.log("fileName: ", fileName)
+        fileName = pathArray[pathArray.length - 1]
         FeaturedImage = assets.find((asset: PostAssetType) =>{
             if(!asset || !asset.default.src)
                 return false 
@@ -34,7 +31,6 @@ if(assets){
     }
 
 }
-console.log('featured image: ', FeaturedImage)
 var allPosts : Array<PostType> = []; 
 try {
     allPosts = await Astro.glob("../pages/posts/*.md"); 
@@ -105,6 +101,13 @@ const formattedDate = new Date(frontmatter.pubDate)
         </div>
     </div>  
 </BaseLayout>
-<script define:vars={{image: frontmatter.featured_image}}>
-console.log("frontmatter.feature_image: ", image)
+<script define:vars={{
+        featured_image: frontmatter.featured_image,
+        fileName: fileName, 
+        assets: assets,
+
+        }}>
+console.log("frontmatter.feature_image: ", featured_image)
+console.log("fileName: ", fileName)
+console.log("assets: ", assets)
 </script>
