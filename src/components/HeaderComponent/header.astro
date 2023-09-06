@@ -1,7 +1,8 @@
 ---
 import HeaderTop from './header-top.astro'; 
 import HeaderLower from './header-lower.astro';
-import MobileMenu from './MobileMenu/index.astro';
+//import MobileMenu from './MobileMenu/index.astro';
+import MobileMenu from './MobileMenu/index.tsx';
 import StickyHeader from './StickyHeader/index.astro';
 import Wrapper from './wrapper.tsx'; 
 import './header.css'
@@ -12,5 +13,5 @@ const {serviceList } = Astro.props;
     <HeaderTop />
     <HeaderLower {serviceList} />
 </header>
-<MobileMenu />
+<MobileMenu client:only = "react" />
 <StickyHeader />

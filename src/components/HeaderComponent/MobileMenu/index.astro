@@ -32,11 +32,11 @@ import SiteData from "@/customization/siteData.json";
                         {SiteData.city && <span>{SiteData.city},</span>} 
                         {SiteData.state && <span>{SiteData.state},</span>} 
                         {SiteData.country && <span>{SiteData.country}</span>}
-                        {SiteData.zip && <span>{SiteData.zip}{</span>}
+                        {SiteData.zip && <span>{SiteData.zip}</span>}
                     </li>
                 }
                 {SiteData && SiteData.business_phone && <li><a href="tel:+8801682648101">{SiteData.business_phone}</a></li>}
-                {SiteData && SiteData.business_email && <li><a href={`mailto:${SiteData.business_email}`}>{SiteData.business_email}}</a></li>}
+                {SiteData && SiteData.business_email && <li><a href={`mailto:${SiteData.business_email}`}>{SiteData.business_email}</a></li>}
             </ul>
         </div>
         <SocialLinks customStyle = "clearfix flex flex-row [&>li]:mr-5 [&>li>a>span]:text-white my-10 pl-[25px]"/>
