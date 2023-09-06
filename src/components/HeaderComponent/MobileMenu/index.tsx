@@ -1,0 +1,77 @@
+import {useEffect, useRef } from 'react'; 
+import { MobileMenuOpen } from "@/util/atomItems.js";
+import { useStore } from '@nanostores/react';
+import MenuLinks from './menuLinks.tsx';
+import WhiteLogo from "@/assets/images/logo-white.png"; 
+
+const WIDTH = 250
+const MENU_WIDTH = `w-[${WIDTH}px]`;
+const TRANSLATE = `translate-x-[${WIDTH}px]`; 
+const MobileMenuComponent = () =>{
+    const $MobileMenuOpen = useStore(MobileMenuOpen); 
+    
+    const CloseMobileMenu = () =>{
+        MobileMenuOpen.set(false);
+    }
+
+    const MobileMenuRef = useRef<HTMLDivElement | null>(null); 
+    let MobileIconComponent = document.getElementById("MobileIcon"); 
+    const checkIfClickedOutside = (evt : MouseEvent) => {
+        if (MobileMenuRef.current &&
+            !MobileMenuRef.current.classList.contains(TRANSLATE) &&
+            MobileIconComponent != evt.target &&
+            !MobileIconComponent?.contains(evt.target as HTMLDivElement) &&
+            !MobileMenuRef.current.contains(evt.target as HTMLDivElement)) {
+            CloseMobileMenu()
+        }
+    }
+
+    useEffect(()=>{
+        window.addEventListener("mousedown", checkIfClickedOutside)
+        return () =>{
+            window.removeEventListener("mousedown", checkIfClickedOutside)
+        }
+    },[])
+    
+    useEffect(()=>{
+        if($MobileMenuOpen){
+            MobileMenuRef.current?.classList.remove(TRANSLATE)
+        }
+        else{
+            MobileMenuRef.current?.classList.add(TRANSLATE)
+        }
+    }, [$MobileMenuOpen])
+
+    return (
+        <div
+            id="Mobile_Menu"
+            className = {`grid md:hidden h-full fixed left-auto right-0 top-0 overflow-y-auto overflow-x-hidden transition-all mobile-menu w-[250px] translate-x-[250px]`}
+            ref = {MobileMenuRef}
+        >
+            <div
+                id="Mobile_Menu_Wrapper"
+                className = "w-9/12 mx-auto mt-[20px] text-black flex flex-col [&>a]:mb-10 Mobile_Menu_Wrapper"
+            >
+                <a 
+                    href ="/"
+                    className ="mx-auto userselect-none"
+                >
+                    <img
+                        src = {WhiteLogo.src}
+                        className = "mb-5"
+                        alt="logo"
+                    />
+                 </a>
+                <div className = "grid mobile-menu-links">
+                    <MenuLinks />
+                </div>
+                <hr className="border-[1px] w-11/12 mx-auto bg-slate-300 my-5" />
+                <p 
+                className = "hover:bg-white w-full rounded-lg px-1 cursor-pointer mb-10"
+                onClick = {CloseMobileMenu} 
+                >Close</p>
+            </div>
+        </div>
+    )
+}
+export default MobileMenuComponent; 
