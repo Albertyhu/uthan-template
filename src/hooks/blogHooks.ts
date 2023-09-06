@@ -2,7 +2,8 @@ import type {
 	PostType,
 	CreateStaticPathArrayType,
 	TagStaticPathArrayType,
-	PathArray_TagsAndPageType
+	PathArray_TagsAndPageType,
+	PostAssetType
 } from '@/util/interface'
 
 //This function creates and returns an array containing posts to be displayed based on the page number
@@ -110,9 +111,24 @@ const createStaticPathArrayForTags = ({
 	})
 }
 
+const getFeaturedImage = (pathway: string, assets: Array<any>) =>{
+	var pathArray = pathway.split("/");
+	var fileName = pathArray[pathArray.length - 1]
+	var fileNameArray = fileName.split(".");
+	var formattedName = fileNameArray[fileNameArray.length - 1]; 
+	return assets.find((asset: PostAssetType) =>{
+		if(!asset || !asset.default.src)
+			return false 
+		if(asset.default.src.includes(formattedName))
+			return asset.default.src
+		return false 
+	}) 
+}
+
 export {
 	getPaginatedArray,
 	createStaticPathArray,
 	createStaticPathArrayForTagsAndPage,
-	createStaticPathArrayForTags
+	createStaticPathArrayForTags,
+	getFeaturedImage
 }

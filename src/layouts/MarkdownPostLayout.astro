@@ -1,7 +1,8 @@
 ---
 import BaseLayout from "./BaseLayout.astro";
 import TagList from "../components/taglist/taglist.astro";
-import RecentPosts from '@/components/blogComponents/recent_post/index.astro'; 
+import RecentPosts from '@/components/blogComponents/recent_post/index.astro';
+import {getFeaturedImage} from "@/hooks/blogHooks.ts"; 
 import type { 
     PostType,
     PostAssetType
@@ -16,20 +17,22 @@ try{
     } catch(e){
 }
 var FeaturedImage = null; 
-var fileName = ""
+
 if(assets){
     if(frontmatter.featured_image){
-        var pathArray = frontmatter.featured_image.split("/")
-        fileName = pathArray[pathArray.length - 1]
-        var fileNameArray = fileName.split(".");
-        var formattedName = fileNameArray[fileNameArray.length - 1]; 
-        FeaturedImage = assets.find((asset: PostAssetType) =>{
-            if(!asset || !asset.default.src)
-                return false 
-            if(asset.default.src.includes(formattedName))
-                return asset.default.src
-            return false 
-        }) 
+        // var fileName = ""
+        // var pathArray = frontmatter.featured_image.split("/")
+        // fileName = pathArray[pathArray.length - 1]
+        // var fileNameArray = fileName.split(".");
+        // var formattedName = fileNameArray[fileNameArray.length - 1]; 
+        // FeaturedImage = assets.find((asset: PostAssetType) =>{
+        //     if(!asset || !asset.default.src)
+        //         return false 
+        //     if(asset.default.src.includes(formattedName))
+        //         return asset.default.src
+        //     return false 
+        // }) 
+        FeaturedImage = getFeaturedImage(frontmatter.featured_image, assets)
     }
 
 }
@@ -100,11 +103,10 @@ const formattedDate = new Date(frontmatter.pubDate)
 </BaseLayout>
 <script define:vars={{
         featured_image: frontmatter.featured_image,
-        fileName: fileName, 
         assets: assets,
 
         }}>
 console.log("frontmatter.feature_image: ", featured_image)
-console.log("fileName: ", fileName)
+
 console.log("assets: ", assets)
 </script>
