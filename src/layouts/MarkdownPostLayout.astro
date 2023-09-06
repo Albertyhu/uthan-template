@@ -2,13 +2,32 @@
 import BaseLayout from "./BaseLayout.astro";
 import TagList from "../components/taglist/taglist.astro";
 import RecentPosts from '@/components/blogComponents/recent_post/index.astro'; 
-import AnimatedGrass from "@/components/animated_grass/index.astro"; 
-import type { PostType } from "@/util/interface.tsx"; 
+import type { 
+    PostType,
+    PostAssetType
+ } from "@/util/interface.tsx"; 
 import SearchComponent from '@/components/search/index.astro';
 import Banner from '@/components/small_banner/index.astro'
 const { frontmatter } = Astro.props;
 const tags = frontmatter.tags; 
-
+var assets : Array<PostAssetType> = []; 
+try{
+    assets = await Astro.glob("../assets/uploads/*")
+    } catch(e){
+}
+console.log("fontmatter.featured_image: ", frontmatter.featured_image)
+console.log("assets: ", assets)
+var FeaturedImage = null; 
+if(assets){
+    FeaturedImage = assets.find((asset: PostAssetType) =>{
+        if(!asset || !asset.default.src)
+            return false 
+        if(asset.default.src.includes(frontmatter.featured_image))
+            return asset.default.src
+        return false 
+    })
+}
+console.log('featured image: ', FeaturedImage)
 var allPosts : Array<PostType> = []; 
 try {
     allPosts = await Astro.glob("../pages/posts/*.md"); 
@@ -26,19 +45,20 @@ if(allPosts && allPosts.length > 0){
 
 const formattedDate = new Date(frontmatter.pubDate)
 ---
-
 <BaseLayout pateTitle={frontmatter.title} {frontmatter}>
     <Banner 
     />
     <div 
-        class = "flex flex-col sm:flex-row sm:gap-10 mt-5 w-11/12 mx-auto"
+        class = "flex flex-col lg:flex-row sm:gap-10 mt-5 w-11/12 mx-auto"
     > 
-        <div>
-            {frontmatter.featured_image && 
+        <div
+            class = ""
+        >
+            {frontmatter.featured_image && FeaturedImage &&
                 <div
                     class ="max-h-[500px] w-full overflow-hidden justify-center mb-10"
                 >
-                    <img src ={frontmatter.featured_image} class = "w-full h-full object-cover" />
+                    <img src ={FeaturedImage.default.src} class = "w-full h-full object-cover" />
                 </div>
             }
             {frontmatter.pubDate && 

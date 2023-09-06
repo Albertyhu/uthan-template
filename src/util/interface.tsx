@@ -181,3 +181,12 @@ export type AboutProcessType = {
     iconNumber: number, 
 
 } 
+
+export type PostAssetType = {
+  default: {
+    src: string, 
+    width: number,
+    height: number,
+    format: string,  
+  }
+} 

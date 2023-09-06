@@ -15,11 +15,10 @@ const {
     date, 
     url
 } = Astro.props; 
-const formattedTittle = title.length < 32 ? title : `${title.substr(0 ,32)}...`;
 const formattedDate = new Date(date); 
 ---
 <a href = {url}>
-<div class="flex flex-row gap-10 relative min-h-[100px] text-[16px] my-5 ">
+<div class="flex flex-row gap-5 relative min-h-[100px] text-[16px] my-5 ">
         <div>
         {thumbnail && 
             <figure class="rounded-lg overflow-hidden w-[80px] h-[80px]">
@@ -31,7 +30,7 @@ const formattedDate = new Date(date);
         }
         </div>
         <div class = "grid">
-            <h5 class="text-lg font-medium mb-[6px]">{formattedTittle}</h5>
+            <h5 class="text-lg font-medium mb-[6px]">{title}</h5>
             <span class="post-date relative block text-xl leading-[28px]">{formattedDate.toDateString()}</span>
         </div>
 

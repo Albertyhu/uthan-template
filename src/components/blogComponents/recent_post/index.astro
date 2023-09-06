@@ -4,7 +4,7 @@ import "./style.css"
 import PostGrid from './post_grid.astro'; 
 const { posts } = Astro.props;  
 ---
-<div class="relative block pt-[30px] pr-[40px] pl-[40px] rounded-lg mb-[50px] border-2 border-[#dbdbdb] h-fit">
+<div class="relative block pt-[10px] px-[40px] rounded-lg mb-[50px] border-2 border-[#dbdbdb] h-fit">
     <h3 class="text-4xl mb-[15px] font-['Prata',serif]">Recent Posts</h3>
     <PostGrid RecentPosts = {posts}/>
 </div>
