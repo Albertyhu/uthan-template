@@ -61,7 +61,7 @@ const formattedDate = new Date(frontmatter.pubDate)
                 >
                     <img src ={FeaturedImage.default.src} class = "w-full h-full object-cover" />
                 </div>
-                <div>{FeaturedImage.default.src}</div>
+                {frontmatter.featured_image && <div>{frontmatter.featured_image}</div>}
             }
             {frontmatter.pubDate && 
                 <p
