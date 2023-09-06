@@ -21,10 +21,12 @@ if(assets){
     if(frontmatter.featured_image){
         var pathArray = frontmatter.featured_image.split("/")
         fileName = pathArray[pathArray.length - 1]
+        var fileNameArray = fileName.split(".");
+        var formattedName = fileNameArray[fileNameArray.length - 1]; 
         FeaturedImage = assets.find((asset: PostAssetType) =>{
             if(!asset || !asset.default.src)
                 return false 
-            if(asset.default.src.includes(fileName))
+            if(asset.default.src.includes(formattedName))
                 return asset.default.src
             return false 
         }) 
@@ -64,12 +66,7 @@ const formattedDate = new Date(frontmatter.pubDate)
                 >
                     <img src ={FeaturedImage.default.src} class = "w-full h-full object-cover" />
                 </div>
-                
             }
-            {assets && <div>{assets}</div>}
-            {FeaturedImage && <div>{FeaturedImage.default.src}</div>}
-            {frontmatter.featured_image && <div>{frontmatter.featured_image}</div>}
-            
             {frontmatter.pubDate && 
                 <p
                     class = "relative block text-[15px] mb-[2px] text-slate-400"
