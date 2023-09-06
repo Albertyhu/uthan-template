@@ -2,7 +2,11 @@
 import BaseLayout from "./BaseLayout.astro";
 import TagList from "../components/taglist/taglist.astro";
 import RecentPosts from '@/components/blogComponents/recent_post/index.astro';
-import {getFeaturedImage} from "@/hooks/blogHooks.ts"; 
+import {
+    getFeaturedImage,
+    formatRecentPostArray,
+    setBlogPostImages, 
+} from "@/hooks/blogHooks.ts"; 
 import type { 
     PostType,
     PostAssetType
@@ -19,37 +23,26 @@ try{
 var FeaturedImage = null; 
 
 if(assets){
-    if(frontmatter.featured_image){
-        // var fileName = ""
-        // var pathArray = frontmatter.featured_image.split("/")
-        // fileName = pathArray[pathArray.length - 1]
-        // var fileNameArray = fileName.split(".");
-        // var formattedName = fileNameArray[fileNameArray.length - 1]; 
-        // FeaturedImage = assets.find((asset: PostAssetType) =>{
-        //     if(!asset || !asset.default.src)
-        //         return false 
-        //     if(asset.default.src.includes(formattedName))
-        //         return asset.default.src
-        //     return false 
-        // }) 
-        FeaturedImage = getFeaturedImage(frontmatter.featured_image, assets)
-    }
 
+    if(frontmatter.featured_image){
+        //FeaturedImage = getFeaturedImage(frontmatter.featured_image, assets)
+    }
 }
+
 var allPosts : Array<PostType> = []; 
 try {
     allPosts = await Astro.glob("../pages/posts/*.md"); 
 } catch(error){
     console.log("error: ", error)
 }
-var selectedPosts : Array<PostType> = []
+var formattedRecentPosts : Array<PostType> = []
+var recentPosts: Array<PostType> = []; 
 if(allPosts && allPosts.length > 0){
-    selectedPosts = allPosts.sort((a, b)=> {
-            var a_date : Date = new Date(a.frontmatter.pubDate)
-            var b_date : Date = new Date(b.frontmatter.pubDate)
-            return b_date.getTime() - a_date.getTime();
-            }).slice(0,3)
+    recentPosts = formatRecentPostArray(allPosts)
 }
+var payload = setBlogPostImages(assets, frontmatter.featured_image, recentPosts)
+FeaturedImage = payload.main_featured_image; 
+formattedRecentPosts = [...payload.recentPosts]
 
 const formattedDate = new Date(frontmatter.pubDate)
 ---
@@ -67,7 +60,7 @@ const formattedDate = new Date(frontmatter.pubDate)
                     id="FeaturedImage"
                     class ="max-h-[500px] w-full overflow-hidden justify-center mb-10"
                 >
-                    <img src ={FeaturedImage.default.src} class = "w-full h-full object-cover" />
+                    <img src ={FeaturedImage} class = "w-full h-full object-cover" />
                 </div>
             }
             {frontmatter.pubDate && 
@@ -96,7 +89,7 @@ const formattedDate = new Date(frontmatter.pubDate)
                 {allPosts}
             />
             <RecentPosts 
-                posts = {selectedPosts}
+                posts = {formattedRecentPosts}
              />
         </div>
     </div>  

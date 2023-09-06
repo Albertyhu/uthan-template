@@ -1,11 +1,13 @@
-export interface postType {
+export interface formattedPostType {
   title: string,
   pubDate: Date,
-  description: string,
+  description?: string,
   author: string,
-  images: Array<ImageType | string>,
-  tags: Array<TagType | string>,
-  body: HTMLElement | string,
+  featured_image?: string, 
+  images?: Array<ImageType | string>,
+  tags?: Array<TagType | string>,
+  body?: HTMLElement | string,
+  url?: string, 
 }
 
 export interface ImageMetadata {
@@ -61,13 +63,14 @@ export interface PostType {
     layout: string,
     title: string,
     pubDate: Date,
-    description: string,
+    description?: string,
     author: string,
-    featured_image: string | HTMLImageElement,
-    images: Array<ImageType> | null | undefined,
-    tags: Array<TagType> | null | undefined,
-    body: HTMLElement | string | null | undefined,
+    featured_image?: string,
+    images?: Array<ImageType> | null | undefined,
+    tags?: Array<TagType> | null | undefined,
+    body?: HTMLElement | string | null | undefined,
   },
+  url?: string, 
 }
 
 export type ImageType = {

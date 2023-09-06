@@ -8,10 +8,7 @@ const { RecentPosts } = Astro.props;
         RecentPosts.map((post : PostType, index: number) => 
         <div>
             <PostItem 
-                thumbnail = {post.frontmatter.featured_image}
-                title = {post.frontmatter.title}
-                date = {post.frontmatter.pubDate}
-                url = {post.url}
+                {...post}
             />
         {index < RecentPosts.length - 1 && 
             <hr class = "border-[1px] bg-[#dbdbdb]" />
