@@ -58,10 +58,10 @@ class="header-lower font-[Monserrat] box_shadow"
         }
     }
     MobileToggler?.addEventListener('mousedown', OpenMenu)
-    const CheckIfClickedOutside = (event : MouseEvent) =>{
+    const CheckIfClickedOutside = (event) =>{
         if(!MobileMenu?.classList.contains("mobile-menu-close") 
-            && !MobileToggler?.contains(event.target as Node)
-            && !MobileMenu?.contains(event.target as Node)
+            && !MobileToggler?.contains(event.target)
+            && !MobileMenu?.contains(event.target)
         ){
             MobileMenu?.classList.add("mobile-menu-close")
             Backdrop?.classList.remove("backdrop-visible")
