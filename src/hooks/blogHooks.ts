@@ -22,7 +22,7 @@ const createStaticPathArray = ({
 	PAGE_SIZE,
 	totalPages,
 	assets
-}: CreateStaticPathArrayType): Array<any> => {
+}: CreateStaticPathArrayType) : Array<any> => {
 	var staticPaths: Array<any> = []
 	var i = 1
 	var assetMap = new Map()
@@ -42,6 +42,7 @@ const createStaticPathArray = ({
 				PAGE_SIZE
 			}
 		}
+		console.log("paginatedArray: ", paginatedArray)
 		staticPaths.push(path)
 		i++
 	} while (i <= totalPages)

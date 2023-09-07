@@ -13,10 +13,6 @@ const MobileMenu = () =>{
     var BackDrop = document.getElementById('backdrop')
     //new
     const MobileToggler = document.getElementById("mobile-nav-toggler")
-    console.log("MobileToggler: ", MobileToggler)
-    console.log("MobileMenu: ", MobileMenu)
-    console.log("Backdrop: ", BackDrop)
-
     const CloseMenu = () =>{
         console.log("close menu")
         if(!MobileMenu?.classList.contains("mobile-menu-close")){

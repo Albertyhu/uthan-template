@@ -6,11 +6,13 @@ const {
     author, 
     description,
     featured_image,
+    thumbnail, 
     images,
     pubDate,
     tags, 
     url
 } = Astro.props; 
+
 import DescriptionComponent from './description.tsx'; 
 let datePublished : Date | null = pubDate ? new Date(pubDate)  : null; 
 const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
@@ -20,7 +22,7 @@ import "./style.css";
     class = "rounded-lg post-box-shadow bg-white blog-preview-panel mb-[20px]"
     id="blog-preview-panel"
 >
-    {featured_image &&
+    {thumbnail &&
         <div
         class = "overflow-hidden cursor-pointer h-[250px] w-auto rounded-[5px_5px_0px_0px]"
         >
@@ -28,7 +30,7 @@ import "./style.css";
                 href={url}
             >
                 <img
-                    src = {featured_image}
+                    src = {thumbnail}
                     alt = {`${title} featured image`}
                     class = "w-full h-full object-cover"
                 />

@@ -43,6 +43,7 @@ let inBound = page && typeof parseInt(page) === "number" && parseInt(page) <= to
 if(!inBound && totalPages != 0) {
     return Astro.redirect("/error")
 }
+
 ---
 <BaseLayout pageTitle = "Blog posts">
     <div
@@ -71,10 +72,8 @@ if(!inBound && totalPages != 0) {
         {paginatedArray && paginatedArray.length > 0 && 
             <div class = "grid sm:grid-cols-2 md:grid-cols-3 gap-5 mt-10">
                 {paginatedArray.map(async (post :PostType) =>{
-                    if(post.frontmatter.featured_image){
-                        return <BlogPreview {...post.frontmatter} url = {post.url} thumbnail = {post.featured_image} />
-                    }
-                    return <BlogPreview {...post.frontmatter} url = {post.url}/>
+                    return <BlogPreview {...post.frontmatter} url = {post.url} thumbnail = {post.featured_image} />
+
                 })}
             </div>
         }
