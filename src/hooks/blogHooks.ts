@@ -209,7 +209,7 @@ const setBlogPostImages = (
 	return payload; 
 }
 
-const retriveRecentImages = (allPosts: Array<PostType>, assets: Array<PostAssetType>, max: number)  =>{
+const retrieveRecentImages = (allPosts: Array<PostType>, assets: Array<PostAssetType>, max: number)  =>{
 	//recentPost is formmatted
 	const recentPost = formatRecentPostArray(allPosts, max)
 	var hydratedRecentPost = [] 
@@ -276,7 +276,7 @@ export {
 	getFeaturedImage,
 	setBlogPostImages,
 	formatRecentPostArray,
-	retriveRecentImages , 
+	retrieveRecentImages, 
 	getImageFileName,
 	hydratePaginatedPostArray
 }
