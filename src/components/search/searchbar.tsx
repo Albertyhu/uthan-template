@@ -54,7 +54,7 @@ const SearchBar = (props : SearchType) : ReactElement => {
             >
                 <div
                     id = 'QueryWrapper'
-                    className = "flex bg-[#ffffff] rounded-lg mx-auto w-full border-2 border-black mr-5"
+                    className = "flex bg-[#ffffff] rounded-lg mx-auto w-full border-2 border-solid border-black mr-5"
                 >
                     <input
                         type = "text"
