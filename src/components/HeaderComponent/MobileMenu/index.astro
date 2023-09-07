@@ -21,7 +21,7 @@ import SiteData from "@/customization/siteData.json";
             </a>
         </div>
         <div class="menu-outer mt-[25px] ">
-            <MenuLinks client:visible />
+            <MenuLinks client:only = "react" />
         </div>
         <div class="contact-info text-white pl-[25px] border-t-[1px] border-[#d6d6d6]">
             <h4>Contact Info</h4>
@@ -41,17 +41,4 @@ import SiteData from "@/customization/siteData.json";
         </div>
         <SocialLinks customStyle = "clearfix flex flex-row [&>li]:mr-5 [&>li>a>span]:text-white my-10 pl-[25px]"/>
     </nav>
-</div><!-- End Mobile Menu -->
-<!-- <script>
-    const CloseBtn= document.getElementById("close-btn")
-    const MobileMenu = document.getElementById("mobile-menu")
-    const BackDrop = document.getElementById('backdrop')
-    const CloseMenu = () =>{
-        console.log("close menu")
-        if(!MobileMenu?.classList.contains("mobile-menu-close")){
-            MobileMenu?.classList.add("mobile-menu-close")
-            BackDrop?.classList.remove("backdrop-visible")
-        }
-    }
-    CloseBtn?.addEventListener('mousedown', CloseMenu)
-</script> -->
+</div>

@@ -96,6 +96,3 @@ const LinkItem = (props: LinkItemType) => {
 	)
 }
 
-const SubDirectory = (props: LinkItemType) => {
-	const {} = props
-}

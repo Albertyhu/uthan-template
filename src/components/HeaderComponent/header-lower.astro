@@ -43,31 +43,3 @@ class="header-lower font-[Monserrat] box_shadow"
         </div>
     </div>
 </div>
-<!-- <script>
-    const MobileToggler = document.getElementById("mobile-nav-toggler")
-    const MobileMenu = document.getElementById("mobile-menu")
-    const Backdrop = document.getElementById("backdrop"); 
-
-    const OpenMenu = () =>{
-        console.log("OpenMenu")
-        if(MobileMenu?.classList.contains("mobile-menu-close")){
-            MobileMenu?.classList.remove("mobile-menu-close")
-            Backdrop?.classList.add("backdrop-visible")
-        }
-        else{
-            MobileMenu?.classList.add("mobile-menu-close")
-            Backdrop?.classList.remove("backdrop-visible")
-        }
-    }
-    MobileToggler?.addEventListener('mousedown', OpenMenu)
-    const CheckIfClickedOutside = (event) =>{
-        if(!MobileMenu?.classList.contains("mobile-menu-close") 
-            && !MobileToggler?.contains(event.target)
-            && !MobileMenu?.contains(event.target)
-        ){
-            MobileMenu?.classList.add("mobile-menu-close")
-            Backdrop?.classList.remove("backdrop-visible")
-        }
-    }
-    window.addEventListener("mousedown", CheckIfClickedOutside)
-</script> -->
