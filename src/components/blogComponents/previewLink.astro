@@ -6,8 +6,6 @@ const {
     author, 
     description,
     featured_image,
-    thumbnail, 
-    images,
     pubDate,
     tags, 
     url
@@ -22,7 +20,7 @@ import "./style.css";
     class = "rounded-lg post-box-shadow bg-white blog-preview-panel mb-[20px]"
     id="blog-preview-panel"
 >
-    {thumbnail &&
+    {featured_image &&
         <div
         class = "overflow-hidden cursor-pointer h-[250px] w-auto rounded-[5px_5px_0px_0px]"
         >
@@ -32,7 +30,7 @@ import "./style.css";
                 <img
                     loading = "lazy"
                     decoding="async"
-                    src = {thumbnail}
+                    src = {featured_image}
                     alt = {`${title} featured image`}
                     class = "w-full h-full object-cover"
                 />
