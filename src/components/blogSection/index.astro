@@ -19,10 +19,10 @@ const {
         >
         {
             postSelection.map(async (post :PostType) =>{
-                    if(post.featured_image){
-                        return <BlogPreview {...post} url = {post.url} thumbnail = {post.featured_image} />
-                    }
-                    return <BlogPreview {...post} url = {post.url}/>
+                    // if(post.featured_image){
+                    //     return <BlogPreview {...post} url = {post.url} thumbnail = {post.featured_image} />
+                    // }
+                    return <BlogPreview {...post} />
                 }
             )  
         }
