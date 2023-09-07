@@ -1,6 +1,6 @@
 ---
 import BlogPreview from '../blogComponents/previewLink.astro';
-import type { PostType } from '@/util/interface';
+import type { formattedPostType  } from '@/util/interface';
 import SiteData from '@/customization/siteData.json'; 
 const {
     postSelection
@@ -15,12 +15,12 @@ const {
 
     {postSelection && postSelection.length > 0 ? 
         <div
-        class = "grid sm:grid-cols-3 gap-5"
+            class = "grid sm:grid-cols-3 gap-5"
         >
         {
-            postSelection.map(async (post :PostType) =>{
+            postSelection.map(async (post: formattedPostType ) =>{
                     console.log("post: ", post)
-                    return <BlogPreview {...post} />
+                    return <BlogPreview {...post} thumbnail ={post.featured_image} />
                 }
             )  
         }
