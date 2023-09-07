@@ -18,23 +18,23 @@ export async function getStaticPaths() {
     } catch(error){
         allPosts = []
     }
-    var imageFiles = {}
+    var assets = []
     try{
-        imageFiles = import.meta.glob("../../assets/uploads/*"); 
+        assets = await Astro.glob("../../assets/uploads/*"); 
     } catch (error){
-        imageFiles = {}
+        assets = []
     }
     return createStaticPathArray({
         allPosts, 
         PAGE_SIZE,
         totalPages, 
-        imageFiles, 
+        assets, 
     })
 }   
 const {page} = Astro.params; 
 const {
     totalPages,
-    imageFiles,
+    assets,
     paginatedArray,
     totalPosts,
     PAGE_SIZE
@@ -72,7 +72,7 @@ if(!inBound && totalPages != 0) {
             <div class = "grid sm:grid-cols-2 md:grid-cols-3 gap-5 mt-10">
                 {paginatedArray.map(async (post :PostType) =>{
                     if(post.frontmatter.featured_image){
-                        return <BlogPreview {...post.frontmatter} url = {post.url} thumbnail = {post.frontmatter.featured_image} />
+                        return <BlogPreview {...post.frontmatter} url = {post.url} thumbnail = {post.featured_image} />
                     }
                     return <BlogPreview {...post.frontmatter} url = {post.url}/>
                 })}

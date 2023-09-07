@@ -2,7 +2,10 @@
 export const prerender = false;
 import BaseLayout from '../../../../layouts/BaseLayout.astro'; 
 import RenderPagination from '../../../../components/paginatedBlog/renderPagination.tsx';
-import { getPaginatedArray } from "../../../../hooks/blogHooks.ts"; 
+import { 
+    getPaginatedArray, 
+    hydratePaginatedPostArray 
+} from "../../../../hooks/blogHooks.ts"; 
 import Searchbar from '../../../../components/search/index.astro';
 import BlogPreview from '../../../../components/blogComponents/previewLink.astro';
 import type { PostType } from '../../../../util/interface';
@@ -18,7 +21,8 @@ const PAGE_SIZE = 6;
 var allPosts : Array<PostType> | [] = []; 
 var totalPages : number = 0;
 var searchResults : Array<PostType> | [] = []; 
-var imageFiles = {}
+var assets = []
+var assetMap = new Map()
 try{
     allPosts = await Astro.glob("../../../posts/*.md")
 } catch(error){
@@ -26,9 +30,9 @@ try{
 }
 
 try{
-    imageFiles = import.meta.glob("../../../../assets/uploads/*"); 
+    assets = await Astro.glob("../../../../assets/uploads/*"); 
 } catch(error){
-
+    console.log(error)
 }
     searchResults = SearchQuery(search_query as string, allPosts); 
     totalPages = Math.ceil(searchResults.length/PAGE_SIZE);
@@ -37,7 +41,9 @@ let inBound = page && typeof pageNumber === "number" && pageNumber <= totalPages
 if(!inBound && totalPages != 0) {
     return Astro.redirect("/error")
 }
-var paginatedArray = pageNumber && searchResults.length > 0? getPaginatedArray(searchResults, pageNumber, PAGE_SIZE) : [];
+var paginatedArray = pageNumber && searchResults.length > 0 ? getPaginatedArray(searchResults, pageNumber, PAGE_SIZE) : [];
+paginatedArray = paginatedArray.length > 0 ? hydratePaginatedPostArray(paginatedArray, assetMap, assets) : []; 
+
 ---
 <BaseLayout pageTitle = "Blog posts">
     <div
@@ -81,7 +87,7 @@ var paginatedArray = pageNumber && searchResults.length > 0? getPaginatedArray(s
             <div class = "grid sm:grid-cols-2 md:grid-cols-3 gap-5 mt-10">
                 {paginatedArray.map(async (post :PostType) =>{
                     if(post.frontmatter.featured_image){
-                        return <BlogPreview {...post.frontmatter} url = {post.url} thumbnail = {post.frontmatter.featured_image} />
+                        return <BlogPreview {...post.frontmatter} url = {post.url} thumbnail = {post.featured_image} />
                     }
                     return <BlogPreview {...post.frontmatter} url = {post.url}/>
                 })}

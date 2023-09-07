@@ -21,17 +21,22 @@ const createStaticPathArray = ({
 	allPosts,
 	PAGE_SIZE,
 	totalPages,
-	imageFiles
+	assets
 }: CreateStaticPathArrayType): Array<any> => {
 	var staticPaths: Array<any> = []
 	var i = 1
+	var assetMap = new Map()
 	do {
+		//acquire array of blog posts to be displayed by each page, limited by PAGE_SIZE
 		var paginatedArray = getPaginatedArray(allPosts, i, PAGE_SIZE)
+
+		//insert the corresponding image data of each featured image of the blog post 
+		paginatedArray = hydratePaginatedPostArray(paginatedArray, assetMap, assets)
 		var path = {
 			params: { page: i },
 			props: {
 				totalPages,
-				imageFiles,
+				assets,
 				paginatedArray,
 				totalPosts: allPosts.length,
 				PAGE_SIZE
@@ -137,7 +142,7 @@ const formatRecentPostArray = (allPosts: Array<PostType>, max: number) => {
             }).slice(0,max)
 		return recentPosts.map((post: PostType) =>{
 			return {
-				featured_image: post.frontmatter.featured_image ? formatImageFileName(post.frontmatter.featured_image): null, 
+				featured_image: post.frontmatter.featured_image ? getImageFileName(post.frontmatter.featured_image): null, 
 				title : post.frontmatter.title,
                 pubDate : post.frontmatter.pubDate,
 				description: post.frontmatter.description, 
@@ -174,10 +179,10 @@ const setBlogPostImages = (
 		recentPosts: [], 
 	}
 	if(main_feature){
-		formattedName =formatImageFileName (main_feature);  
+		formattedName =getImageFileName (main_feature);  
 	}
 	for(var i = 0; i < assets.length; i++){
-		var assetFileName = formatImageFileName(assets[i].default.src); 
+		var assetFileName = getImageFileName(assets[i].default.src); 
 		if(assetFileName === formattedName){
 			payload["main_featured_image"] = assets[i].default.src
 		}
@@ -209,7 +214,7 @@ const retriveRecentImages = (allPosts: Array<PostType>, assets: Array<PostAssetT
 	var hydratedRecentPost = [] 
 	hydratedRecentPost = recentPost.map(post => {
 		var uploadedImage = assets.find(asset => {
-			 return formatImageFileName(asset.default.src) === post.featured_image; 
+			 return getImageFileName(asset.default.src) === post.featured_image; 
 		})
 		return{
 			...post, 
@@ -222,12 +227,44 @@ const retriveRecentImages = (allPosts: Array<PostType>, assets: Array<PostAssetT
 
 //This function extracts the file name from the file path excluding the extension 
 //For example, './src/asset/uploads.sample.jpg' becomes 'sample'
-const formatImageFileName = (imageFile : string) =>{
+const getImageFileName = (imageFile : string) =>{
 		var pathArray = imageFile.split("/");
 		var fileName = pathArray[pathArray.length - 1]
 		var fileNameArray = fileName.split(".");
 		return fileNameArray[0]; 
 } 
+
+//This retrieves the image data for each post 
+//The map object assetMap is used to reduce the need to go through redundant loops
+//This is not pure function because it mutates the argument assetMap
+const hydratePaginatedPostArray = (paginatedArray: Array<PostType>, assetMap: Map<string, any>, assets: Array<PostAssetType>) =>{
+		var hydratedArray = paginatedArray.map(item => {
+			if(item.frontmatter.featured_image){
+				var featured_image = null; 
+				var fileName = getImageFileName(item.frontmatter.featured_image)
+				if(assetMap.get(fileName)){
+					featured_image = assetMap.get(fileName); 
+				}
+				else{
+					assets.find(asset => {
+						var found : boolean = asset.default.src.includes(fileName); 
+						if(found){
+							assetMap.set(fileName, asset.default.src)
+						}
+						return found; 
+					})
+				}
+			}
+			if(featured_image){
+				return {
+					...item, 
+					featured_image, 
+				}
+			}
+			return item; 
+		})
+		return hydratedArray; 
+}
 
 export {
 	getPaginatedArray,
@@ -238,5 +275,6 @@ export {
 	setBlogPostImages,
 	formatRecentPostArray,
 	retriveRecentImages , 
-	formatImageFileName
+	getImageFileName,
+	hydratePaginatedPostArray
 }

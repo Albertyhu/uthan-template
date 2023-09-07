@@ -138,7 +138,7 @@ export interface CreateStaticPathArrayType {
   allPosts: Array<PostType>,
   PAGE_SIZE: number,
   totalPages: number,
-  imageFiles: object,
+  assets: Array<any>,
 }
 
 export interface TagStaticPathArrayType {
