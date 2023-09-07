@@ -3,7 +3,6 @@ import BaseLayout from "./BaseLayout.astro";
 import TagList from "../components/taglist/taglist.astro";
 import RecentPosts from '@/components/blogComponents/recent_post/index.astro';
 import {
-    getFeaturedImage,
     formatRecentPostArray,
     setBlogPostImages, 
 } from "@/hooks/blogHooks.ts"; 
@@ -22,13 +21,6 @@ try{
 }
 var FeaturedImage = null; 
 
-if(assets){
-
-    if(frontmatter.featured_image){
-        //FeaturedImage = getFeaturedImage(frontmatter.featured_image, assets)
-    }
-}
-
 var allPosts : Array<PostType> = []; 
 try {
     allPosts = await Astro.glob("../pages/posts/*.md"); 
@@ -38,7 +30,7 @@ try {
 var formattedRecentPosts : Array<PostType> = []
 var recentPosts: Array<PostType> = []; 
 if(allPosts && allPosts.length > 0){
-    recentPosts = formatRecentPostArray(allPosts)
+    recentPosts = formatRecentPostArray(allPosts, 3)
 }
 var payload = setBlogPostImages(assets, frontmatter.featured_image, recentPosts)
 FeaturedImage = payload.main_featured_image; 

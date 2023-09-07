@@ -5,8 +5,6 @@ const categories = [...new Set(ProjectData.projects.map((project) => project.cat
 categories.unshift('all')
 
 //stores recent blog posts
-export const RecentPostsStore = atom([])
-
 export const MobileMenuOpen = atom(false)
 
 export const MessageArray = atom([])

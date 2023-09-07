@@ -128,18 +128,23 @@ const getFeaturedImage = (pathway: string, assets: Array<any>) =>{
 	}) 
 }
 
-const formatRecentPostArray = (allPosts: Array<PostType>) => {
+const formatRecentPostArray = (allPosts: Array<PostType>, max: number) => {
 	try{
 		var recentPosts = allPosts.sort((a, b)=> {
             var a_date : Date = new Date(a.frontmatter.pubDate)
             var b_date : Date = new Date(b.frontmatter.pubDate)
             return b_date.getTime() - a_date.getTime();
-            }).slice(0,3)
+            }).slice(0,max)
 		return recentPosts.map((post: PostType) =>{
 			return {
-				featured_image:formatImageFileName2(post.frontmatter.featured_image), 
+				featured_image: post.frontmatter.featured_image ? formatImageFileName(post.frontmatter.featured_image): null, 
 				title : post.frontmatter.title,
-                date : post.frontmatter.pubDate,
+                pubDate : post.frontmatter.pubDate,
+				description: post.frontmatter.description, 
+				author: post.frontmatter.author,
+				images: post.frontmatter.images, 
+				tags: post.frontmatter.tags, 
+				body: post.frontmatter.body, 
                 url : post.url
 			}
 		})
@@ -150,6 +155,7 @@ const formatRecentPostArray = (allPosts: Array<PostType>) => {
 	}
 }
 
+//This function is used when rendering a single blog post
 //main_feature is the pathway of the main image of the blog post
 //recent_posts is an array of recent posts in their formmatted version 
 //function needs to loop one time
@@ -158,7 +164,7 @@ const setBlogPostImages = (
 		assets: Array<any>, 
 		main_feature?: string,
 		recent_posts?: Array<formattedPostType> 
-	) =>{
+	) => {
 	var formattedName : string = ""; 
 	var payload : {
 		main_featured_image: string | HTMLImageElement | null, 
@@ -168,10 +174,10 @@ const setBlogPostImages = (
 		recentPosts: [], 
 	}
 	if(main_feature){
-		formattedName =formatImageFileName2 (main_feature);  
+		formattedName =formatImageFileName (main_feature);  
 	}
 	for(var i = 0; i < assets.length; i++){
-		var assetFileName = formatImageFileName2(assets[i].default.src); 
+		var assetFileName = formatImageFileName(assets[i].default.src); 
 		if(assetFileName === formattedName){
 			payload["main_featured_image"] = assets[i].default.src
 		}
@@ -197,16 +203,26 @@ const setBlogPostImages = (
 	return payload; 
 }
 
+const retriveRecentImages = (allPosts: Array<PostType>, assets: Array<PostAssetType>, max: number)  =>{
+	//recentPost is formmatted
+	const recentPost = formatRecentPostArray(allPosts, max)
+	var hydratedRecentPost = [] 
+	hydratedRecentPost = recentPost.map(post => {
+		var uploadedImage = assets.find(asset => {
+			 return formatImageFileName(asset.default.src) === post.featured_image; 
+		})
+		return{
+			...post, 
+			featured_image: uploadedImage ? uploadedImage.default.src : null, 
+
+		}
+	})
+	return hydratedRecentPost; 
+}
+
 //This function extracts the file name from the file path excluding the extension 
 //For example, './src/asset/uploads.sample.jpg' becomes 'sample'
 const formatImageFileName = (imageFile : string) =>{
-		var pathArray = imageFile.split("/");
-		var fileName = pathArray[pathArray.length - 1]
-		var fileNameArray = fileName.split(".");
-		return fileNameArray[fileNameArray.length - 1]; 
-} 
-
-const formatImageFileName2 = (imageFile : string) =>{
 		var pathArray = imageFile.split("/");
 		var fileName = pathArray[pathArray.length - 1]
 		var fileNameArray = fileName.split(".");
@@ -221,4 +237,6 @@ export {
 	getFeaturedImage,
 	setBlogPostImages,
 	formatRecentPostArray,
+	retriveRecentImages , 
+	formatImageFileName
 }

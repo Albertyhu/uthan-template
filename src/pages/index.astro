@@ -1,5 +1,13 @@
 ---
-import type { PostType} from "@/util/interface.tsx"; 
+import type { 
+    PostType, 
+    formattedPostType,
+    PostAssetType,  
+} from "@/util/interface.tsx"; 
+import {
+    formatRecentPostArray,
+    retriveRecentImages 
+} from "@/hooks/blogHooks.ts"; 
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import AboutSection from "@/components/Home/about_section/about.astro";
 import ChooseUsSection from "@/components/Home/choose-us/index.astro";
@@ -22,14 +30,15 @@ import BackImg from '@/assets/slides/hero/slide-1.jpg';
 import ParallaxBanner from '@/components/parallax_banner/index.astro'; 
 
 import BlogSection from "@/components/blogSection/index.astro"
-import { RecentPostsStore } from "@/util/atomItems.js"
-const allPosts = await Astro.glob("./posts/*.md"); 
-const sortedPosts = allPosts.sort((a, b)=> {
-        var a_date : Date = new Date(a.frontmatter.pubDate)
-        var b_date : Date = new Date(b.frontmatter.pubDate)
-        return b_date.getTime() - a_date.getTime();
-        }).slice(0,3)
-        RecentPostsStore.set(sortedPosts)
+
+var assets : Array<PostAssetType> = []
+var allPosts : Array<PostType> = []
+try{
+    assets = await Astro.glob("../assets/uploads/*"); 
+    allPosts = await Astro.glob("./posts/*.md"); 
+}catch(error){console.log('error: ', error)}
+
+var sortedPosts = retriveRecentImages(allPosts, assets, 3)
 ---
 <BaseLayout pageTitle = "Home">
     <BannerSection />

@@ -6,16 +6,16 @@ import type { ReactElement} from 'react';
 type PostType = {
     featured_image?: HTMLImageElement,
     title: string, 
-    date: string, 
+    pubDate: string, 
     url: string
 }
 const {
     featured_image,
     title, 
-    date, 
+    pubDate, 
     url
 } = Astro.props; 
-const formattedDate = new Date(date); 
+const formattedDate = new Date(pubDate); 
 ---
 <a href = {url}>
 <div class="flex flex-row gap-5 relative min-h-[100px] text-[16px] my-5 ">
