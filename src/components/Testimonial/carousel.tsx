@@ -75,7 +75,7 @@ const Carousel = (props: PropsType) => {
 		<div
 			ref={slideRef}
 			id="CarouselSlide"
-			className="carousel-grid xm:grid-cols-[repeat(auto-fill,300px)] mx-auto grid grid-cols-[repeat(auto-fill,250px)] gap-10 sm:grid-cols-[repeat(auto-fill,350px)]"
+			className="carousel-grid xm:grid-cols-[repeat(auto-fill,300px)] mx-auto grid grid-cols-[repeat(auto-fill,250px)] gap-10 sm:grid-cols-[repeat(auto-fill,350px)] justify-evenly"
 		>
 			{testimonials &&
 				testimonials.length > 0 &&
