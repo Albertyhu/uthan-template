@@ -42,7 +42,7 @@ const createStaticPathArray = ({
 				PAGE_SIZE
 			}
 		}
-		console.log("paginatedArray: ", paginatedArray)
+		//console.log("paginatedArray: ", paginatedArray)
 		staticPaths.push(path)
 		i++
 	} while (i <= totalPages)
@@ -247,13 +247,14 @@ const hydratePaginatedPostArray = (paginatedArray: Array<PostType>, assetMap: Ma
 					featured_image = assetMap.get(fileName); 
 				}
 				else{
-					assets.find(asset => {
+					var foundAsset = assets.find(asset => {
 						var found : boolean = asset.default.src.includes(fileName); 
 						if(found){
 							assetMap.set(fileName, asset.default.src)
 						}
 						return found; 
 					})
+					featured_image = foundAsset?.default.src;
 				}
 			}
 			if(featured_image){
