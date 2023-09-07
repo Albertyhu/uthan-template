@@ -72,7 +72,6 @@ import "@/assets/css/responsive.css"
             const MobileMenu = document.getElementById("mobile-menu")
             const Backdrop = document.getElementById('backdrop')
             const OpenMenu = () =>{
-                console.log("OpenMenu")
                 if(MobileMenu?.classList.contains("mobile-menu-close")){
                     MobileMenu?.classList.remove("mobile-menu-close")
                     Backdrop?.classList.add("backdrop-visible")
@@ -86,7 +85,6 @@ import "@/assets/css/responsive.css"
             MobileToggler?.addEventListener('mousedown', OpenMenu)
 
             const CloseMenu = () =>{
-                console.log("close menu")
                 if(!MobileMenu?.classList.contains("mobile-menu-close")){
                     MobileMenu?.classList.add("mobile-menu-close")
                     Backdrop?.classList.remove("backdrop-visible")
