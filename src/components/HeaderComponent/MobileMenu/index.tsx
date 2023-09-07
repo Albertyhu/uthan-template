@@ -51,6 +51,8 @@ const MobileMenu = () =>{
             <div className="nav-logo w-10/12 mx-auto userselect-none">
                 <a href="../../../">
                     <img 
+                        loading = "lazy"
+                        decoding="async"
                         src={WhiteLogo.src} 
                         alt="Logo"
                         className="h-full w-full"

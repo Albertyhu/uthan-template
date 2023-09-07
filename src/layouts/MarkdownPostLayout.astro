@@ -52,7 +52,11 @@ const formattedDate = new Date(frontmatter.pubDate)
                     id="FeaturedImage"
                     class ="max-h-[500px] w-full overflow-hidden justify-center mb-10"
                 >
-                    <img src ={FeaturedImage} class = "w-full h-full object-cover" />
+                    <img
+                        loading = "lazy"
+                        decoding="async"                     
+                        src ={FeaturedImage} 
+                        class = "w-full h-full object-cover" />
                 </div>
             }
             {frontmatter.pubDate && 

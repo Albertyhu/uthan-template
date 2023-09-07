@@ -20,7 +20,11 @@ const Item = (props: CarouselItemType) => {
 				<Rating rating={rating} />
 				<div className="author-box relative flex pl-[65px]">
 					<figure className="author-thumb absolute">
-						<img src={profile_image.src} alt="" />
+						<img
+							loading = "lazy"
+							decoding="async" 
+							src={profile_image.src} 
+							alt="" />
 					</figure>
 					<div>
 						<h5 className="relative mb-[2px] block text-lg font-medium sm:text-4xl">{name}</h5>

@@ -25,6 +25,8 @@ const MasonaryItem = (props: ProjectType) => {
 				<div className="inner-block item-center relative mb-8 block">
 					<figure className="image-box relative block rounded-md w-11/12 h-auto mx-auto sm:w-[370px] sm:h-[290px] overflow-hidden">
 						<img 
+							loading = "lazy"
+            				decoding="async"
 							src={thumbnail.src} 
 							alt={altText} 
 							className = "object-cover w-full h-full"

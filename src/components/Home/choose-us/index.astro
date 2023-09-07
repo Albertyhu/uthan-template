@@ -22,7 +22,9 @@ import GardenWorker from "@/assets/images/resource/garden-worker.jpg"
             </div>
             <div class="grid sm:grid-cols-[40%_60%]">
                 <div class="image-column">
-                    <figure class="image-box relative block img_hover_3"><img src={GardenWorker.src} alt=""></figure>
+                    <figure class="image-box relative block img_hover_3">
+                        <img src={GardenWorker.src} loading = "lazy" decoding="async" alt="">
+                    </figure>
                 </div>
                 <div class="content-column">
                     <div class="content_block_2">

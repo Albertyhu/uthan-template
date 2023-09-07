@@ -30,6 +30,8 @@ import "./style.css";
                 href={url}
             >
                 <img
+                    loading = "lazy"
+                    decoding="async"
                     src = {thumbnail}
                     alt = {`${title} featured image`}
                     class = "w-full h-full object-cover"
