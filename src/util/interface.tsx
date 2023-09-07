@@ -193,3 +193,9 @@ export type PostAssetType = {
     format: string,  
   }
 } 
+
+export type LinkItemType = {
+	url: string
+	label: string
+	subDirectory?: Array<LinkItemType>
+}

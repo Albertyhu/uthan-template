@@ -1,5 +1,6 @@
 import { useRef, useEffect } from 'react'
 import { menuMap } from '@/customization/navigation-map.js'
+import type { LinkItemType } from '@/util/interface.tsx'
 const MenuLinks = () => {
 	return (
 		menuMap.length > 0 &&
@@ -12,12 +13,6 @@ const MenuLinks = () => {
 }
 
 export default MenuLinks
-
-type LinkItemType = {
-	url: string
-	label: string
-	subDirectory?: Array<LinkItemType>
-}
 
 const LinkItem = (props: LinkItemType) => {
 	const { url, label, subDirectory } = props
@@ -83,12 +78,14 @@ const LinkItem = (props: LinkItemType) => {
 			{subDirectory && subDirectory.length > 0 && (
 				<div className="subDirectoryDiv subDirectory-closed" ref={subDirRef}>
 					{subDirectory.map((sub, index) => (
-						<LinkItem
-							url={sub.url}
-							label={sub.label}
-							subDirectory={sub.subDirectory}
-							key={`${sub.url}-${index}`}
-						/>
+							<div
+								key={`${sub.url}-${index}`}
+								className="relative flex flex-row items-center justify-around border-t-[1px] border-t-[#686868] py-[10px] pl-[25px] hover:bg-slate-800"
+							>
+								<a href={sub.url} className="leader-[24px] relative !my-auto block">
+									{sub.label}
+								</a>
+							</div>
 					))}
 				</div>
 			)}

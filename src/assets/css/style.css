@@ -699,12 +699,6 @@ img {
 
 /** header-top **/
 
-.header-top {
-	position: relative;
-	width: 100%;
-	padding: 1px 0px;
-}
-
 .header-top .shape {
 	position: absolute;
 	left: 40%;
