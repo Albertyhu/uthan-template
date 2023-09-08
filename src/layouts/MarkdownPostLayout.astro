@@ -39,7 +39,11 @@ formattedRecentPosts = [...payload.recentPosts]
 
 const formattedDate = new Date(frontmatter.pubDate)
 ---
-<BaseLayout pateTitle={frontmatter.title} {frontmatter}>
+<BaseLayout 
+    pateTitle={frontmatter.title} 
+    {frontmatter}
+    customDescription = {frontmatter.description}
+    >
     <Banner 
     />
     <div 

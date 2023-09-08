@@ -8,10 +8,12 @@ import ProcessSection from '@/components/about_page/process_section/index.astro'
 import HistorySection from "@/components/about_page/history-section.astro";
 import Process from '@/demo/process_description.json'; 
 import GardenWorker from "@/assets/images/banner/garden-worker.jpg" 
+import SiteData from "@/customization/siteData.json"; 
 ---
 <BaseLayout 
 pageTitle = "About Us" 
 CTA_Banner = {true}
+customDescription = {`About ${SiteData.business_name}`}
 >
   <Banner 
   image = {GardenWorker}

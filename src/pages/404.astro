@@ -5,7 +5,10 @@ import LogoComponent from "@/components/logoComponent.astro";
 import HomeButton from "@/components/buttons/home_button.astro";
 import BackButton from "@/components/buttons/back_button.astro";
 ---
-<BaseLayout pageTitle = "404 Error Page">
+<BaseLayout 
+pageTitle = "404 Error Page"
+customDescription = "404 error page"
+>
     <ContentWrapper>
         <LogoComponent customStyle = "w-fit h-auto mx-auto mt-10" />
         <div class = "w-full h-auto">
