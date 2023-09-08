@@ -1,13 +1,19 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro"
 import TestimonialSection from '@/components/Testimonial/index.astro'; 
-import TestimonialDemo from '@/demo/testimonial.json'; 
+import TestimonialDemo from '@/demo/testimonial.js'; 
+import Banner from '@/components/small_banner/index.astro'
 ---
 <BaseLayout
 pageTitle="Testimonial"
 customDescription="Testimonials"
+CTA_Banner ={true}
 >
+<Banner 
+    title = "Testimonials"
+    subtitle = "See what people have been saying about us." 
+/>
 <TestimonialSection 
-    testimonials = {TestimonialDemo.data}
+    testimonials = {TestimonialDemo}
 />
 </BaseLayout>
