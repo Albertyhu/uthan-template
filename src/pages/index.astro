@@ -30,6 +30,7 @@ import BackImg from '@/assets/slides/hero/slide-1.jpg';
 import ParallaxBanner from '@/components/parallax_banner/index.astro'; 
 
 import BlogSection from "@/components/blogSection/index.astro"
+import SiteData from "@/customization/siteData.json"; 
 
 var assets : Array<PostAssetType> = []
 var allPosts : Array<PostType> = []
@@ -43,7 +44,7 @@ var sortedPosts = retrieveRecentImages(allPosts, assets, 3)
 ---
 <BaseLayout 
 pageTitle = "Home"
-customDescription = "Home page"
+customDescription = {SiteData.description}
 >
     <BannerSection />
     <AboutSection />
