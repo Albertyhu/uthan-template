@@ -24,7 +24,7 @@ export const menuMap = [
 				subDirectory: []
 			},
 			{
-				url: '/services/lawn_returfin',
+				url: '/services/lawn_returfing',
 				label: 'Lawn Returfing',
 				subDirectory: []
 			},
