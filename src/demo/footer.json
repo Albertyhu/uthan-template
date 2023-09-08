@@ -4,15 +4,15 @@
 		"links": [
 			{
 				"label": "About Company",
-				"link": "/"
+				"link": "/about"
 			},
 			{
 				"label": "Services",
-				"link": "/"
+				"link": "/services"
 			},
 			{
 				"label": "How It Works",
-				"link": "/"
+				"link": "/about/#ProcessSection"
 			},
 			{
 				"label": "Our Blog",
@@ -21,10 +21,6 @@
 			{
 				"label": "Contact Us",
 				"link": "/contact"
-			},
-			{
-				"label": "Testimonials",
-				"link": "/"
 			}
 		]
 	},

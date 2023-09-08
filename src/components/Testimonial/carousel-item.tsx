@@ -37,5 +37,4 @@ const Item = (props: CarouselItemType) => {
 		</div>
 	)
 }
-
 export default Item

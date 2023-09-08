@@ -1,9 +1,13 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import ContactForm from '../components/contact_form.astro'
-
+import Banner from '@/components/small_banner/index.astro';
 
 ---
 <BaseLayout pageTitle = "Contact" >
+  <Banner 
+    title = "Have something in mind?"
+    subtitle = "Share your thoughts with us."
+  />
   <ContactForm  />
 </BaseLayout>
