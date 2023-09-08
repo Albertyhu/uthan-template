@@ -78,7 +78,7 @@ const Slide = (props: SlideProps) => {
 			id={`slide-${name}${index}`}
 			className={`slideProp slide-fade-out absolute inset-0 block h-full w-full overflow-hidden bg-cover bg-center bg-no-repeat`}
 		>
-			<img src={image.src} className="absolute inset-0 h-full w-full  object-cover" />
+			<img src={image.src} className="absolute inset-0 h-full w-full  object-cover" alt = {`${name} slide`} />
 		</div>
 	)
 }

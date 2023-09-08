@@ -8,7 +8,8 @@ import {
 } from "@/hooks/blogHooks.ts"; 
 import type { 
     PostType,
-    PostAssetType
+    PostAssetType,
+    formattedPostType,
  } from "@/util/interface.tsx"; 
 import SearchComponent from '@/components/search/index.astro';
 import Banner from '@/components/small_banner/index.astro'
@@ -27,8 +28,8 @@ try {
 } catch(error){
     console.log("error: ", error)
 }
-var formattedRecentPosts : Array<PostType> = []
-var recentPosts: Array<PostType> = []; 
+var formattedRecentPosts : Array<formattedPostType> = []
+var recentPosts: Array<formattedPostType> = []; 
 if(allPosts && allPosts.length > 0){
     recentPosts = formatRecentPostArray(allPosts, 3)
 }
@@ -93,9 +94,6 @@ const formattedDate = new Date(frontmatter.pubDate)
 <script define:vars={{
         featured_image: frontmatter.featured_image,
         assets: assets,
-
         }}>
-console.log("frontmatter.feature_image: ", featured_image)
 
-console.log("assets: ", assets)
 </script>

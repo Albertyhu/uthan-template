@@ -6,7 +6,9 @@ import { createStaticPathArray } from "../../hooks/blogHooks.ts";
 import Searchbar from '@/components/search/index.astro';
 import BlogPreview from '../../components/blogComponents/previewLink.astro';
 import { RetrieveImageFromGlob } from "../../hooks/imageHooks.tsx";
-import type { PostType } from '../../util/interface.tsx';
+import type { 
+    PostType, 
+    PostAssetType } from '../../util/interface.tsx';
 
 export async function getStaticPaths() {
     const PAGE_SIZE : number = 6;
@@ -18,7 +20,7 @@ export async function getStaticPaths() {
     } catch(error){
         allPosts = []
     }
-    var assets = []
+    var assets : Array<PostAssetType> = []
     try{
         assets = await Astro.glob("../../assets/uploads/*"); 
     } catch (error){

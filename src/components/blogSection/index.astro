@@ -19,7 +19,6 @@ const {
         >
         {
             postSelection.map(async (post: formattedPostType ) =>{
-                    console.log("post: ", post)
                     return <BlogPreview {...post} thumbnail ={post.featured_image} />
                 }
             )  

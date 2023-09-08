@@ -3,11 +3,11 @@ export interface formattedPostType {
   pubDate: Date,
   description?: string,
   author: string,
-  featured_image?: string, 
-  images?: Array<ImageType | string>,
-  tags?: Array<TagType | string>,
-  body?: HTMLElement | string,
-  url?: string, 
+  featured_image?: string | HTMLImageElement | null, 
+  images?: Array<ImageType | string> | null,
+  tags?: Array<TagType | string> | null,
+  body?: HTMLElement | string | null,
+  url?: string | null, 
 }
 
 export interface ImageMetadata {

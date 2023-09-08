@@ -36,6 +36,7 @@ const {
     features,
     image1, 
 } = Astro.props; 
+console.log("image1: ", image1)
 ---
 <style>
     h3{
@@ -87,7 +88,7 @@ CTA_Banner={true}
         </div>
     {image1 && 
         <ImageComponent 
-            image={image1.src}
+            image={image1}
             altText = {title}
             customStyle = "w-auto h-auto overflow-hidden my-10 rounded-lg mx-auto grow"
             />

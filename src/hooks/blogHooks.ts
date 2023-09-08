@@ -134,7 +134,7 @@ const getFeaturedImage = (pathway: string, assets: Array<any>) =>{
 	}) 
 }
 
-const formatRecentPostArray = (allPosts: Array<PostType>, max: number) => {
+const formatRecentPostArray = (allPosts: Array<PostType>, max: number) :  Array<formattedPostType> => {
 	try{
 		var recentPosts = allPosts.sort((a, b)=> {
             var a_date : Date = new Date(a.frontmatter.pubDate)
@@ -143,7 +143,7 @@ const formatRecentPostArray = (allPosts: Array<PostType>, max: number) => {
             }).slice(0,max)
 		return recentPosts.map((post: PostType) =>{
 			return {
-				featured_image: post.frontmatter.featured_image ? getImageFileName(post.frontmatter.featured_image): null, 
+				featured_image: post.frontmatter.featured_image ? getImageFileName(post.frontmatter.featured_image) : null, 
 				title : post.frontmatter.title,
                 pubDate : post.frontmatter.pubDate,
 				description: post.frontmatter.description, 

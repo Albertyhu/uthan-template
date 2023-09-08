@@ -8,7 +8,7 @@ import {
 } from "../../../../hooks/blogHooks.ts"; 
 import Searchbar from '../../../../components/search/index.astro';
 import BlogPreview from '../../../../components/blogComponents/previewLink.astro';
-import type { PostType } from '../../../../util/interface';
+import type { PostAssetType, PostType } from '../../../../util/interface';
 import { SearchQuery } from "../../../../hooks/search_feature.tsx"; 
 import '@/styles/global.css'
 const {
@@ -21,7 +21,7 @@ const PAGE_SIZE = 6;
 var allPosts : Array<PostType> | [] = []; 
 var totalPages : number = 0;
 var searchResults : Array<PostType> | [] = []; 
-var assets = []
+var assets : Array<PostAssetType>= []
 var assetMap = new Map()
 try{
     allPosts = await Astro.glob("../../../posts/*.md")
