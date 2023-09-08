@@ -1,16 +1,16 @@
 ---
 export const prerender = true; 
-import TeamMembers from "../../demo/team_members.js";
-import BaseLayout from "../../layouts/BaseLayout.astro";  
-import Banner from '../../components/small_banner/index.astro'; 
-import ContentWrapper from '../../layouts/ContentWrapper.astro'
+import TeamMembers from "@/demo/team_members.js";
+import BaseLayout from "@/layouts/BaseLayout.astro";  
+import Banner from '@/components/small_banner/index.astro'; 
+import ContentWrapper from '@/layouts/ContentWrapper.astro'
 import { 
     phoneNumberToNumeric,
      formatPhoneNumber
  } from '../../hooks/number_hooks'; 
 
 export const getStaticPaths = ( async () => {
-    return TeamMembers.members.map(member=>{
+    return TeamMembers.map(member=>{
         const urlName = (member.name.toLowerCase()).replace(/\s+/g, '_')
         return{
             params: {team_member: urlName}, 
