@@ -19,6 +19,10 @@ const CountTo100 = (props: CounterType) => {
     return () => clearInterval(interval);
   }, [count]);
 
+  useEffect(()=>{
+    return()=>{setCount(0)}
+  },[])
+
   return (
     <div className="count-outer relative block text-4xl text-[35px] sm:text-[70px] leading-none text-white font-['Prata',serif]">
       <span
