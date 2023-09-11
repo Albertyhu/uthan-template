@@ -5,11 +5,12 @@ type CounterType = {
 	delay?: number
 }
 
+const CountUpComponent = CountUp.default ?? CountUp
+
 const CounterComponent = (props: CounterType) => {
-	console.log("props.number: ", props.number)
 	return props.number ? 
 		<div className="count-outer relative block text-4xl text-[70px] leading-none text-white">
-			<CountUp end={100} /> 
+			<CountUpComponent end={props.number} /> 
 		</div>
 		:
 		<div>

@@ -7,14 +7,16 @@ const {
     icon, 
 } = Astro.props; 
 ---
-<div class="w-full md:w-1/4 p-4">
+<div 
+class="w-full md:w-1/4 p-4">
     <div class="counter-block-one animate__animated animate__slideInUp">
         <div class="inner-box relative bg-transparent grid grid-cols-2">
             <div class="text-[40px] text-theme-color w-[75px]  h-[75px] leading-[40px] block bg-white rounded-full relative mx-auto">
                 <i class={`icon-${icon} iconStyle`}></i>
             </div>
             <div
-                class = "text-center sm:text-left"
+                id = "CounterWrapper"
+                class = "text-center sm:text-left hidden"
             >
                 <Counter 
                     number = {number} 
@@ -25,6 +27,3 @@ const {
         </div>
     </div>
 </div>
-<script define:vars={{number}}>
-    console.log("number: ", number)
-</script>
