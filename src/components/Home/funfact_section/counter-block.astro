@@ -16,12 +16,15 @@ const {
             <div
                 class = "text-center sm:text-left"
             >
-                <Counter 
+                <!-- <Counter 
                     number = {number} 
                     client:load
-                    />
+                    /> -->
                 <h6 class="relative block mt-2 text-base text-white !font-semibold whitespace-nowrap">{label}</h6>
             </div>
         </div>
     </div>
 </div>
+<script define:vars={{number}}>
+    console.log("number: ", number)
+</script>
