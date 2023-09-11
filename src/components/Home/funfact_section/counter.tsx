@@ -1,20 +1,31 @@
-import CountUp from 'react-countup'
+import React, { useState, useEffect } from 'react';
 
 type CounterType = {
 	number: number
 	delay?: number
 }
 
-const CountUpComponent = CountUp.default ?? CountUp
+const CountTo100 = (props: CounterType) => {
+  const {number} = props; 
+  const [count, setCount] = useState(0);
+ 
+  useEffect(() => {
+    const interval = setInterval(() => {
+      if (count < number) {
+        setCount(count + 1);
+      }
+    }, 20); // 20 milliseconds delay between counts
 
-const CounterComponent = (props: CounterType) => {
-	return props.number ? 
-		<div className="count-outer relative block text-4xl text-[70px] leading-none text-white">
-			<CountUpComponent end={props.number} /> 
-		</div>
-		:
-		<div>
-		</div>
-}
+    return () => clearInterval(interval);
+  }, [count]);
 
-export default CounterComponent; 
+  return (
+    <div className="count-outer relative block text-4xl text-[70px] leading-none text-white">
+      <span
+        className = "text-white"
+      >{count}</span>
+    </div>
+  );
+};
+
+export default CountTo100;

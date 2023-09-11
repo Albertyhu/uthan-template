@@ -16,11 +16,11 @@ class="w-full md:w-1/4 p-4">
             </div>
             <div
                 id = "CounterWrapper"
-                class = "text-center sm:text-left hidden"
+                class = "text-center sm:text-left"
             >
                 <Counter 
                     number = {number} 
-                    client:load
+                    client:visible
                     />
                 <h6 class="relative block mt-2 text-base text-white !font-semibold whitespace-nowrap">{label}</h6>
             </div>
