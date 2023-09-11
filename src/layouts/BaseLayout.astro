@@ -103,10 +103,10 @@ import "@/assets/css/responsive.css"
             window.addEventListener("mousedown", CheckIfClickedOutside)      
             
             // scroll to top code
-            const indicator = document.querySelector(".scrollTotopIndicator"); 
+            const indicator = document.querySelector(".scrollToTopIndicator"); 
             const ScrollTopButton = document.querySelector(".ScrollTopButton");
             const ButtonScrollEvent = (evt) =>{
-                if(indicator.getBoundingClientRect().bottom  < window.innerHeight){
+                if(indicator.getBoundingClientRect().top  < 0){
                     ScrollTopButton?.classList.remove("invisible")
                     ScrollTopButton?.classList.remove("buttonHidden");
                 }
