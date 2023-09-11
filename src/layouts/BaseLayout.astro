@@ -8,7 +8,7 @@ const {
     frontmatter, 
     CTA_Banner
  } = Astro.props;
-import ScrollTopButton from "@/components/buttons/scrollTopButton.astro";
+import ScrollTopButton from "@/components/buttons/ScrollTopButton/index.astro";
 import SEO from "@/components/SEO.astro";
 import MessageComponent from "@/components/MessageComponent/messageComponent";
 import FooterColumns from "@/demo/footer.json"
@@ -46,7 +46,7 @@ import "@/assets/css/responsive.css"
         ></div>
         <div 
         id="SlotWrapper"
-        class="mt-[200px] [@media(min-width:992px)]:mt-[180px] min-h-[100vh] sm:min-h-[95vh] mb-[10px] flex flex-col flex-grow overflow-x-hidden"
+        class="mt-[100px] [@media(min-width:992px)]:mt-[180px] min-h-[100vh] sm:min-h-[95vh] mb-[10px] flex flex-col flex-grow overflow-x-hidden"
         >
             <slot />
         </div>
@@ -100,7 +100,23 @@ import "@/assets/css/responsive.css"
                     Backdrop?.classList.remove("backdrop-visible")
                 }
             }
-            window.addEventListener("mousedown", CheckIfClickedOutside)            
+            window.addEventListener("mousedown", CheckIfClickedOutside)      
+            
+            // scroll to top code
+            const indicator = document.querySelector(".scrollTotopIndicator"); 
+            const ScrollTopButton = document.querySelector(".ScrollTopButton");
+            const ButtonScrollEvent = (evt) =>{
+                if(indicator.getBoundingClientRect().bottom  < window.innerHeight){
+                    ScrollTopButton?.classList.remove("invisible")
+                    ScrollTopButton?.classList.remove("buttonHidden");
+                }
+                else{
+                    console.log("invisible")
+                    ScrollTopButton?.classList.add("invisible")
+                    ScrollTopButton?.classList.add("buttonHidden");                   
+                }
+            }
+            window.addEventListener("scroll", ButtonScrollEvent)
         </script>
     </body>
 </html>

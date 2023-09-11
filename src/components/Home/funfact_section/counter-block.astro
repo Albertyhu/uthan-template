@@ -8,15 +8,15 @@ const {
 } = Astro.props; 
 ---
 <div 
-class="w-full md:w-1/4 p-4">
+class="w-full md:w-1/4">
     <div class="counter-block-one animate__animated animate__slideInUp">
-        <div class="inner-box relative bg-transparent grid grid-cols-2">
+        <div class="rounded-[5px] block sm:pt-[70px] sm:pb-[60px] relative bg-transparent grid sm:grid-cols-2">
             <div class="text-[40px] text-theme-color w-[75px]  h-[75px] leading-[40px] block bg-white rounded-full relative mx-auto">
                 <i class={`icon-${icon} iconStyle`}></i>
             </div>
             <div
                 id = "CounterWrapper"
-                class = "text-center sm:text-left"
+                class = "text-center sm:text-left pt-5 sm:pt-0"
             >
                 <Counter 
                     number = {number} 

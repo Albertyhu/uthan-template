@@ -44,9 +44,6 @@
 	.footer-links a {
 		@apply cursor-pointer font-bold hover:underline;
 	}
-	.ScrollTopButton {
-		@apply fixed bottom-[6rem] right-[1rem] z-20 h-[2rem] w-[2rem] cursor-pointer;
-	}
 	.formBackground {
 		@apply bg-[#ffffff] text-black;
 	}
