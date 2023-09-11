@@ -2,12 +2,37 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import ContactForm from '../components/contact_form.astro'
 import Banner from '@/components/small_banner/index.astro';
-
+import RightLeaf from "@/assets/images/shape/shape-37.png"; 
+import LeftLeaf from "@/assets/images/shape/shape-33.png"; 
 ---
 <BaseLayout 
 pageTitle = "Contact" 
 customDescription = "Contact Page"
 >
+  <div
+  class = "h-[50vh] w-auto absolute left-[10px] top-[25%] hidden sm:block"
+  >
+    <img 
+    id="Left Leaf Shape"
+    decoding="async"
+    loading = "lazy"
+    class="w-full h-full object-cover"
+    src = {LeftLeaf.src}
+    alt="Leaf Shape"
+    />
+  </div>
+  <div
+  class = "h-[50vh] w-auto absolute right-[20px] top-[25%] hidden sm:block"
+  >
+    <img 
+    id="Right Leaf Shape"
+    decoding="async"
+    loading = "lazy"
+    class="w-full h-full object-cover"
+    src = {RightLeaf.src}
+    alt="Leaf Shape"
+    />
+  </div>
   <Banner 
     title = "Have something in mind?"
     subtitle = "Share your thoughts with us."

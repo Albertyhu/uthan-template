@@ -57,7 +57,7 @@
 		@apply text-[#ffffff];
 	}
 	.formInput {
-		@apply w-full rounded-lg border-2 border-slate-200 bg-transparent pl-1 text-black placeholder:text-base placeholder:text-[#545454];
+		@apply w-full rounded-lg border-2 border-slate-200 border-solid bg-transparent pl-1 text-black placeholder:text-base placeholder:text-[#545454];
 	}
 	.dark .formInput {
 		@apply text-[#fff] placeholder:text-[#F8F8F8];
