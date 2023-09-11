@@ -9,7 +9,7 @@ const CounterComponent = (props: CounterType) => {
 	console.log("props.number: ", props.number)
 	return props.number ? 
 		<div className="count-outer relative block text-4xl text-[70px] leading-none text-white">
-			{/* <CountUp end={props.number} /> */}
+			<CountUp end={100} /> 
 		</div>
 		:
 		<div>
