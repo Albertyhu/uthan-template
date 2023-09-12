@@ -7,7 +7,8 @@
 }
 
 .collapsibleDiv {
-    transition: transform --vars(durationTime) ease;  
+    transition: all --vars(durationTime) ease;  
+    max-height: 300px;
 }
 
 .collapsed {
