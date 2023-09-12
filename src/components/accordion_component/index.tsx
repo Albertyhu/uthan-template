@@ -1,19 +1,14 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import type { AccordionType } from '@/util/interface';
 import "./style.css"; 
 import AccordionItem from './accordionItem.tsx'; 
 import uuid from 'react-uuid'; 
-import {AccordionContext} from "@/util/contextItem.js"; 
 
 const AccordionComponent = (props: {data: Array<AccordionType>}) =>{
     const { data } = props;
     const [current, setCurrent] = useState<number>(0)
-    const context = {   
-        current, 
-    }
 
     return(
-        <AccordionContext.Provider value = {context}>
             <div>
                 {data && data.length > 0 &&
                     data.map((item, index: number) =>
@@ -27,7 +22,6 @@ const AccordionComponent = (props: {data: Array<AccordionType>}) =>{
                         />)
                 }
             </div>
-        </AccordionContext.Provider>
     )
 }
 

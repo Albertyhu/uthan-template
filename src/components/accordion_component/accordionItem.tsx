@@ -1,7 +1,6 @@
-import { useState, useRef, useEffect, useContext } from 'react'; 
+import {useRef, useEffect} from 'react'; 
 import UpArrow from "@/assets/images/shape/up_arrow.png"; 
 import "./style.css"; 
-import { AccordionContext } from '@/util/contextItem';
 
 const Accordion = (props: 
     {

@@ -55,6 +55,7 @@ import './style.css'
             PottedPlants.style.transform = `translateY(${-window.scrollY}px)`
         if(Apples)
             Apples.style.transform = `translateY(${-window.scrollY/2}px)`
+        console.log("window.scrollY: ", window.scrollY)
     }
     window.addEventListener("scroll", scrollEvent);
 </script>
