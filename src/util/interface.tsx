@@ -199,3 +199,9 @@ export type LinkItemType = {
 	label: string
 	subDirectory?: Array<LinkItemType>
 }
+
+export type AccordionType = {
+  question: string, 
+  ans: string, 
+  index: number, 
+}

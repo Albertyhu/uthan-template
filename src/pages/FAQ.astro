@@ -1,0 +1,32 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import ContentWrapper from '@/layouts/ContentWrapper.astro';
+import Banner from '@/components/small_banner/index.astro'; 
+import Accordion from "@/components/accordion_component/index.tsx";
+import SiteData from "@/customization/siteData.json"; 
+import data from "@/demo/FAQ.js"; 
+
+---
+<BaseLayout
+pageTitle = "FAQ" 
+CTA_Banner = {true}
+customDescription = {`Frequently Asked Questions about ${SiteData.business_name}`}
+>
+<Banner 
+  title = "FAQ"
+/>
+    <ContentWrapper>
+        <div>
+            <h2
+            class = "text-[#2f7955]"
+            >FAQ's</h2>
+            <h1
+            class = "text-left text-[36px] leading-[44px] block font-['Prata',serif] text-black font-400"
+            >Frequently Asked Questions</h1>
+        </div>
+        <Accordion 
+            data = {data}
+            client:load
+        />
+    </ContentWrapper>
+</BaseLayout>
