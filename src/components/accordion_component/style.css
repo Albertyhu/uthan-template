@@ -1,13 +1,21 @@
+:root{
+    --durationTime : 5s; 
+}
+
 .box_shadow {
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 
-.collapsed {
+.collapsibleDiv {
+    transition: transform --vars(durationTime) ease;  
+}
 
+.collapsed {
+    max-height: 0px; 
 }
 
 .arrowStyle {
-    transition: all 0.4s ease;
+    transition: all --vars(durationTime) ease;
 }
 
 .downArrow {

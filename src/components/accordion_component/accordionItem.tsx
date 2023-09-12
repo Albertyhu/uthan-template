@@ -18,17 +18,28 @@ const Accordion = (props:
         current, 
         setCurrent
     } = props; 
-    const [opened, setHeight] = useState<boolean>(false)
     const ArrowRef = useRef(null); 
+    const paraRef = useRef(null); 
+    const toggleEvent = () =>{
+        if(current && ArrowRef.current && current === index + 1){
+            setCurrent(0)
+        }
+        else{
+            setCurrent(index + 1)
+        }
+    }
 
     const Open = () =>{
             ArrowRef?.current?.classList.remove("downArrow")
-
+            paraRef?.current?.classList.remove("collapsed"); 
     }
 
     const Close = () =>{
-        if(ArrowRef?.current.classList.contains("downArrow") && ArrowRef.current)
+        if(ArrowRef.current && !ArrowRef?.current.classList.contains("downArrow"))
             ArrowRef?.current.classList.add("downArrow")
+        if(paraRef.current && !paraRef?.current?.classList.contains("collapsed"))
+            paraRef?.current?.classList.add("collapsed"); 
+
     }
 
     useEffect(()=>{
@@ -52,7 +63,7 @@ const Accordion = (props:
                     id="accordion top element"
                     className = "flex flex-row w-full justify-between cursor-pointer"
                     onClick = {()=>{
-                        setCurrent(index + 1)}}
+                         toggleEvent()}}
                 >
                     <h4
                         className = "font-bold"
@@ -65,7 +76,8 @@ const Accordion = (props:
                 </div>
                 <div
                     id="Collapsible-content"
-
+                    className = "collapsibleDiv collapsed overflow-hidden"
+                    ref={paraRef}
                 >
                     <p
                         className = "mt-5 font-light"
