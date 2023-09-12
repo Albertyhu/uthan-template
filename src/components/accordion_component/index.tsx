@@ -11,9 +11,7 @@ const AccordionComponent = (props: {data: Array<AccordionType>}) =>{
     const context = {   
         current, 
     }
-    useEffect(()=>{
-        console.log("current: ", current)
-    }, [current])
+
     return(
         <AccordionContext.Provider value = {context}>
             <div>

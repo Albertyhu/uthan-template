@@ -5,6 +5,7 @@ import Banner from '@/components/small_banner/index.astro';
 import Accordion from "@/components/accordion_component/index.tsx";
 import SiteData from "@/customization/siteData.json"; 
 import data from "@/demo/FAQ.js"; 
+import Graphics from '@/components/faq-page/graphicsWrapper.astro'
 
 ---
 <BaseLayout
@@ -26,9 +27,12 @@ customDescription = {`Frequently Asked Questions about ${SiteData.business_name}
             class = "text-left text-[36px] leading-[44px] block font-['Prata',serif] text-black font-400"
             >Frequently Asked Questions</h1>
         </div>
-        <Accordion 
-            data = {data}
-            client:load
-        />
+        <div class = "grid sm:grid-cols-2">
+            <Accordion 
+                data = {data}
+                client:load
+            />
+            <Graphics />
+        </div>
     </ContentWrapper>
 </BaseLayout>
