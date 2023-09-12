@@ -1,6 +1,6 @@
 import SiteData from "@/customization/siteData.json"
 
-const FAQ = [
+export const data = [
     {
         question: "What services does Natural Patterns Landscaping offer?",
         ans: "Natural Patterns Landscaping offers a wide range of services including landscape design, lawn maintenance, hardscape installation, irrigation system installation, tree and shrub care, and seasonal cleanups."
@@ -42,5 +42,3 @@ const FAQ = [
         ans: "What sets us apart is our commitment to creating landscapes that mimic natural beauty and harmony. We combine artistic design with sustainable practices, ensuring your outdoor space is not only stunning but also environmentally friendly."
     }
 ];
-
-export default FAQ; 
