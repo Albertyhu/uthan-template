@@ -47,3 +47,14 @@ import './style.css'
         </div>
     </div>
 </div>
+<script is:inline>
+    const PottedPlants = document.getElementById("PottedPlants")
+    const Apples = document.getElementById("Apples")
+    const scrollEvent = () =>{
+        if(PottedPlants)
+            PottedPlants.style.transform = `translateY(${-window.scrollY}px)`
+        if(Apples)
+            Apples.style.transform = `translateY(${-window.scrollY/2}px)`
+    }
+    window.addEventListener("scroll", scrollEvent);
+</script>

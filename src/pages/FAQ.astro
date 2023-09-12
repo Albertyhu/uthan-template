@@ -37,15 +37,3 @@ customDescription = {`Frequently Asked Questions about ${SiteData.business_name}
         </div>
     </ContentWrapper>
 </BaseLayout>
-<script is:inline>
-    const PottedPlants = document.getElementById("PottedPlants")
-    const Apples = document.getElementById("Apples")
-    const scrollEvent = () =>{
-        if(PottedPlants)
-            PottedPlants.style.transform = `translateY(${-window.scrollY}px)`
-        if(Apples)
-            Apples.style.transform = `translateY(${-window.scrollY/2}px)`
-        console.log("window.scrollY: ", window.scrollY)
-    }
-    window.addEventListener("scroll", scrollEvent);
-</script>
