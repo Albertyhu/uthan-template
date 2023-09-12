@@ -52,8 +52,10 @@ import './style.css'
     const PottedPlants = document.getElementById("PottedPlants")
     const Apples = document.getElementById("Apples")
     const scrollEvent = () =>{
-        PottedPlants.style.transform = `translateY(${-window.scrollY}px)`
-        Apples.style.transform = `translateY(${-window.scrollY/2}px)`
+        if(PottedPlants)
+            PottedPlants.style.transform = `translateY(${-window.scrollY}px)`
+        if(Apples)
+            Apples.style.transform = `translateY(${-window.scrollY/2}px)`
     }
     window.addEventListener("scroll", scrollEvent);
 </script>
