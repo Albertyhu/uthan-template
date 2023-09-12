@@ -9,6 +9,20 @@ import netlify from "@astrojs/netlify/functions";
 // https://astro.build/config
 export default defineConfig({
   experimental: {},
+  redirects: {
+    '/faq': {
+      status: 302, 
+      destination: '/FAQ'
+    },
+    '/frequently-asked-questions': {
+        status: 302, 
+      destination: '/FAQ'
+    }, 
+    '/frequentlyaskeduqestions': {
+        status: 302, 
+      destination: '/FAQ'
+    }
+  },
   output: 'server',
   integrations: [react(), tailwind(), sitemap()],
   adapter: netlify()

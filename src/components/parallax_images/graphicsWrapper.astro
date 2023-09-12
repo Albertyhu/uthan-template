@@ -1,0 +1,59 @@
+---
+//This component should be nested in a parent div with a height more than 120vh
+import './style.css'
+const {picture_one, picture_two, background_image } = Astro.props; 
+---
+<div
+    class = "w-full sm:w-6/12 mx-auto justify-center"
+>
+    <div
+    class = "sm:h-fit relative top-[25%] hidden sm:block"
+    >
+        <div
+            id ="PictureOne"
+            class = "overflow-hidden w-[325px] h-auto absolute parallaxProp z-[2] sm:right-[-150px] box_shadow"
+        >
+            <img 
+                decoding = "async"
+                loading = "lazy"
+                src = {picture_one.src} 
+                class = "w-full h-full object-cover m-auto"
+                alt = "foreground image1"
+            />
+        </div>
+        <div
+            id ="PictureTwo"
+            class = "overflow-hidden w-11/12 h-auto absolute parallaxProp z-[1] sm:left-[-75px] box_shadow"
+        >
+            <img 
+                decoding = "async"
+                loading = "lazy"
+                src = {picture_two.src} 
+                class = "w-full h-full object-cover m-auto"
+                alt = "foreground image2"
+            />
+        </div>
+        <div
+            class = "overflow-hidden w-[300px] h-auto absolute parallaxProp z-[0]"
+        >
+            <img 
+                decoding = "async"
+                loading = "lazy"
+                src = {background_image.src} 
+                class = "w-full h-full object-cover m-auto"
+                alt = "background image"
+            />
+        </div>
+    </div>
+</div>
+<script is:inline>
+    const PictureOne = document.getElementById("PictureOne")
+    const PcitureTwo = document.getElementById("PcitureTwo")
+    const scrollEvent = () =>{
+        if(PictureOne)
+            PictureOne.style.transform = `translateY(${-window.scrollY}px)`
+        if(PcitureTwo)
+            PcitureTwo.style.transform = `translateY(${-window.scrollY/2}px)`
+    }
+    window.addEventListener("scroll", scrollEvent);
+</script>

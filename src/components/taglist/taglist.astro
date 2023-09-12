@@ -1,9 +1,8 @@
 ---
 import TagListItem from './tagListItem.astro'; 
-import type { TagListType, TagType} from '../../util/interface'; 
 const {tags} = Astro.props; 
 ---
-<ul class = "flex flex-row [&>li]:mr-1">
+<ul class = "flex flex-row flex-wrap [&>li]:mr-1">
     {
     tags.map((item: {tag: string}) => <TagListItem url = {`../tags/${item.tag}`} tag ={item.tag} /> )
     }
