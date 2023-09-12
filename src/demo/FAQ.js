@@ -1,3 +1,5 @@
+import SiteData from "@/customization/siteData.json"
+
 const FAQ = [
     {
         question: "What services does Natural Patterns Landscaping offer?",
@@ -5,7 +7,7 @@ const FAQ = [
     },
     {
         question: "How do I request a quote for landscaping services?",
-        ans: "You can request a quote by visiting our website and filling out the online contact form, or you can give us a call at [Phone Number] to schedule an appointment for a consultation."
+        ans: `You can request a quote by visiting our website and filling out the online contact form, or you can give us a call at ${SiteData.business_phone} to schedule an appointment for a consultation.`
     },
     {
         question: "Do you provide free consultations?",

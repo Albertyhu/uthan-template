@@ -4,7 +4,8 @@ import ContentWrapper from '@/layouts/ContentWrapper.astro';
 import Banner from '@/components/small_banner/index.astro'; 
 import Accordion from "@/components/accordion_component/index.tsx";
 import SiteData from "@/customization/siteData.json"; 
-import data from "@/demo/FAQ.js"; 
+import data from "@/demo/faq.js"; 
+import type { AccordionType } from '@/util/interface';
 import Graphics from '@/components/faq-page/graphicsWrapper.astro'
 
 ---
@@ -29,7 +30,7 @@ customDescription = {`Frequently Asked Questions about ${SiteData.business_name}
         </div>
         <div class = "grid sm:grid-cols-2">
             <Accordion 
-                data = {data}
+                data = {data as Array<AccordionType>}
                 client:load
             />
             <Graphics />

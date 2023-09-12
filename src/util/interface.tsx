@@ -203,5 +203,4 @@ export type LinkItemType = {
 export type AccordionType = {
   question: string, 
   ans: string, 
-  index: number, 
 }

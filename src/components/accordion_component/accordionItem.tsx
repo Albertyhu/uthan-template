@@ -30,8 +30,8 @@ const Accordion = (props:
     }
 
     const Open = () =>{
-            ArrowRef?.current?.classList.remove("downArrow")
-            paraRef?.current?.classList.remove("collapsed"); 
+        ArrowRef?.current?.classList.remove("downArrow")
+        paraRef?.current?.classList.remove("collapsed"); 
     }
 
     const Close = () =>{
