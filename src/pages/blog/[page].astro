@@ -5,7 +5,7 @@ import RenderPagination from '../../components/paginatedBlog/renderPagination.ts
 import { createStaticPathArray } from "../../hooks/blogHooks.ts"; 
 import Searchbar from '@/components/search/index.astro';
 import BlogPreview from '../../components/blogComponents/previewLink.astro';
-import { RetrieveImageFromGlob } from "../../hooks/imageHooks.tsx";
+import Banner from "@/components/small_banner/index.astro"; 
 import type { 
     PostType, 
     PostAssetType } from '../../util/interface.tsx';
@@ -47,14 +47,14 @@ if(!inBound && totalPages != 0) {
 }
 
 ---
-<BaseLayout pageTitle = "Blog posts">
+<BaseLayout 
+    pageTitle = "Blog posts">
+    <Banner title = "Blog Posts" />
     <div
-    class = "mb-[100px] w-11/12 mx-auto"
+    class = "mb-[100px] w-11/12 mx-auto mt-10"
     id="content-wrapper"
     >
-    <h1 
-            class = "font-bold text-2xl text-center mt-10"
-        >Blog posts</h1>
+
         <Searchbar />
         {totalPosts === 0 &&
             <h2
