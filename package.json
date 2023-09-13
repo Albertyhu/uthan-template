@@ -35,5 +35,8 @@
 		"prettier": "^3.0.1",
 		"prettier-plugin-astro": "^0.11.0",
 		"prettier-plugin-tailwindcss": "^0.5.2"
+	},
+	"overrides": {
+		"astro": "$astro"
 	}
 }
