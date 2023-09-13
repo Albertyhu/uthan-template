@@ -11,11 +11,15 @@
     border-radius: 3rem;
     content: "";
     animation: ripple 3s infinite; 
-    -webkit-animation-delay: .9s;
-    animation-delay: .9s;
     position:absolute;
     z-index:-1;
     top:0;
+}
+
+.ScrollTopButton::after
+{
+    -webkit-animation-delay: .9s;
+    animation-delay: .9s;
 }
 
 @keyframes ripple {

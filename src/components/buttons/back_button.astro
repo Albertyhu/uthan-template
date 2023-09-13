@@ -2,10 +2,10 @@
 const { customStyle } = Astro.props; 
 ---
 <div
-    class = {`btn-secondary ${customStyle}`}
+    class = {`btn-secondary cursor-pointer ${customStyle}`}
     id="BackButton"
 >Go Back</div>
-<script>
+<script is:inline>
     const button = document.getElementById("BackButton")
     button?.addEventListener("mousedown", ()=>{history.back()})
 </script>
