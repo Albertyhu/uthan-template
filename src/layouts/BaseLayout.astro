@@ -105,6 +105,7 @@ import "@/assets/css/responsive.css"
             // scroll to top code
             const indicator = document.querySelector(".scrollToTopIndicator"); 
             const ScrollTopButton = document.querySelector(".ScrollTopButton");
+            ScrollTopButton?.addEventListener("mousedown", ()=>window.scrollTo({top: 0,left: 0,behavior: "smooth",}))
             const ButtonScrollEvent = (evt) =>{
                 if(indicator.getBoundingClientRect().top  < 0){
                     ScrollTopButton?.classList.remove("invisible")
