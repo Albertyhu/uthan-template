@@ -44,7 +44,7 @@ const jsonLD = jsonLDGenerator({
 <meta name="twitter:image" content={image?.src || siteData.image.src} />
 <meta name="twitter:image:alt" content={title} />
 {siteData.twitter && 
-<meta name="twitter:domain" content={import.meta.env.SITE_URL} />}
+<meta name="twitter:domain" content={siteData.twitter} />}
 
 {robots && <meta name="robots" content="noindex, nofollow" />}
 
