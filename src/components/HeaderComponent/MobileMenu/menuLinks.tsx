@@ -68,7 +68,6 @@ const LinkItem = (props: LinkItemType) => {
 				{subDirectory && subDirectory.length > 0 && (
 					<div className="leader-[32px] absolute right-[-15px] z-[5] mr-5 h-[32px] w-[32px] cursor-pointer rounded-[2px] text-center text-[16px]">
 						<span
-							id="menu-arrow"
 							ref={arrowRef}
 							className="fas fa-angle-down menu-arrow relative text-center"
 						></span>

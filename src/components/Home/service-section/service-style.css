@@ -30,7 +30,7 @@
 }
 
 .service-block-one .inner-box:hover .link-btn {
-	display: hidden;
+	display: none;
 }
 .img_hover_1 {
 	position: relative;
