@@ -11,8 +11,7 @@ const Item = (props: CarouselItemType) => {
 			<div className="inner-box relative grid h-full rounded-lg bg-white pb-[50px] pl-[50px] pr-[30px] pt-[45px]">
 				<div 
 					className="shape absolute" 
-					style= {{backgroundImage: `url(${ShapeEight})`}}
-					id="Carousel-shape-8"
+					style= {{backgroundImage: `url(${ShapeEight.src})`}}
 					></div>
 				<div className="text relative mb-[10px] block">
 					<p>{testimonial}</p>

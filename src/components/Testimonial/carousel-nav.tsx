@@ -21,7 +21,6 @@ const CarouselNav = (props: { size: number }) => {
 		<div id="carousel-nav-buttons" className="bottom-[100px]disabled hidden sm:block">
 			<button
 				type="button"
-				role="presentation"
 				className="owl-prev nav_box_shadow relative mr-[10px] inline-block h-[60px] w-[60px] cursor-pointer rounded-md bg-[#fff] text-center text-[20px] leading-[60px] text-[#2f7955] transition-all active:translate-x-1 active:translate-y-1"
 				onClick={SlideRight}
 			>
@@ -29,7 +28,6 @@ const CarouselNav = (props: { size: number }) => {
 			</button>
 			<button
 				type="button"
-				role="presentation"
 				className="owl-next nav_box_shadow relative inline-block h-[60px] w-[60px] cursor-pointer rounded-md bg-[#fff] text-center text-[20px] leading-[60px] text-[#2f7955] transition-all active:translate-x-1 active:translate-y-1"
 				onClick={SlideLeft}
 			>
