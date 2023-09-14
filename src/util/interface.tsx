@@ -195,6 +195,15 @@ export type PostAssetType = {
   }
 } 
 
+export type AssetType = {
+  
+    src: string, 
+    width: number,
+    height: number,
+    format: string,  
+  
+} 
+
 export type LinkItemType = {
 	url: string
 	label: string
@@ -204,4 +213,17 @@ export type LinkItemType = {
 export type AccordionType = {
   question: string, 
   ans: string, 
+}
+
+export type MemberType = {
+  name: string, 
+  designation?: string,
+  phone?: string,
+  email?: string,  
+  link: string,
+  facebook?: string,
+  twitter?: string,
+  google?: string,
+  profile_image?: AssetType, 
+  biography?: string,
 }

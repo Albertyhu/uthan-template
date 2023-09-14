@@ -3,31 +3,22 @@ export const prerender = true;
 import TeamMembers from "@/demo/team_members.js";
 import BaseLayout from "@/layouts/BaseLayout.astro";  
 import Banner from '@/components/small_banner/index.astro'; 
-import ContentWrapper from '@/layouts/ContentWrapper.astro'
+import ContentWrapper from '@/layouts/ContentWrapper.astro';
+import { getTeamStaticPathArray } from "@/hooks/teamPageHooks.ts"; 
+import type {PostAssetType, MemberType } from "@/util/interface.tsx"; 
 import { 
     phoneNumberToNumeric,
      formatPhoneNumber
  } from '../../hooks/number_hooks'; 
 
 export const getStaticPaths = ( async () => {
-    return TeamMembers.map(member=>{
-        const urlName = (member.name.toLowerCase()).replace(/\s+/g, '_')
-        return{
-            params: {team_member: urlName}, 
-            props: {
-                name: member.name, 
-                designation: member.designation,
-                phone: member.phone,
-                email: member.email,  
-                link: member.link,
-                facebook: member.facebook,
-                twitter: member.twitter,
-                google: member.google,
-                profile_image: member.profile_image, 
-                biography: member.biography,
-            }
-        }
-    });
+    var assets : Array<PostAssetType> = [];
+    try {
+        assets = await Astro.glob("../../assets/images/team/*")
+    } catch(error){
+        console.log(error)
+    }
+    return TeamMembers.map((member: MemberType)=>getTeamStaticPathArray(member, assets));
 })
 const {team_member} = Astro.params; 
 const {
