@@ -1,5 +1,4 @@
-import type {
-    AssetType, 
+import type { 
     PostAssetType, 
     MemberType, 
 } from "@/util/interface.tsx";

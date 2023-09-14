@@ -195,14 +195,6 @@ export type PostAssetType = {
   }
 } 
 
-export type AssetType = {
-  
-    src: string, 
-    width: number,
-    height: number,
-    format: string,  
-  
-} 
 
 export type LinkItemType = {
 	url: string
@@ -224,6 +216,6 @@ export type MemberType = {
   facebook?: string,
   twitter?: string,
   google?: string,
-  profile_image?: AssetType, 
+  profile_image?: ImageType, 
   biography?: string,
 }
