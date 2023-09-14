@@ -14,7 +14,6 @@ const RenderDescription = (props: { description: string }) => {
 	return (
 		<p
 			ref={paraRef}
-			id="description_p"
 			className="relative h-auto max-h-[100px] w-full overflow-hidden before:absolute before:inset-0 before:z-[2]"
 		>
 			<b>Description: </b>

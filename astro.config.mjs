@@ -25,5 +25,6 @@ export default defineConfig({
   },
   output: 'server',
   integrations: [react(), tailwind(), sitemap()],
-  adapter: netlify()
+  adapter: netlify(),
+  trailingSlash: "never"
 });
