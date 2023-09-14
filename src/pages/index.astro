@@ -1,11 +1,10 @@
 ---
+export const prerender = true;
 import type { 
     PostType, 
-    formattedPostType,
     PostAssetType,  
 } from "@/util/interface.tsx"; 
 import {
-    formatRecentPostArray,
     retrieveRecentImages 
 } from "@/hooks/blogHooks.ts"; 
 import BaseLayout from "@/layouts/BaseLayout.astro";
