@@ -7,6 +7,8 @@ import type {
 	PostAssetType
 } from '@/util/interface'
 
+import { makeURLfriendly } from "./string_hooks.tsx";
+
 //This function creates and returns an array containing posts to be displayed based on the page number
 const getPaginatedArray = (
 	allPosts: Array<PostType>,
@@ -73,7 +75,7 @@ const createStaticPathArrayForTagsAndPage = ({
 			var paginatedArray: Array<PostType> = getPaginatedArray(filteredPosts, i, PAGE_SIZE)
 			var path = {
 				params: {
-					tag: unique_tag,
+					tag: makeURLfriendly(unique_tag),
 					page: i
 				},
 				props: {
@@ -108,7 +110,7 @@ const createStaticPathArrayForTags = ({
 		var totalPages: number = Math.ceil(filteredPosts.length / PAGE_SIZE)
 		return {
 			params: {
-				tag: unique_tag
+				tag: makeURLfriendly(unique_tag)
 			},
 			props: {
 				totalPages,

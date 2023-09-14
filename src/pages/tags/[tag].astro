@@ -1,16 +1,13 @@
 ---
 export const prerender = true; 
-import BaseLayout from '../../layouts/BaseLayout.astro';
+import BaseLayout from '@/layouts/BaseLayout.astro';
 import ContentWrapper from '@/layouts/ContentWrapper.astro';
-import RenderPagination from '../../components/paginatedBlog/renderTagPagination.tsx';
 import { 
-    createStaticPathArray,
     createStaticPathArrayForTags, 
- } from "../../hooks/blogHooks"; 
- import BlogPreview from '../../components/blogComponents/previewLink.astro';
-import { RetrieveImageFromGlob } from "../../hooks/imageHooks";
+ } from "@/hooks/blogHooks"; 
+ import BlogPreview from '@/components/blogComponents/previewLink.astro';
+
 import type { PostType } from '../../util/interface';
-import { createRelativeSchema } from 'astro/dist/core/config/schema';
 
 export async function getStaticPaths() {
     const PAGE_SIZE : number = 6;
