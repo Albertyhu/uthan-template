@@ -143,6 +143,7 @@ export interface CreateStaticPathArrayType {
 
 export interface TagStaticPathArrayType {
   allPosts: Array<PostType>,
+  assets: Array<PostAssetType>, 
   PAGE_SIZE: number,
 }
 

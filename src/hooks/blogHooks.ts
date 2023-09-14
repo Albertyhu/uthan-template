@@ -53,6 +53,7 @@ const createStaticPathArray = ({
 
 const createStaticPathArrayForTagsAndPage = ({
 	allPosts,
+	assets,
 	PAGE_SIZE
 }: TagStaticPathArrayType): Array<any> => {
 	//Get all tags
@@ -71,8 +72,10 @@ const createStaticPathArrayForTagsAndPage = ({
 		)
 		var totalPages: number = Math.ceil(filteredPosts.length / PAGE_SIZE)
 		var i = 0
+		var assetMap = new Map(); 
 		do {
 			var paginatedArray: Array<PostType> = getPaginatedArray(filteredPosts, i, PAGE_SIZE)
+			paginatedArray = hydratePaginatedPostArray (paginatedArray, assetMap, assets)
 			var path = {
 				params: {
 					tag: makeURLfriendly(unique_tag),

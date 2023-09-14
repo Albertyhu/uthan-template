@@ -7,7 +7,9 @@ import {
     createStaticPathArrayForTagsAndPage, 
  } from "@/hooks/blogHooks"; 
  import BlogPreview from '@/components/blogComponents/previewLink.astro';
-import type { PostType } from '@/util/interface';
+import type { 
+    PostType,
+    PostAssetType,  } from '@/util/interface';
 
 export async function getStaticPaths() {
     const PAGE_SIZE : number = 6;
@@ -17,7 +19,13 @@ export async function getStaticPaths() {
     } catch (error){
         allPosts = []; 
     }
-    return createStaticPathArrayForTagsAndPage({allPosts, PAGE_SIZE})
+    var assets : Array<PostAssetType> = []
+    try{
+        assets = await Astro.glob("../../assets/uploads/*"); 
+    } catch (error){
+        assets = []
+    }
+    return createStaticPathArrayForTagsAndPage({allPosts, assets, PAGE_SIZE})
 }
 
 const { 

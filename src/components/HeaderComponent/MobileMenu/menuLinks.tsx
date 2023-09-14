@@ -77,14 +77,9 @@ const LinkItem = (props: LinkItemType) => {
 			{subDirectory && subDirectory.length > 0 && (
 				<div className="subDirectoryDiv subDirectory-closed" ref={subDirRef}>
 					{subDirectory.map((sub, index) => (
-							<div
-								key={`${sub.url}-${index}`}
-								className="relative flex flex-row items-center justify-around border-t-[1px] border-t-[#686868] py-[10px] pl-[25px] hover:bg-slate-800"
-							>
-								<a href={sub.url} className="leader-[24px] relative !my-auto block">
-									{sub.label}
-								</a>
-							</div>
+								<LinkItem 
+									{...sub}
+								/>
 					))}
 				</div>
 			)}
