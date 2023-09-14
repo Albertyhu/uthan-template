@@ -1,6 +1,8 @@
 import { useRef, useEffect } from 'react'
 import { menuMap } from '@/customization/navigation-map.js'
 import type { LinkItemType } from '@/util/interface.tsx'
+import uuid from "react-uuid"; 
+
 const MenuLinks = () => {
 	return (
 		menuMap.length > 0 &&
@@ -79,6 +81,7 @@ const LinkItem = (props: LinkItemType) => {
 					{subDirectory.map((sub, index) => (
 								<LinkItem 
 									{...sub}
+									key = {uuid()}
 								/>
 					))}
 				</div>

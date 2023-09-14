@@ -110,6 +110,7 @@
 	transition:
 		transform 1500ms,
 		opacity 1500ms;
+	transition-timing-function: cubic-bezier(.49,.34,.39,.94);
 }
 
 .slideOutLeft {

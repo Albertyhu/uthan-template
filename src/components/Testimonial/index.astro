@@ -50,9 +50,15 @@ import ShapeNine from '@/assets/images/shape/shape-9.png'
 </section>
 <script is:inline>
     const ShapeNine = document.getElementById("shape-9")
+    let options = {
+        threshold: 1.0,
+    }
     const ShapeNineObserver = new IntersectionObserver((entries)=>{
         if(entries[0].isIntersecting){
             entries[0].target.classList.remove("slideOutLeft")
+        }
+        else{
+            entries[0].target.classList.add("slideOutLeft")
         }
     })
     if(ShapeNine)
