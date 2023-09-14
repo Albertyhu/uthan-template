@@ -72,7 +72,7 @@ const Carousel = (props: PropsType) => {
 	}, [])
 
 	return (
-		<div ref={slideRef} id="CarouselSlide" className="carousel-grid mx-auto grid">
+		<div ref={slideRef} className="carousel-grid mx-auto grid">
 			{testimonials &&
 				testimonials.length > 0 &&
 				displayed.map((testimonial) => <CarouselItem {...testimonial} key={uuid()} />)}
