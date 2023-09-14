@@ -3,6 +3,7 @@ export const prerender = true;
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import ContentWrapper from '@/layouts/ContentWrapper.astro';
 import RenderPagination from '@/components/paginatedBlog/renderTagPagination.tsx';
+import Banner from "@/components/small_banner/index.astro";
 import { 
     createStaticPathArrayForTagsAndPage, 
  } from "@/hooks/blogHooks"; 
@@ -21,7 +22,7 @@ export async function getStaticPaths() {
     }
     var assets : Array<PostAssetType> = []
     try{
-        assets = await Astro.glob("../../assets/uploads/*"); 
+        assets = await Astro.glob("../../../assets/uploads/*"); 
     } catch (error){
         assets = []
     }
@@ -39,14 +40,15 @@ const {
     PAGE_SIZE,
  } = Astro.props; 
 
+const BannerTitle = `Posts tagged with ${tag}`
 ---
 <BaseLayout pageTitle={tag}>
+    <Banner 
+        title = {BannerTitle}
+    />
     <ContentWrapper
         customStyle = "w-11/12 h-auto mx-auto mb-[100px] sm:mb[0px]"
     >
-        <h1
-            class="font-bold text-center text-2xl mt-5"
-        >Posts tagged with {tag}</h1>
         <RenderPagination 
             pageSize = {PAGE_SIZE}
             totalCount = {totalPosts}}
@@ -59,7 +61,7 @@ const {
         <div class = "grid sm:grid-cols-2 md:grid-cols-3 gap-5 mt-10">
             {paginatedArray.map((post : PostType) => {
                 if(post.frontmatter.featured_image){
-                    return <BlogPreview {...post.frontmatter} url = {post.url} thumbnail = {post.frontmatter.featured_image} />
+                    return <BlogPreview {...post.frontmatter} url = {post.url} thumbnail = {post.featured_image} />
                 }
                 return <BlogPreview {...post.frontmatter} url = {post.url}/>
             })}
