@@ -1,5 +1,5 @@
 :root{
-    --durationTime : 5s; 
+    --durationTime : 500ms; 
 }
 
 .box_shadow {
@@ -7,7 +7,7 @@
 }
 
 .collapsibleDiv {
-    transition: all --vars(durationTime) ease;  
+    transition: max-height var(--durationTime) ease;  
     max-height: 300px;
 }
 
@@ -16,9 +16,9 @@
 }
 
 .arrowStyle {
-    transition: all --vars(durationTime) ease;
+    transition: transform var(--durationTime) ease;
 }
 
 .downArrow {
-    transform: rotateZ(180deg); 
+    transform: rotate(180deg); 
 }

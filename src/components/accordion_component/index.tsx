@@ -2,7 +2,6 @@ import { useState } from 'react';
 import type { AccordionType } from '@/util/interface';
 import "./style.css"; 
 import AccordionItem from './accordionItem.tsx'; 
-import uuid from 'react-uuid'; 
 
 const AccordionComponent = (props: {data: Array<AccordionType>}) =>{
     const { data } = props;
@@ -16,11 +15,18 @@ const AccordionComponent = (props: {data: Array<AccordionType>}) =>{
                             title = {item.question}
                             content = {item.ans}
                             index = {index}
-                            key = {uuid()}
+                            key = {`${index}-${item.question}`}
                             current = {current}
                             setCurrent = {setCurrent}
                         />)
                 }
+                        <AccordionItem 
+                            title = "This is not rendered with Array.map()"
+                            content = "The CSS animation works here."
+                            index = {data.length}
+                            current = {current}
+                            setCurrent = {setCurrent}
+                        />
             </div>
     )
 }

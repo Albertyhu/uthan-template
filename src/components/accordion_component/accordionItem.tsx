@@ -17,8 +17,8 @@ const Accordion = (props:
         current, 
         setCurrent
     } = props; 
-    const ArrowRef = useRef(null); 
-    const paraRef = useRef(null); 
+    const ArrowRef = useRef<HTMLImageElement>(null); 
+    const paraRef = useRef<HTMLDivElement>(null); 
     const toggleEvent = () =>{
         if(current && ArrowRef.current && current === index + 1){
             setCurrent(0)
@@ -38,7 +38,6 @@ const Accordion = (props:
             ArrowRef?.current.classList.add("downArrow")
         if(paraRef.current && !paraRef?.current?.classList.contains("collapsed"))
             paraRef?.current?.classList.add("collapsed"); 
-
     }
 
     useEffect(()=>{
@@ -55,11 +54,9 @@ const Accordion = (props:
             className = "box_shadow w-full font-['Prata',serif] bg-white my-10 py-10"
         >
             <div    
-                id = "accordion-wrapper"
                 className = "w-11/12 mx-auto"
             >
                 <div 
-                    id="accordion top element"
                     className = "flex flex-row w-full justify-between cursor-pointer"
                     onClick = {()=>{
                          toggleEvent()}}
@@ -70,11 +67,10 @@ const Accordion = (props:
                     <img 
                         src = {UpArrow.src}
                         ref = {ArrowRef}
-                        className = "w-[20px] h-[20px] arrowStyle downArrow"
+                        className = "w-[20px] h-[20px] arrowStyle downArrow transition-all"
                     />
                 </div>
                 <div
-                    id="Collapsible-content"
                     className = "collapsibleDiv collapsed overflow-hidden"
                     ref={paraRef}
                 >
