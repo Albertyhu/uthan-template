@@ -26,9 +26,9 @@ const SearchBar = (props : SearchType) : ReactElement => {
             arr.push(query)
             arr = [...new Set(arr)]
             localStorage.setItem("searchHistory", JSON.stringify(arr))
+            window.location.href = `/blog/search/${query}/1`
         }
         setSearchHistory([])
-        window.location.href = `/blog/search/${query}/1`
     }
 
     const enterEvent = (event : KeyboardEvent) =>{
