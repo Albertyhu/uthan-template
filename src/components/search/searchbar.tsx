@@ -50,7 +50,7 @@ const SearchBar = (props : SearchType) : ReactElement => {
     return(
         <>
             <div
-                className = "flex flex-row"
+                className = "flex flex-col xm:flex-row gap-y-5 xm:gap-y-[0px]"
             >
                 <div
                     id = 'QueryWrapper'
