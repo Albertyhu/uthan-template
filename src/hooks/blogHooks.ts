@@ -273,6 +273,63 @@ const hydratePaginatedPostArray = (paginatedArray: Array<PostType>, assetMap: Ma
 		return hydratedArray; 
 }
 
+//Creates a static path array for the paginated author page
+const createStaticPathArrayForAuthors = ({
+	allPosts, 
+	PAGE_SIZE,
+	assets,
+} : {
+
+	allPosts: Array<PostType>, 
+	PAGE_SIZE: number,
+	assets: Array<PostAssetType>,	
+
+}) =>{
+	var staticPaths: Array<any> = []
+	var assetMap = new Map(); 
+	var authorMap : Map<string, Array<PostType>>= new Map(); 
+	//Array of all authors 
+    const uniqueAuthors : Array<string> = [...new Set(allPosts.map((post, index) => {
+		if(authorMap.has(post.frontmatter.author)){
+			var tempArr = authorMap.get(post.frontmatter.author) 
+			tempArr.push(post)
+			authorMap.set(post.frontmatter.author, tempArr)
+		}
+		else{
+			authorMap.set(post.frontmatter.author, [post])
+		}
+		return post.frontmatter.author
+	}))]
+	uniqueAuthors.forEach(author =>{
+		var i = 1
+		var postsArr = authorMap.get(author); 
+		var totalPages = postsArr.length/PAGE_SIZE + (postsArr.length%PAGE_SIZE ? 1 : 0); 
+		do {
+			//acquire array of blog posts to be displayed by each page, limited by PAGE_SIZE
+			var paginatedArray = getPaginatedArray(postsArr, i, PAGE_SIZE) 
+			//insert the corresponding image data of each featured image of the blog post 
+			paginatedArray = hydratePaginatedPostArray(paginatedArray, assetMap, assets)
+			var path = {
+				params: { 
+					name: author, 
+					page: i,
+				},
+				props: {
+					totalPages,
+					assets,
+					paginatedArray,
+					totalPosts: postsArr.length,
+					PAGE_SIZE
+				}
+			}
+			staticPaths.push(path)
+			i++
+		} while (i <= totalPages)
+	})
+
+	return staticPaths
+}
+
 export {
 	getPaginatedArray,
 	createStaticPathArray,
@@ -283,5 +340,6 @@ export {
 	formatRecentPostArray,
 	retrieveRecentImages, 
 	getImageFileName,
-	hydratePaginatedPostArray
+	hydratePaginatedPostArray, 
+	createStaticPathArrayForAuthors
 }
