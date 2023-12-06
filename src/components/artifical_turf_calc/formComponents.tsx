@@ -9,10 +9,11 @@ import {
 import uuid from 'react-uuid'
 
 const DimensionComp = (props: {
-    length: number, 
-    value: number, 
+    value: number | undefined, 
     setValue: (c:number)=>void, 
-    setIsValid: (c:boolean)=>void}) => {
+    setIsValid: (c:boolean)=>void,
+    dimension: string, 
+}) => {
     const {
         dimension, 
         value, 

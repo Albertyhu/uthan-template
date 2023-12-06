@@ -240,7 +240,8 @@ export type StepType = {
     address: string,
     city: string,
     state: string,
-    zip: number,
+    zip: number | null,
+    price: number, 
     setType: (c: TurfTypes | string) => void,
     setCondition: (condition: string) => void,
     setArea: (zip: number) => void,
@@ -251,4 +252,5 @@ export type StepType = {
     setCity: (city: string) => void,
     setState: (state: string) => void,
     setZip: (zip: number) => void,
+    setPrice: (c: number) => void, 
 }

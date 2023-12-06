@@ -127,15 +127,17 @@ const SquareFootQuest = (props: any) => {
         price, 
         setPrice
     } = useContext<StepType>(StepContext);  
-    const [length, setLength] = useState<number | null>(null);
-    const [width, setWidth] = useState<number | null>(null); 
+    const [length, setLength] = useState<number | undefined>(undefined);
+    const [width, setWidth] = useState<number | undefined>(undefined); 
     const [isValid, setIsValid] = useState<boolean>(true);
     const CalculatePrice = () : void=>{
         let turfData = TurfOptions.find(val => val.type === turf)
-        setPrice((length * width * turfData.price).toFixed(2))
+        if(length != undefined && width != undefined)
+            setPrice((length * width * turfData.price).toFixed(2))
     } 
     useEffect(()=>{
-        setArea(length * width)
+        if(length != undefined && width != undefined)
+            setArea(length * width)
         if(turf != "")
             CalculatePrice()
     },[length, width])
@@ -230,11 +232,8 @@ return(
 const ContactInfo = (props: any) =>{
     const {
         turf, 
-        setType, 
         condition,
         sqft, 
-        setArea,
-        setCondition, 
         name,
         setName,
         phone,
@@ -244,7 +243,6 @@ const ContactInfo = (props: any) =>{
         address, 
         setAddress, 
         state, 
-        setState,
         zip, 
         setZip, 
         city, 
@@ -310,7 +308,7 @@ const ContactInfo = (props: any) =>{
             <textarea
                     name="message"
                     id="messageInput"
-                    rows="5"
+                    rows={5}
                     className ="text-base outline-1 border-2 border-solid border-slate-200 resize-none p-1 rounded-lg bg-transparent placeholder:text-base placeholder:text-slate-400 w-full"   
                     placeholder="Let us know about any special requests that you may have"
                     value = {message}
