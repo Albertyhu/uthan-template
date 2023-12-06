@@ -46,24 +46,24 @@ CTA_Banner={true}
             </section>
         }
         </div>
-    {data[3].image1 && 
-        <ImageComponent 
-            image={data[3].image1}
-            altText = "Artificial Turf"
-            customStyle = "w-auto h-auto overflow-hidden my-10 rounded-lg mx-auto grow"
-            />
-    }
-    </div>
-    {data[3].promise && 
-        <section
-            class = "my-10"
-        >
-            <h3
-                class = "text-[30px] mb-5"
-            >What we promise to deliver</h3>
-            <div>{data[3].promise}</div>
-        </section>
-    }
+        {data[3].image1 && 
+            <ImageComponent 
+                image={data[3].image1}
+                altText = "Artificial Turf"
+                customStyle = "w-auto h-auto overflow-hidden my-10 rounded-lg mx-auto grow"
+                />
+        }
+        </div>
+        {data[3].promise && 
+            <section
+                class = "my-10"
+            >
+                <h3
+                    class = "text-[30px] mb-5"
+                >What we promise to deliver</h3>
+                <div>{data[3].promise}</div>
+            </section>
+        }
     <Form />
     </ContentWrapper>
 </BaseLayout>

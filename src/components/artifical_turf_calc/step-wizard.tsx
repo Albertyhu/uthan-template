@@ -2,12 +2,18 @@ import { useState, useContext, useRef, useEffect } from 'react';
 import StepWizard from 'react-step-wizard'; 
 import emailjs from '@emailjs/browser';
 import siteData from "@/customization/siteData.json"; 
-import type {StepType, TurfTypes} from "@/util/interface.tsx"; 
+import type {
+    StepType,
+    TurfTypes
+} from "@/util/interface.tsx"; 
 import { StepContext } from '@/util/contextItem';
 import { 
+    IntroStep, 
     TurfQuestion,
     SquareFootQuest, 
-    ConditionQuestion, 
+    ConditionQuestion,
+    ContactInfo,
+    LastStep,
  } from './steps';
 const publicKey = import.meta.env.PUBLIC_EMAILJS_PUBLIC_KEY; 
 const serviceId = import.meta.env.PUBLIC_EMAILJS_SERVICE_ID; 
@@ -22,8 +28,8 @@ const StepForm = () =>{
     const [phone, setPhone] = useState<string>(""); 
     const [address, setAddress] = useState<string>(""); 
     const [city, setCity] = useState<string>("")
-    const [state, setState] = useState<string>("")
-    const [zip, setZip] = useState<number>(0); 
+    const [state, setState] = useState<string>("CA")
+    const [zip, setZip] = useState<number | null>(null); 
     const [price, setPrice] = useState<number>(0.0); 
 
     const context : StepType = {
@@ -54,10 +60,12 @@ const StepForm = () =>{
         <StepContext.Provider value = {context}>
             <StepWizard
             >
+                <IntroStep />
                 <TurfQuestion />
                 <SquareFootQuest />
                 <ConditionQuestion />
-                <StepThree />
+                <ContactInfo />
+                <LastStep />
             </StepWizard>
         </StepContext.Provider>
     ) 
@@ -65,9 +73,9 @@ const StepForm = () =>{
 
 export default StepForm; 
 
-
+/*
 const StepOne = (props: any) =>{
-    const {turf, setTurf} = useContext<StepType>(StepContext)
+    const {turf} = useContext<StepType>(StepContext)
     return(
         <div className = "mt-10">
             <h1 className = "font-bold black text-center">What type of turf are you looking for?</h1>
@@ -189,4 +197,4 @@ const StepThree = (props: any) =>{
     </div>
     </div>
     )
-}
+}*/
