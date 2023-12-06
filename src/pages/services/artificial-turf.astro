@@ -5,11 +5,11 @@ import ContentWrapper from "../../layouts/ContentWrapper.astro";
 import Banner from '../../components/small_banner/index.astro'; 
 import ImageComponent from '@/components/image_component.astro'
 import Form from "@/components/artifical_turf_calc/index.astro";
-import StepForm from "@/components/artifical_turf_calc/step-wizard";
 ---
 <BaseLayout 
 pageTitle="Turf Calculator"
 CTA_Banner={true}
+customSlotStyle="mt-[100px] sm:mt-[185px] [@media(min-width:992px)]:mt-[180px] min-h-[100vh] sm:min-h-[300vh] mb-[10px] flex flex-col flex-grow overflow-x-hidden"
 >
     <Banner 
         title = "Artificial Turf Installation" 
@@ -17,7 +17,7 @@ CTA_Banner={true}
         />
     <ContentWrapper>
     <div
-        class = "flex flex-col sm:flex-row sm:gap-10"
+        class = "flex flex-col sm:flex-row sm:gap-10 grow-[3]"
     >
         <div
             class = "grow-0"

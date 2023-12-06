@@ -9,12 +9,12 @@ import StepWizard from './step-wizard.tsx';
 -->
 
 <section class="relative flex flex-wrap lg:h-screen lg:items-center">
-  <div class="w-full py-12 sm:px-6 sm:py-16 lg:w-1/2 lg:px-8 lg:py-24">
-    <div class="mx-auto mb-0 mt-8 max-w-md space-y-4">
+  <div 
+    class="w-full py-12 sm:px-6 sm:py-16 lg:w-1/2 lg:px-8 lg:py-24"
+    id = "ATFormContainer"
+    >
       <StepWizard client:load />
-    </div>
   </div>
-
   <div class="relative h-64 w-full sm:h-96 lg:h-full lg:w-1/2">
     <img
       alt="Welcome"

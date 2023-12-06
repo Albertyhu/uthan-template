@@ -6,8 +6,13 @@ const {
     pageTitle, 
     customDescription, 
     frontmatter, 
-    CTA_Banner
+    CTA_Banner,
+    customSlotStyle
  } = Astro.props;
+ //pageTitle indicates the title of the page
+ //customDescription indicates the description of the page for SEO purposes
+ //CTA_Banner is a boolean value to determine whether or not to show the CTA Banner at the bottom
+ //customSlotStyle overrides the default styling of the div with id "SlotWrapper"
 import ScrollTopButton from "@/components/buttons/ScrollTopButton/index.astro";
 import SEO from "@/components/SEO.astro";
 import MessageComponent from "@/components/MessageComponent/messageComponent";
@@ -19,6 +24,7 @@ import "@/assets/css/flaticon.css"
 import "@/assets/css/color.css"
 import "@/assets/css/style.css"
 import "@/assets/css/responsive.css" 
+
 ---
 <html lang="en">
     <head>
@@ -46,7 +52,7 @@ import "@/assets/css/responsive.css"
         ></div>
         <div 
         id="SlotWrapper"
-        class="mt-[100px] sm:mt-[185px] [@media(min-width:992px)]:mt-[180px] min-h-[100vh] sm:min-h-[95vh] mb-[10px] flex flex-col flex-grow overflow-x-hidden"
+        class=`${customSlotStyle ? customSlotStyle : "mt-[100px] sm:mt-[185px] [@media(min-width:992px)]:mt-[180px] min-h-[100vh] sm:min-h-[95vh] mb-[10px] flex flex-col flex-grow overflow-x-hidden"}`
         >
             <slot />
         </div>

@@ -48,11 +48,17 @@ const TurfButton = (props : {Value: string, dispatch: (c : string) => void, curr
     )
 }
 
+const ScrollTop = () =>{
+    document.getElementById("ATFormContainer")?.scrollIntoView({
+        behavior: 'smooth'
+        }) 
+}
+
 const IntroStep = (props : any) =>{
     return(
-        <div class="mx-auto max-w-lg text-left sm:text-center">
-            <h1 class="text-2xl font-bold sm:text-3xl">Request a quote today!</h1>
-            <p class="mt-4 text-gray-500">
+        <div className="mx-auto max-w-lg text-left sm:text-center">
+            <h1 className="text-2xl font-bold sm:text-3xl">Request a quote today!</h1>
+            <p className="mt-4 text-gray-500">
             We can tailor the best solution to meet your needs based on your preferences.        
             </p>
             <button
@@ -74,6 +80,7 @@ const TurfQuestion = (props: any) => {
         if(turf != ""){
             setIsValid(true)
             props.nextStep()
+            ScrollTop(); 
         }
         else{
             setIsValid(false)
@@ -139,6 +146,7 @@ const SquareFootQuest = (props: any) => {
         }
         else {
             props.nextStep()
+            ScrollTop(); 
         } 
     }
 
@@ -210,7 +218,10 @@ return(
                 className = "flex flex-row gap-10 mt-10 mx-auto justify-evenly" 
             >
                 <button onClick={props.previousStep} className = "btn-primary">Previous Step</button>
-                <button onClick={props.nextStep} className = "btn-secondary">Next Step</button>
+                <button onClick={()=>{
+                    props.nextStep()
+                    ScrollTop(); 
+                    }} className = "btn-secondary">Next Step</button>
             </div>
         </div>
 )
@@ -267,6 +278,7 @@ const ContactInfo = (props: any) =>{
         .then((result) => {
             props.nextStep();
             console.log(result.text);
+            ScrollTop(); 
         }, (error) => {
             console.log(error.text);
         });
@@ -277,6 +289,9 @@ const ContactInfo = (props: any) =>{
         <form
             onSubmit = {HandleSubmit}
         >
+            <h2
+                className = "font-bold text-center"
+            >Give us your contact info</h2>
             <Input 
                 value = {name}
                 dispatch={setName}
