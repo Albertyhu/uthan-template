@@ -219,3 +219,36 @@ export type MemberType = {
   profile_image?: ImageType, 
   biography?: string,
 }
+
+
+export type TurfTypes = "Landscape Turf"
+  | "Pet Turf (padded)"
+  | "Pet Turf (unpadded)"
+  | "ProCage Turf (padded)"
+  | "ProCage Turf (unpadded)"
+  | "ProPlay Turf"
+  | "SportsPlay Infill Turf" 
+  | "";
+
+export type StepType = {
+    turf: TurfTypes,
+    condition: string,
+    sqft: number, 
+    name: string,
+    email: string,
+    phone: string,
+    address: string,
+    city: string,
+    state: string,
+    zip: number,
+    setType: (c: TurfTypes | string) => void,
+    setCondition: (condition: string) => void,
+    setArea: (zip: number) => void,
+    setName: (name: string) => void,
+    setEmail: (email: string) => void,
+    setPhone: (phone: string) => void,
+    setAddress: (address: string) => void,
+    setCity: (city: string) => void,
+    setState: (state: string) => void,
+    setZip: (zip: number) => void,
+}

@@ -55,17 +55,6 @@ import "@/assets/css/responsive.css"
             {CTA_Banner}
         />
         <ScrollTopButton />
-        <script>
-            if (window.netlifyIdentity) {
-                window.netlifyIdentity.on("init", user => {
-                    if (!user) {
-                        window.netlifyIdentity.on("login", () => {
-                        document.location.href = "/admin/";
-                    });
-                    }
-                });
-            }
-        </script>
         <script is:inline>
             const MobileToggler = document.getElementById("mobile-nav-toggler")
             const CloseBtn= document.getElementById("close-btn")

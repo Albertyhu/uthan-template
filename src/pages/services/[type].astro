@@ -6,7 +6,6 @@ import data from '@/customization/services.js';
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import ContentWrapper from "../../layouts/ContentWrapper.astro";
 import Banner from '../../components/small_banner/index.astro'; 
-import ParallaxBanner from "../../components/parallax_banner/index.astro"; 
 import ImageComponent from '@/components/image_component.astro';
 
 export async function getStaticPaths() {
@@ -36,7 +35,7 @@ const {
     features,
     image1, 
 } = Astro.props; 
-console.log("image1: ", image1)
+
 ---
 <style>
     h3{

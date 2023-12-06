@@ -1,5 +1,5 @@
 import './switch.css'
-import { useState, useEffect } from 'preact/hooks'
+import { useState, useEffect } from 'react'
 
 const SwitchComponent = () => {
 	const theme = (() => {
