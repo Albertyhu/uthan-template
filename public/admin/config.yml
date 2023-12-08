@@ -51,7 +51,7 @@ collections:
         label: "Body"
   - name: "special-services"
     label: "Special Services"
-    folder: "src/services/special"
+    folder: "src/pages/services/special"
     create: "true"
     delete: "true"
     fields:
