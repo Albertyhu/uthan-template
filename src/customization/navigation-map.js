@@ -29,7 +29,7 @@ export const menuMap = [
 				subDirectory: []
 			},
 			{
-				url: '/services/artificial-turf',
+				url: '/services/artifical-turf-installation',
 				label: 'Artifical Turf',
 				subDirectory: []
 			}
