@@ -8,8 +8,8 @@ collections:
   - name: "posts"
     label: "Blog Posts"
     folder: "src/pages/posts"
-    create: "true"
-    delete: "true"
+    create: true
+    delete: true
     fields:
       - name: "layout"
         widget: "hidden"
@@ -24,26 +24,26 @@ collections:
       - name: "description"
         widget: "string"
         label: "Description"
-        required: "false"
+        required: false
       - name: "author"
         widget: "string"
         label: "Author"
       - name: "featured_image"
         widget: "image"
         label: "Featured Image"
-        choose_url: "true"
-        required: "false"
+        choose_url: true
+        required: false
       - name: "images"
         widget: "list"
         label: "Images"
-        required: "false"
+        required: false
         fields: 
-          - {label: "Image", name: "url", choose_url: "true", media_folder: "src/assets/uploads", widget: "image"}
+          - {label: "Image", name: "url", choose_url: true, media_folder: "src/assets/uploads", widget: "image"}
           - {label: "Alt text", name: "alt", widget: "string"}
       - name: "tags"
         widget: "list"
         label: "Tags"
-        required: "false"
+        required: false
         fields: 
           - {label: "Tag", name: "tag", widget: "string"}
       - name: "body"
@@ -52,8 +52,8 @@ collections:
   - name: "special-services"
     label: "Special Services"
     folder: "src/pages/services/special"
-    create: "true"
-    delete: "true"
+    create: true
+    delete: true
     fields:
       - name: "layout"
         widget: "hidden"
@@ -68,26 +68,26 @@ collections:
       - name: "description"
         widget: "string"
         label: "Description"
-        required: "false"
+        required: false
       - name: "author"
         widget: "string"
         label: "Author"
       - name: "featured_image"
         widget: "image"
         label: "Featured Image"
-        choose_url: "true"
+        choose_url: true
         required: false
       - name: "images"
         widget: "list"
         label: "Images"
         required: false
         fields: 
-          - {label: "Image", name: "url", choose_url: "true", media_folder: "src/assets/uploads", widget: "image"}
+          - {label: "Image", name: "url", choose_url: true, media_folder: "src/assets/uploads", widget: "image"}
           - {label: "Alt text", name: "alt", widget: "string"}
       - name: "tags"
         widget: "list"
         label: "Tags"
-        required: "false"
+        required: false
         fields: 
           - {label: "Tag", name: "tag", widget: "string"}
       - name: "body"
