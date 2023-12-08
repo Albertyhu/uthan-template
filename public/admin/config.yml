@@ -59,7 +59,7 @@ collections:
       - name: "layout"
         widget: "hidden"
         label: "Layout"
-        default: "../../layouts/MarkdownPostLayout.astro"
+        default: "../../../layouts/MarkdownPostLayout.astro"
       - name: "title"
         widget: "string"
         label: "Title"

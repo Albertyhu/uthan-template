@@ -1,5 +1,5 @@
 ---
-layout: ../../layouts/MarkdownPostLayout.astro
+layout: ../../../layouts/MarkdownPostLayout.astro
 title: Xeriscaping - Sustainable Landscaping for Water Conservation
 pubDate: 2022-07-01T00:00:00.000Z
 description: Xeriscaping is a landscaping technique designed to conserve water and create drought-resistant gardens. Explore the principles of xeriscaping, suitable plant choices, and practical tips for reducing water usage in your landscape.
