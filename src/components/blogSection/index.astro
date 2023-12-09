@@ -7,8 +7,13 @@ const {
 } = Astro.props; 
 
 ---
-<div class = "my-5 relative max-w-[1200px] mx-auto px-[15px]">
-    <div class="sec-title mb-[55px] text-center">
+<div 
+    class = "my-5 relative max-w-[1200px] mx-auto px-[15px]"
+    >
+    <div 
+        class="sec-title mb-[55px] text-center"
+        id = "blog-section"
+    >
         <span class="sub-title relative block text-[18px] leading-[28px] font-['Monserrat'] font-bold mb-[16px] uppercase">Articles</span>
         <h2 class = "block text-[36px] leading-[44px] sm:text-[55px] sm:leading-[65px] font-['Prata'] relative font-medium text-[#141417] m-0">Stay Update With <br />{SiteData.business_name}</h2>
     </div>
@@ -16,6 +21,7 @@ const {
     {postSelection && postSelection.length > 0 ? 
         <div
             class = "grid sm:grid-cols-3 gap-5"
+           
         >
         {
             postSelection.map(async (post: formattedPostType ) =>{
