@@ -1,7 +1,6 @@
-import { useState, useContext, useRef, useEffect } from 'react'; 
+import { useState } from 'react'; 
 import StepWizard from 'react-step-wizard'; 
-import emailjs from '@emailjs/browser';
-import siteData from "@/customization/siteData.json"; 
+
 import type {
     StepType,
     TurfTypes
