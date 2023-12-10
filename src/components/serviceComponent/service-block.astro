@@ -3,6 +3,7 @@ const {
     thumbnail, 
     title, 
     tagline, 
+    link
 } = Astro.props; 
 const urlTitle = `../../services/${(title.toLowerCase()).replace(/\s+/g, '_')}`
 ---
@@ -25,8 +26,8 @@ const urlTitle = `../../services/${(title.toLowerCase()).replace(/\s+/g, '_')}`
             <h3 class="relative block text-[22px] mb-[17px] font-medium"><a href={urlTitle} class="inline-block">{title}</a></h3>
             <p class="mb-[17px]">{tagline}</p>
             <div class="link-box cursor-pointer bottom-[15px] left-[50%] translate-x-[-50%] absolute">
-                <a href={urlTitle} class="text-[#b6b7b9] inline-block link-btn"><i class="far fa-long-arrow-right text-[20px]"></i></a>
-                <a href={urlTitle} class="overlay-btn font-[16px] absolute font-medium inline-block whitespace-nowrap">Learn More<i class="far fa-long-arrow-right absolute text-[20px]"></i></a>
+                <a href={link} class="text-[#b6b7b9] inline-block link-btn"><i class="far fa-long-arrow-right text-[20px]"></i></a>
+                <a href={link} class="overlay-btn font-[16px] absolute font-medium inline-block whitespace-nowrap">Learn More<i class="far fa-long-arrow-right absolute text-[20px]"></i></a>
             </div>
         </div>
     </div>

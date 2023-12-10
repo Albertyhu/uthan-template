@@ -43,7 +43,7 @@ const TurfButton = (props : {Value: string, dispatch: (c : string) => void, curr
         <button
             ref = {BtnRef}
             onClick = {()=>dispatch(Value)}
-            className = "rounded-lg border-2 px-10 py-5 font-bold text-center w-full hover:bg-slate-300"
+            className = "rounded-lg border-2 border-solid px-10 py-5 font-bold text-center w-full hover:bg-slate-300"
         >{Value}</button>
     )
 }
