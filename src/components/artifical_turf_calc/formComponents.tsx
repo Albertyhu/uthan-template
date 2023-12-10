@@ -53,7 +53,7 @@ const Input = (props: any) =>{
     }
     return(
         <div
-            className="border-2 rounded-lg relative my-5"
+            className="border-2 border-solid rounded-lg relative my-5"
         >   
             <input
                 type="text" 
