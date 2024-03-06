@@ -2,7 +2,11 @@
   "ExpandedNodes": [
     "",
     "\\src",
+    "\\src\\components",
+    "\\src\\components\\Home",
+    "\\src\\components\\Home\\about_section",
     "\\src\\pages"
   ],
+  "SelectedNode": "\\src\\components\\Home\\about_section\\selling_section.tsx",
   "PreviewInSolutionExplorer": false
 }
