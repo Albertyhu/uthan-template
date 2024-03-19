@@ -20,13 +20,6 @@ const AccordionComponent = (props: {data: Array<AccordionType>}) =>{
                             setCurrent = {setCurrent}
                         />)
                 }
-                        <AccordionItem 
-                            title = "This is not rendered with Array.map()"
-                            content = "The CSS animation works here."
-                            index = {data.length}
-                            current = {current}
-                            setCurrent = {setCurrent}
-                        />
             </div>
     )
 }
