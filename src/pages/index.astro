@@ -47,12 +47,13 @@ var sortedPosts = retrieveRecentImages(allPosts, assets, 3)
 	<ProjectSection ProjectGallery={ProjectDemo} />
 	<TeamSection />
 	<Testimonial testimonials={TestimonialDemo} />
-	<PricingSection pricing_models={PricingDemo.data} />
+	<!-- <PricingSection pricing_models={PricingDemo.data} /> -->
 	<ParallaxBanner
 		BackImg={BackImg}
-		title="Artistic solutions"
-		text="We Provide Hassle-Free Garden Solutions."
-		CTA_link="/about"
+		title="Do you have a project in mind?"
+		text="We Provide Hassle-Free Garden Solutions. Let's connect!"
+		CTA_link="/contact"
+		btnText="Contact Us"
 	/>
 	<BlogSection postSelection={sortedPosts} />
 </BaseLayout>
