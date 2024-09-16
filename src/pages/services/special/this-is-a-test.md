@@ -4,7 +4,7 @@ title: 'This is a test '
 pubDate: '2023-12-08T13:08:35-08:00'
 description: This is test post
 author: Albert
-featured_image: /src/assets/uploads/dsc_0244.jpg
+featured_image: ''
 images:
   - alt: image
     url: /src/assets/uploads/dsc_0244.jpg
